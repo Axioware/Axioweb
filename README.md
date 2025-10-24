@@ -1,6 +1,6 @@
 # Axioware Portfolio Website
 
-This repository contains the codebase for the portfolio website of **Axioware**, which is live at [archlabs.tech](https://archlabs.tech).
+This repository contains the codebase for the portfolio website of **Axioware**, which is live at [archlabs.tech](https://axioware.tech).
 
 ## Demo
 
