@@ -46,8 +46,8 @@ Disallow: /*.mov$
 Disallow: /*.wmv$
 
 # Allow access to important images for SEO
-Allow: /img/16.png
-Allow: /img/17.png
+Allow: /img/16.webp
+Allow: /img/17.webp
 Allow: /img/26.png
 
 # Block access to team member images (privacy consideration)
