@@ -69,7 +69,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "telephone": "+92-318-3917033",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "R-31, 510, 5th floor, Asia Pacific Trade Center, Rashid Minhas Rd, Block 19 Gulistan-e-Johar",
+        "streetAddress": "R-34, 510, 5th floor, Asia Pacific Trade Center, Rashid Minhas Rd, Block 19 Gulistan-e-Johar",
         "addressLocality": "Karachi",
         "addressRegion": "Sindh",
         "postalCode": "75290",
@@ -103,10 +103,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "sameAs": [
         "https://www.linkedin.com/company/axioware",
         "https://maps.google.com/?cid=15057068302498348921",
-        "https://www.instagram.com/axioware.tech/"
+        "https://www.instagram.com/axioware.tech/",
+        "https://www.facebook.com/profile.php?id=61583550326690"
       ]
     }
     </script>
+
   <link rel="stylesheet" href="/All%20Pages/Home/css/service.css">
   <link rel="stylesheet" href="/All%20Pages/Home/css/homenavbar.css">
   <link rel="stylesheet" href="/All%20Pages/Home/css/contact.css">
@@ -337,18 +339,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <video autoplay muted playsinline class="fullscreen-video">
     <source src="img/logo_intro_1080.mp4" type="video/mp4" media="(min-width: 1025px)">
     <source src="img/logo_intro_1080_mobile.mp4" type="video/mp4" media="(max-width: 1024px)">
-    <!-- <img src="All Pages/Home/AXIOWARE Logo without BG (big size)/17.webp" alt="Axioware"> -->
   </video>
   
   <!-- Particles Effect -->
   <div class="particles-container" id="particles-js"></div>
   
-  <!-- Content Overlay -->
-  <!-- <div class="intro-content-overlay">
-    <h1 class="intro-heading">AXIOWARE</h1>
-    <h1 class="intro-heading">AXIOWARE</h1>
-    <h1 class="intro-heading">AXIOWARE</h1>
-  </div> -->
 </section>
 
   <header class="home-navbar">
@@ -766,65 +761,144 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script src="/All%20Pages/Home/js/ourportfolio.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     
-    <script>
-      // Intersection Observer for scroll animations
-      document.addEventListener('DOMContentLoaded', function() {
-        const animateElements = document.querySelectorAll('.animate-on-scroll');
-        
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('animated');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, {
-          threshold: 0.1
-        });
+<!-- ElevenLabs widget embed (official) -->
+<elevenlabs-convai agent-id="agent_5401k9fd66a7fp0ag4fjd81mtwbv"></elevenlabs-convai>
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
 
-        animateElements.forEach(element => {
-          observer.observe(element);
-        });
-      });
-    </script>
-
-
+<!-- Merged application script -->
 <script>
-  // Smooth scrolling for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+document.addEventListener("DOMContentLoaded", () => {
+  // ---------------- Intersection Observer for scroll animations ----------------
+  const animateElements = document.querySelectorAll(".animate-on-scroll");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animated");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+  animateElements.forEach((element) => observer.observe(element));
+
+  // ---------------- Smooth scrolling for anchor links ----------------
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
       e.preventDefault();
-      
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      
+      const targetId = this.getAttribute("href");
+      if (targetId === "#") return;
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
-        // Calculate the position to scroll to
-        const headerHeight = document.querySelector('header').offsetHeight;
-        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-        
-        // Smooth scroll to the target position
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
+        const header = document.querySelector("header");
+        const headerHeight = header ? header.offsetHeight : 0;
+        const targetPosition =
+          targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        window.scrollTo({ top: targetPosition, behavior: "smooth" });
       }
     });
   });
 
+  // ---------------- Hamburger menu toggle ----------------
+  const hamburgerBtn = document.getElementById("home-hamburger");
+  const nav = document.getElementById("home-nav");
+  if (hamburgerBtn && nav) {
+    hamburgerBtn.addEventListener("click", () => nav.classList.toggle("active"));
+  }
 
+  // ---------------- ElevenLabs Voice Agent Toggle Logic (widget + fallback) ----------------
+  const AGENT_ID = "agent_5401k9fd66a7fp0ag4fjd81mtwbv";
+  let isConnected = false;
+  let conversation = null;
 
-  const hamburger = document.getElementById('home-hamburger');
-const nav = document.getElementById('home-nav');
+  // Try to identify the widget element (official embed)
+  function getWidgetElement() {
+    return document.querySelector("elevenlabs-convai");
+  }
 
-hamburger.addEventListener('click', () => {
-  nav.classList.toggle('active');
+  async function toggleVoiceAgent() {
+    const widgetEl = getWidgetElement();
+
+    // If the official widget element exists and exposes connect/disconnect, use it
+    if (widgetEl) {
+      try {
+        // Some versions may expose connect/disconnect or other methods.
+        // Attempt to call them if available.
+        if (!isConnected) {
+          if (typeof widgetEl.connect === "function") {
+            await widgetEl.connect();
+          } else {
+            // if no connect method, try setting an attribute that may open it
+            widgetEl.setAttribute("open", "");
+          }
+          console.log("✅ Widget: requested connect");
+          isConnected = true;
+          updateMicUI(true);
+        } else {
+          if (typeof widgetEl.disconnect === "function") {
+            await widgetEl.disconnect();
+          } else {
+            widgetEl.removeAttribute("open");
+          }
+          console.log("❌ Widget: requested disconnect");
+          isConnected = false;
+          updateMicUI(false);
+        }
+        return;
+      } catch (err) {
+        console.warn("Widget connect/disconnect attempt failed, falling back:", err);
+        // fallthrough to legacy SDK fallback
+      }
+    }
+
+    // Fallback: legacy SDK usage (window.ElevenLabs.ConversationalAi)
+    if (!isConnected) {
+      if (window.ElevenLabs && window.ElevenLabs.ConversationalAi) {
+        conversation = await window.ElevenLabs.ConversationalAi.create({
+          agentId: AGENT_ID,
+          onConnect: () => console.log("✅ Connected to ElevenLabs Agent (legacy)"),
+          onDisconnect: () => console.log("❌ Disconnected from ElevenLabs Agent (legacy)"),
+          onMessage: (msg) => console.log("Agent:", msg),
+        });
+        conversation.connect();
+        isConnected = true;
+        updateMicUI(true);
+      } else {
+        console.error("ElevenLabs widget not found and legacy SDK not available.");
+      }
+    } else {
+      if (conversation) {
+        conversation.disconnect();
+        conversation = null;
+      }
+      isConnected = false;
+      updateMicUI(false);
+    }
+  }
+
+  function updateMicUI(active) {
+    const micIcon = document.querySelector(".voice-ai-visual-mic .mic-icon");
+    if (!micIcon) return;
+    micIcon.classList.toggle("active", active);
+  }
+
+  // Hook up click handler for in-page microphone trigger
+  const micTrigger = document.querySelector(".voice-ai-visual-mic");
+  if (micTrigger) {
+    micTrigger.addEventListener("click", toggleVoiceAgent);
+  } else {
+    console.warn("❗ .voice-ai-visual-mic not found. If you rely on an in-page trigger, add the element.");
+  }
+
+  // Optional: If you'd like the widget itself to notify page about its connect state,
+  // consider listening for custom events the widget might dispatch — check widget docs.
 });
-
-
-  
 </script>
+
+      
+    
+      
   </div>
 </body>
 </html>
