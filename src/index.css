@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Enhanced smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+@supports (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer base {
+  :root {
+    /* Axioware Brand Colors - Blue/Teal Gradient Theme from Logo */
+    --background: 180 15% 97%;
+    --foreground: 200 60% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 200 60% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 60% 12%;
+
+    /* Primary - Deep Navy Blue (from logo top) */
+    --primary: 210 70% 25%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 195 65% 40%;
+    --primary-dark: 215 75% 18%;
+
+    /* Secondary - Light Teal/Cyan */
+    --secondary: 180 25% 93%;
+    --secondary-foreground: 200 60% 12%;
+    --secondary-dark: 180 20% 85%;
+
+    /* Accent - Teal (from logo bottom) */
+    --accent: 175 60% 45%;
+    --accent-foreground: 0 0% 100%;
+    --accent-gold: 175 55% 50%;
+
+    --muted: 180 12% 94%;
+    --muted-foreground: 200 20% 45%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 180 15% 88%;
+    --input: 180 15% 88%;
+    --ring: 210 70% 25%;
+
+    --radius: 0.75rem;
+
+    /* Custom Design Tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(210 70% 25%) 0%, hsl(175 60% 45%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(210 75% 15%) 0%, hsl(200 65% 25%) 50%, hsl(175 55% 35%) 100%);
+    --gradient-subtle: linear-gradient(135deg, hsl(180 25% 93%) 0%, hsl(180 20% 97%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(180 20% 97%) 100%);
+
+    --shadow-soft: 0 4px 20px -4px hsl(200 60% 12% / 0.08);
+    --shadow-medium: 0 8px 30px -8px hsl(200 60% 12% / 0.12);
+    --shadow-glow: 0 0 40px hsl(175 60% 45% / 0.2);
+    --shadow-card: 0 10px 40px -15px hsl(200 60% 12% / 0.1);
+
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 200 60% 12%;
+    --sidebar-primary: 210 70% 25%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 180 25% 93%;
+    --sidebar-accent-foreground: 200 60% 12%;
+    --sidebar-border: 180 15% 88%;
+    --sidebar-ring: 210 70% 25%;
+  }
+
+  .dark {
+    --background: 210 50% 8%;
+    --foreground: 180 15% 95%;
+
+    --card: 210 45% 12%;
+    --card-foreground: 180 15% 95%;
+
+    --popover: 210 45% 12%;
+    --popover-foreground: 180 15% 95%;
+
+    --primary: 195 60% 50%;
+    --primary-foreground: 210 50% 8%;
+    --primary-light: 175 55% 55%;
+    --primary-dark: 200 65% 40%;
+
+    --secondary: 200 20% 18%;
+    --secondary-foreground: 180 15% 95%;
+    --secondary-dark: 200 25% 25%;
+
+    --accent: 175 55% 50%;
+    --accent-foreground: 210 50% 8%;
+    --accent-gold: 175 50% 55%;
+
+    --muted: 210 30% 18%;
+    --muted-foreground: 180 10% 65%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 30% 20%;
+    --input: 210 30% 20%;
+    --ring: 195 60% 50%;
+
+    --sidebar-background: 210 50% 10%;
+    --sidebar-foreground: 180 15% 95%;
+    --sidebar-primary: 195 60% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 30% 18%;
+    --sidebar-accent-foreground: 180 15% 95%;
+    --sidebar-border: 210 30% 20%;
+    --sidebar-ring: 195 60% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  .gradient-text-accent {
+    @apply bg-gradient-to-r from-accent to-primary-light bg-clip-text text-transparent;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-medium;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-glow;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
+  }
+
+  .service-card {
+    @apply relative overflow-hidden rounded-2xl bg-card p-6 lg:p-8 shadow-card border border-border/50
+           transition-all duration-500 hover:shadow-medium hover:-translate-y-2 hover:border-primary/20;
+  }
+
+  .service-card-featured {
+    @apply service-card ring-2 ring-accent/30 bg-gradient-to-br from-card to-secondary/30;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+
+  .page-hero {
+    @apply relative overflow-hidden flex items-center justify-center py-12 md:py-16;
+    min-height: calc(100svh - 4rem);
+    background: linear-gradient(135deg, hsl(210 75% 12%) 0%, hsl(200 65% 20%) 50%, hsl(175 55% 30%) 100%);
+  }
+
+  @media (min-width: 768px) {
+    .page-hero {
+      min-height: calc(100svh - 5rem);
+    }
+  }
+
+  .page-hero::before {
+    content: '';
+    @apply absolute inset-0 opacity-40;
+    background: 
+      radial-gradient(ellipse at top right, hsl(175 60% 45% / 0.3), transparent 50%),
+      radial-gradient(ellipse at bottom left, hsl(210 70% 25% / 0.2), transparent 50%);
+  }
+
+  .page-hero h1,
+  .page-hero h2,
+  .page-hero p,
+  .page-hero span {
+    @apply text-white;
+  }
+
+  .page-hero .text-muted-foreground {
+    @apply text-white/80;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--secondary)) 0%,
+    hsl(var(--accent)) 50%,
+    hsl(var(--secondary)) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Optimized animations for mobile */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* GPU acceleration for animations */
+.animate-float,
+.animate-pulse-slow,
+.hover-lift,
+.hover-glow {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
