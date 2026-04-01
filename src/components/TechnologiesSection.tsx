@@ -117,7 +117,7 @@ export default function TechnologiesSection() {
       <div className="container-custom relative z-10 mb-10">
         <SectionHeading
           badge="Technologies"
-          title="Powered by Modern Tech"
+          title="Specialized in Modern Tech"
           highlight="Modern Tech"
           subtitle="We leverage the latest technologies to build scalable, maintainable, and high-performance solutions."
         />

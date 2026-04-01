@@ -24,6 +24,8 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
 const services = [
   { value: "voice-agents", label: "Voice Agents" },
   { value: "chatbots", label: "AI Chatbots" },
@@ -49,18 +51,39 @@ export default function Contact() {
   });
 
   const onSubmit = async (data: ContactFormData) => {
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      // Attach the selected service
+      const payload = { ...data, service: selectedService };
 
-    console.log("Form submitted:", { ...data, service: selectedService });
+      const response = await fetch(`${BASE_URL}/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
 
-    toast({
-      title: "Message sent successfully!",
-      description: "We'll get back to you within 24 hours.",
-    });
+      const result = await response.json();
 
-    setIsSubmitted(true);
-    reset();
+      if (!response.ok) {
+        throw new Error(result.message || "Failed to send message");
+      }
+
+      toast({
+        title: "Message sent successfully!",
+        description: "We'll get back to you within 24 hours.",
+      });
+
+      setIsSubmitted(true);
+      reset();
+    } catch (error: any) {
+      console.error("Error sending contact form:", error);
+      toast({
+        title: "Failed to send message",
+        description: error.message || "Something went wrong. Please try again later.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (

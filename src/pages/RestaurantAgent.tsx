@@ -6,6 +6,7 @@ import AnimatedHeroBackground from "@/components/AnimatedHeroBackground";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, MessageSquare, Clock, ShieldCheck, CheckCircle, XCircle, Bell, Search, Menu, Users, FileText, TrendingUp, DollarSign, Headphones, Star, PhoneOff, AlertTriangle, Zap, Shield, BarChart3, Loader2, Mic } from "lucide-react";
 import { useConversation } from "@elevenlabs/react";
+import { useRef } from "react";
 
 const CHEFIE_AGENT_ID = import.meta.env.VITE_AGENT_ENGLISH;
 
@@ -142,20 +143,49 @@ const itemVariants = {
 
 export default function RestaurantAgent() {
   const [isConnecting, setIsConnecting] = useState(false);
-  
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const conversation = useConversation({
-    onConnect: () => {
-      console.log("Connected to Chefie");
-      setIsConnecting(false);
-    },
-    onDisconnect: () => {
-      console.log("Disconnected from Chefie");
-      setIsConnecting(false);
-    },
-    onError: (error) => {
-      console.error("Chefie error:", error);
-      setIsConnecting(false);
-    },
+  onConnect: () => {
+    console.log("Connected to Chefie");
+    setIsConnecting(false);
+
+    // Clear any existing timer (safety)
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    // ⏱ Start 30s auto-disconnect timer
+    timeoutRef.current = setTimeout(async () => {
+      console.log("Auto-ending call after 30 seconds");
+      try {
+        await conversation.endSession();
+      } catch (err) {
+        console.error("Error ending session:", err);
+      }
+    }, 30000);
+  },
+
+  onDisconnect: () => {
+    console.log("Disconnected from Chefie");
+    setIsConnecting(false);
+
+    // Cleanup timer
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+  },
+
+  onError: (error) => {
+    console.error("Chefie error:", error);
+    setIsConnecting(false);
+
+    // Cleanup timer on error too (important)
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+  },
   });
 
   const isActive = conversation.status === "connected";

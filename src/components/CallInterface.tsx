@@ -50,17 +50,40 @@ export default function CallInterface() {
   const [partialTranscript, setPartialTranscript] = useState<string>("");
   const [selectedLanguage, setSelectedLanguage] = useState<Language>("english");
   const scrollRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const connectedRef = useRef(false);const callStateRef = useRef<CallState>("incoming");
+  const sessionActiveRef = useRef(false);
+  const setCallStateSync = (state: CallState) => {
+    callStateRef.current = state;
+    setCallState(state);
+  };
 
   const conversation = useConversation({
     onConnect: () => {
-      console.log("ElevenLabs: Connected to agent");
-      setCallState("active");
-      setTranscripts([]);
+      if (connectedRef.current) return;
+      connectedRef.current = true;
+      sessionActiveRef.current = true;
+      setCallStateSync("active");
+      // ...
+
+      timeoutRef.current = setTimeout(async () => {
+        if (sessionActiveRef.current) {
+          try {
+            await conversation.endSession(); // conversation from closure is fine here since it's the SDK object, not state
+          } catch (err) {
+            console.error("Error ending session:", err);
+          }
+        }
+      }, 30000);
     },
     onDisconnect: () => {
-      console.log("ElevenLabs: Disconnected from agent");
-      if (callState === "active" || callState === "connecting") {
-        setCallState("ended");
+      connectedRef.current = false;
+      if (callStateRef.current === "active" || callStateRef.current === "connecting") {
+        setCallStateSync("ended");
+      }
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
       }
     },
     onMessage: (message) => {
@@ -96,7 +119,12 @@ export default function CallInterface() {
     },
     onError: (error) => {
       console.error("ElevenLabs error:", error);
-      setCallState("ended");
+      setCallStateSync("ended");
+
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
+      }
     },
   });
 
@@ -112,7 +140,10 @@ export default function CallInterface() {
     let interval: NodeJS.Timeout;
     if (callState === "active") {
       interval = setInterval(() => {
-        setCallDuration((prev) => prev + 1);
+        setCallDuration((prev) => {
+          if (prev >= 30) return prev;
+          return prev + 1;
+        });
       }, 1000);
     }
     return () => clearInterval(interval);
@@ -134,6 +165,13 @@ export default function CallInterface() {
     }
   }, [callState]);
 
+  useEffect(() => {
+    return () => {
+      connectedRef.current = false;
+      sessionActiveRef.current = false;
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
   const formatTime = useCallback((seconds: number) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
@@ -141,10 +179,15 @@ export default function CallInterface() {
   }, []);
 
   const handlePickUp = async () => {
+    if (conversation.status === "connected" || connectedRef.current || callState === "connecting") {
+      return;
+    }
+
     setCallState("connecting");
+
     try {
       await navigator.mediaDevices.getUserMedia({ audio: true });
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      console.log("Starting session with agent:", AGENT_IDS[selectedLanguage]);
       await (conversation.startSession as any)({
         agentId: AGENT_IDS[selectedLanguage],
       });
@@ -155,9 +198,17 @@ export default function CallInterface() {
   };
 
   const handleHangUp = async () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+
     if (conversation.status === "connected") {
       await conversation.endSession();
+    } else {
+      console.warn("Skipping endSession: not connected");
     }
+
     setCallState("ended");
   };
 
@@ -269,7 +320,7 @@ export default function CallInterface() {
                       {getAgentName()}
                     </motion.p>
                   </AnimatePresence>
-                  <p className="text-white/50 text-xs">{formatTime(callDuration)}</p>
+                  <p className="text-white/50 text-xs">{30 - callDuration}</p>
                 </div>
               </div>
 
