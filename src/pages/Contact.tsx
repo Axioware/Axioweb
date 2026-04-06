@@ -55,7 +55,7 @@ export default function Contact() {
       // Attach the selected service
       const payload = { ...data, service: selectedService };
 
-      const response = await fetch(`${BASE_URL}/contact`, {
+      const response = await fetch(`https://mmbjawlnkgaluf5n4d2cirx6ha0pidpn.lambda-url.us-east-1.on.aws/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
