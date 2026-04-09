@@ -23,8 +23,8 @@ const DEFAULT_TITLE = "Axioware - AI-Powered Software Solutions | Voice Agents &
 const DEFAULT_DESCRIPTION = "Axioware delivers cutting-edge Voice Agents, AI Chatbots, Web Development, SEO, and Machine Learning solutions. Transform your business with intelligent automation.";
 const DEFAULT_KEYWORDS = "Voice Agents, AI Chatbots, Machine Learning, Web Development, SEO, UI/UX Design, Software House, AI Solutions, Business Automation";
 const SITE_NAME = "Axioware";
-const BASE_URL = "https://axioware.com";
-const DEFAULT_OG_IMAGE = "https://axioware.com/og-image.webp";
+const BASE_URL = "https://axioware.tech";
+const DEFAULT_OG_IMAGE = "https://axioware.tech/og-image.webp";
 
 export default function SEO({
   title,
@@ -51,7 +51,7 @@ export default function SEO({
     description: DEFAULT_DESCRIPTION,
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+1-555-0123",
+      telephone: "+92-325-8988683",
       contactType: "customer service",
       availableLanguage: ["English"],
     },
@@ -226,13 +226,13 @@ export const generateLocalBusinessSchema = () => ({
   name: "Axioware",
   description: DEFAULT_DESCRIPTION,
   url: BASE_URL,
-  telephone: "+1-555-0123",
-  email: "hello@axioware.com",
+  telephone: "+92-325-8988683",
+  email: "business@axioware.tech",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "San Francisco",
-    addressRegion: "CA",
-    addressCountry: "US",
+    addressLocality: "Karachi",
+    addressRegion: "Sindh",
+    addressCountry: "PK",
   },
   priceRange: "$$",
   openingHoursSpecification: {

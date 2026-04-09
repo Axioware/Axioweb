@@ -1,5 +1,5 @@
 # Axioware Robots.txt
-# https://axioware.com
+# https://axioware.tech
 
 # Allow all crawlers
 User-agent: *
@@ -53,8 +53,7 @@ Allow: /
 # Disallow admin and private paths (if any)
 Disallow: /api/
 Disallow: /admin/
-Disallow: /_next/
 Disallow: /private/
 
 # Sitemap location
-Sitemap: https://axioware.com/sitemap.xml
+Sitemap: https://axioware.tech/sitemap.xml

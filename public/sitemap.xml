@@ -6,7 +6,7 @@
   
   <!-- Homepage -->
   <url>
-    <loc>https://axioware.com/</loc>
+    <loc>https://axioware.tech/</loc>
     <lastmod>2026-01-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -14,7 +14,7 @@
   
   <!-- About -->
   <url>
-    <loc>https://axioware.com/about</loc>
+    <loc>https://axioware.tech/about</loc>
     <lastmod>2026-01-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -22,7 +22,7 @@
   
   <!-- Services -->
   <url>
-    <loc>https://axioware.com/services</loc>
+    <loc>https://axioware.tech/services</loc>
     <lastmod>2026-01-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -30,7 +30,7 @@
   
   <!-- Voice Agents Service -->
   <url>
-    <loc>https://axioware.com/services/voice-agents</loc>
+    <loc>https://axioware.tech/services/voice-agents</loc>
     <lastmod>2026-01-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -38,7 +38,7 @@
   
   <!-- AI Chatbots Service -->
   <url>
-    <loc>https://axioware.com/services/ai-chatbots</loc>
+    <loc>https://axioware.tech/services/chatbots</loc>
     <lastmod>2026-01-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -46,7 +46,7 @@
   
   <!-- Web Development Service -->
   <url>
-    <loc>https://axioware.com/services/web-development</loc>
+    <loc>https://axioware.tech/services/web-development</loc>
     <lastmod>2026-01-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -54,7 +54,7 @@
   
   <!-- SEO Service -->
   <url>
-    <loc>https://axioware.com/services/seo</loc>
+    <loc>https://axioware.tech/services/seo</loc>
     <lastmod>2026-01-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -62,7 +62,7 @@
   
   <!-- Machine Learning Service -->
   <url>
-    <loc>https://axioware.com/services/machine-learning</loc>
+    <loc>https://axioware.tech/services/machine-learning</loc>
     <lastmod>2026-01-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -70,7 +70,7 @@
   
   <!-- UI/UX Design Service -->
   <url>
-    <loc>https://axioware.com/services/ui-ux-design</loc>
+    <loc>https://axioware.tech/services/ui-ux-design</loc>
     <lastmod>2026-01-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -78,7 +78,7 @@
   
   <!-- Social Media Service -->
   <url>
-    <loc>https://axioware.com/services/social-media</loc>
+    <loc>https://axioware.tech/services/social-media</loc>
     <lastmod>2026-01-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -86,7 +86,7 @@
   
   <!-- Portfolio -->
   <url>
-    <loc>https://axioware.com/portfolio</loc>
+    <loc>https://axioware.tech/portfolio</loc>
     <lastmod>2026-01-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -94,7 +94,7 @@
   
   <!-- Blog -->
   <url>
-    <loc>https://axioware.com/blog</loc>
+    <loc>https://axioware.tech/blog</loc>
     <lastmod>2026-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -102,7 +102,7 @@
   
   <!-- Contact -->
   <url>
-    <loc>https://axioware.com/contact</loc>
+    <loc>https://axioware.tech/contact</loc>
     <lastmod>2026-01-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -110,7 +110,7 @@
   
   <!-- Restaurant Agent Demo -->
   <url>
-    <loc>https://axioware.com/restaurant-agent</loc>
+    <loc>https://axioware.tech/restaurant-agent</loc>
     <lastmod>2026-01-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
