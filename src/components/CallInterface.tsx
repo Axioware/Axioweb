@@ -74,7 +74,7 @@ export default function CallInterface() {
             console.error("Error ending session:", err);
           }
         }
-      }, 30000);
+      }, 60000);
     },
     onDisconnect: () => {
       connectedRef.current = false;
@@ -141,7 +141,7 @@ export default function CallInterface() {
     if (callState === "active") {
       interval = setInterval(() => {
         setCallDuration((prev) => {
-          if (prev >= 30) return prev;
+          if (prev >= 60) return prev;
           return prev + 1;
         });
       }, 1000);
@@ -320,7 +320,7 @@ export default function CallInterface() {
                       {getAgentName()}
                     </motion.p>
                   </AnimatePresence>
-                  <p className="text-white/50 text-xs">{30 - callDuration}</p>
+                  <p className="text-white/50 text-xs">{60 - callDuration}</p>
                 </div>
               </div>
 
