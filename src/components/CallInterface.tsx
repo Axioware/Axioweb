@@ -1,11 +1,11 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, PhoneOff, Mic, MicOff, Volume2, VolumeX, Headphones, MessageSquare, User, Bot, Globe, ChefHat, Sparkles } from "lucide-react";
+import { Phone, PhoneOff, Mic, MicOff, Volume2, VolumeX, Headphones, MessageSquare, User, Bot, Globe, ChefHat, Sparkles, Star } from "lucide-react";
 import { useConversation } from "@elevenlabs/react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 type CallState = "incoming" | "connecting" | "active" | "ended";
-type Language = "english" | "urdu";
+type Language = "english" | "urdu" | "arabic";
 
 interface TranscriptMessage {
   id: string;
@@ -17,6 +17,7 @@ interface TranscriptMessage {
 const AGENT_IDS = {
   english: import.meta.env.VITE_AGENT_ENGLISH,
   urdu: import.meta.env.VITE_AGENT_URDU,
+  arabic: import.meta.env.VITE_AGENT_ARABIC,
 };
 
 const AGENT_STYLES = {
@@ -37,6 +38,15 @@ const AGENT_STYLES = {
     pulseColor: "bg-violet-500/40",
     borderColor: "border-violet-400/30",
     accentGlow: "shadow-violet-500/30",
+  },
+  arabic: {
+    name: "Nour",
+    icon: Star,
+    bgColor: "bg-emerald-500/20",
+    iconColor: "text-emerald-400",
+    pulseColor: "bg-emerald-500/40",
+    borderColor: "border-emerald-400/30",
+    accentGlow: "shadow-emerald-500/30",
   },
 };
 
@@ -600,6 +610,16 @@ export default function CallInterface() {
                     }`}
                   >
                     اردو
+                  </button>
+                  <button
+                    onClick={() => setSelectedLanguage("arabic")}
+                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                      selectedLanguage === "arabic"
+                        ? "bg-accent text-white shadow-sm"
+                        : "text-white/60 hover:text-white"
+                    }`}
+                  >
+                    عربي
                   </button>
                 </div>
               </div>
