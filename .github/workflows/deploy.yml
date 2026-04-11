@@ -26,6 +26,7 @@ jobs:
         env:
           VITE_AGENT_ENGLISH: ${{ secrets.VITE_AGENT_ENGLISH }}
           VITE_AGENT_URDU: ${{ secrets.VITE_AGENT_URDU }}
+          VITE_AGENT_ARABIC: ${{ secrets.VITE_AGENT_ARABIC }}
           VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
         run: npm run build
 
