@@ -15,6 +15,9 @@ import ChatbotsService from "@/pages/services/Chatbots";
 import GenericService from "@/pages/services/GenericService";
 import RestaurantAgent from "@/pages/RestaurantAgent";
 import NotFound from "@/pages/NotFound";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import TermsOfService from "@/pages/TermsOfService";
+import Careers from "@/pages/Careers";
 
 export default function AnimatedRoutes() {
   const location = useLocation();
@@ -109,6 +112,30 @@ export default function AnimatedRoutes() {
           element={
             <PageTransition>
               <RestaurantAgent />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/privacy"
+          element={
+            <PageTransition>
+              <PrivacyPolicy />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/terms"
+          element={
+            <PageTransition>
+              <TermsOfService />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/careers"
+          element={
+            <PageTransition>
+              <Careers />
             </PageTransition>
           }
         />

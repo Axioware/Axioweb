@@ -28,6 +28,9 @@ import {
   Link2,
   MessageCircle,
   Camera,
+  Smartphone,
+  Bell,
+  ShieldCheck,
 } from "lucide-react";
 import SEO, { generateServiceSchema, generateBreadcrumbSchema } from "@/components/SEO";
 
@@ -139,6 +142,52 @@ const serviceData: Record<string, ServiceInfo> = {
           title: "Launch & Support",
           description: "Smooth deployment with ongoing maintenance and feature updates.",
           icon: Zap,
+        },
+      ],
+    },
+  },
+  "app-development": {
+    title: "App Development",
+    desc: "Custom mobile and cross-platform applications built for smooth performance, practical workflows, and business growth.",
+    icon: Smartphone,
+    features: [
+      { title: "iOS & Android Apps", icon: Smartphone, desc: "Mobile experiences designed for the devices your customers use" },
+      { title: "Cross-Platform Builds", icon: Layers, desc: "Efficient shared codebases without sacrificing polish" },
+      { title: "API Integrations", icon: Link2, desc: "Connect payments, CRMs, dashboards, and third-party services" },
+      { title: "Secure Architecture", icon: ShieldCheck, desc: "Authentication, permissions, and data handling built with care" },
+    ],
+    overview: {
+      heading: "Build Apps People Actually Use",
+      description:
+        "We design and develop mobile applications that support real business workflows, not just screens. From customer-facing apps to internal operations tools, we focus on speed, reliability, clean UX, and integrations that make the product useful from day one.",
+      benefits: [
+        "Launch on iOS and Android with a consistent experience",
+        "Reduce manual work with app-driven workflows",
+        "Integrate your app with existing business systems",
+        "Ship a scalable product that can evolve after launch",
+      ],
+    },
+    process: {
+      steps: [
+        {
+          title: "Product Planning",
+          description: "We define users, core workflows, technical scope, and launch priorities.",
+          icon: Lightbulb,
+        },
+        {
+          title: "UX & Prototype",
+          description: "Clickable prototypes validate the app flow before development starts.",
+          icon: Layers,
+        },
+        {
+          title: "App Development",
+          description: "We build, integrate, and test the app across target devices and platforms.",
+          icon: Code,
+        },
+        {
+          title: "Launch & Iteration",
+          description: "We prepare release builds, support deployment, and improve from real usage.",
+          icon: Bell,
         },
       ],
     },
@@ -304,6 +353,7 @@ export default function GenericService() {
     "machine-learning":
       "Machine Learning, ML Solutions, Predictive Analytics, AI Models, Data Science, Business Intelligence",
     "web-development": "Web Development, React, Next.js, Web Applications, E-commerce, Progressive Web Apps",
+    "app-development": "App Development, Mobile Apps, iOS Apps, Android Apps, Cross-Platform Apps, React Native",
     "ui-ux-design": "UI/UX Design, User Experience, User Interface, Product Design, Design Systems, Prototyping",
     seo: "SEO Services, Search Engine Optimization, Google Rankings, Organic Traffic, Technical SEO, Content SEO",
     "social-media":

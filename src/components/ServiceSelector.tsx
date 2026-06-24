@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Brain, Globe, Palette, Search, Share2 } from "lucide-react";
+import { ArrowRight, Brain, Globe, Palette, Search, Share2, Smartphone } from "lucide-react";
 
 // Import service images (WebP format)
 import machineLearningImg from "@/assets/services/machine-learning.webp";
@@ -34,6 +34,18 @@ const services = [
     image: webDevelopmentImg,
     iconColor: "text-cyan-400",
     iconBg: "bg-cyan-500/10",
+  },
+  {
+    id: "app",
+    title: "App Development",
+    description:
+      "Custom mobile and cross-platform apps built for smooth performance, practical workflows, and long-term growth.",
+    icon: Smartphone,
+    href: "/services/app-development",
+    features: ["iOS & Android", "Cross-Platform", "App Integrations"],
+    image: webDevelopmentImg,
+    iconColor: "text-violet-400",
+    iconBg: "bg-violet-500/10",
   },
   {
     id: "design",

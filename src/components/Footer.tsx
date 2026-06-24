@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Github, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Facebook, Github, Instagram } from "lucide-react";
 import logoWhite from "@/assets/axioware-logo-white.webp";
 
 const footerLinks = {
@@ -9,32 +9,33 @@ const footerLinks = {
     { label: "AI Chatbots", href: "/services/chatbots" },
     { label: "Machine Learning", href: "/services/machine-learning" },
     { label: "Web Development", href: "/services/web-development" },
+    { label: "App Development", href: "/services/app-development" },
     { label: "UI/UX Design", href: "/services/ui-ux-design" },
     { label: "SEO", href: "/services/seo" },
   ],
   company: [
     { label: "About Us", href: "/about" },
     { label: "Contact", href: "/contact" },
-    { label: "Careers", href: "#" },
+    { label: "Careers", href: "/careers" },
     { label: "Blog", href: "/blog" },
   ],
   social: [
     {
       icon: Linkedin,
-      href: "https://linkedin.com/company/axioware",
+      href: "https://www.linkedin.com/company/axioware",
       label: "LinkedIn",
       color: "hover:bg-[#0A66C2] hover:text-white",
     },
     {
-      icon: Twitter,
-      href: "https://twitter.com/axioware",
-      label: "Twitter",
-      color: "hover:bg-[#1DA1F2] hover:text-white",
+      icon: Facebook,
+      href: "https://www.facebook.com/share/19BLpgdXT3/?mibextid=wwXIfr",
+      label: "Facebook",
+      color: "hover:bg-[#1877F2] hover:text-white",
     },
     { icon: Github, href: "https://github.com/axioware", label: "GitHub", color: "hover:bg-[#333] hover:text-white" },
     {
       icon: Instagram,
-      href: "https://instagram.com/axioware",
+      href: "https://www.instagram.com/axiowaretech?igsh=ajRnenB1c3V4dWE3&utm_source=qr",
       label: "Instagram",
       color: "hover:bg-gradient-to-br hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] hover:text-white",
     },

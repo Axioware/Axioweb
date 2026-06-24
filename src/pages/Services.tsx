@@ -34,8 +34,8 @@ export default function Services() {
     <Layout>
       <SEO
         title="Services - AI Voice Agents, Chatbots & Digital Solutions"
-        description="Explore Axioware's comprehensive AI services including Voice Agents, AI Chatbots, Machine Learning, Web Development, SEO, and UI/UX Design."
-        keywords="AI Services, Voice Agents, AI Chatbots, Machine Learning, Web Development, SEO Services, UI/UX Design, Digital Solutions"
+        description="Explore Axioware's comprehensive AI services including Voice Agents, AI Chatbots, Machine Learning, Web Development, App Development, SEO, and UI/UX Design."
+        keywords="AI Services, Voice Agents, AI Chatbots, Machine Learning, Web Development, App Development, SEO Services, UI/UX Design, Digital Solutions"
         canonical="/services"
         structuredData={generateBreadcrumbSchema([
           { name: "Home", url: "/" },

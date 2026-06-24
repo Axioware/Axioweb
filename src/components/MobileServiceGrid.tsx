@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Brain, Globe, Palette, Search, Share2, LucideIcon } from "lucide-react";
+import { ArrowRight, Brain, Globe, Palette, Search, Share2, Smartphone, LucideIcon } from "lucide-react";
 
 // Import service images (WebP format)
 import machineLearningImg from "@/assets/services/machine-learning.webp";
@@ -40,6 +40,16 @@ const services: Service[] = [
     href: "/services/web-development",
     gradient: "from-cyan-500/10 to-teal-500/10",
     accentColor: "text-cyan-400",
+    image: webDevelopmentImg,
+  },
+  {
+    id: "app",
+    title: "App Development",
+    description: "Custom mobile and cross-platform applications.",
+    icon: Smartphone,
+    href: "/services/app-development",
+    gradient: "from-violet-500/10 to-fuchsia-500/10",
+    accentColor: "text-violet-400",
     image: webDevelopmentImg,
   },
   {

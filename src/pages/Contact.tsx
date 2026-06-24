@@ -31,6 +31,7 @@ const services = [
   { value: "chatbots", label: "AI Chatbots" },
   { value: "machine-learning", label: "Machine Learning" },
   { value: "web-development", label: "Web Development" },
+  { value: "app-development", label: "App Development" },
   { value: "ui-ux-design", label: "UI/UX Design" },
   { value: "seo", label: "SEO" },
   { value: "social-media", label: "Social Media Marketing" },

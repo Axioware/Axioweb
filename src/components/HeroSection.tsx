@@ -77,9 +77,6 @@ export default function HeroSection() {
                 </Link>
               </Button>
             </div>
-            <p className="text-[11px] text-white/30 font-mono tracking-wide">
-              // Pakistan's AI-first software company
-            </p>
           </div>
         </motion.div>
       </div>

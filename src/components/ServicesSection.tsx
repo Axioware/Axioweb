@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import SectionHeading from "./SectionHeading";
 import ParallaxImage from "./ParallaxImage";
 import { Button } from "./ui/button";
-import { Mic, MessageSquare, Brain, Globe, Palette, Search, Share2, ArrowRight, CheckCircle } from "lucide-react";
+import { Mic, MessageSquare, Brain, Globe, Palette, Search, Share2, Smartphone, ArrowRight, CheckCircle } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 
 // Import custom AI illustrations (WebP format)
@@ -76,6 +76,17 @@ const otherServices: Service[] = [
     highlights: ["React & Next.js", "E-commerce", "API development"],
     color: "text-cyan-400",
     bgColor: "bg-cyan-500/10",
+  },
+  {
+    title: "App Development",
+    description:
+      "Custom mobile and cross-platform applications designed for reliable performance, intuitive workflows, and measurable business growth. We build apps that feel polished from first tap to daily use.",
+    icon: Smartphone,
+    href: "/services/app-development",
+    image: webDevelopmentImg,
+    highlights: ["iOS & Android", "Cross-platform builds", "API integrations"],
+    color: "text-violet-400",
+    bgColor: "bg-violet-500/10",
   },
   {
     title: "UI/UX Design",
