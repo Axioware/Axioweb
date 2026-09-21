@@ -39,10 +39,10 @@ const testimonials = [
     id: 4,
     name: "Michael Thompson",
     role: "Manager",
-    company: "TorontoChef",
-    avatar: "TC",
+    company: "Toronto Smile Dental",
+    avatar: "TS",
     content:
-      "Axioware built a custom AI voice agent for our restaurant that significantly reduced response time for customer calls and reservations. The system handled peak hours smoothly and helped lower operational costs. The team was professional, responsive, and delivered exactly what we needed",
+      "Axioware built a custom AI voice agent for our dental clinic that significantly reduced response time for patient calls and appointment bookings. The system handled busy hours smoothly and helped lower operational costs. The team was professional, responsive, and delivered exactly what we needed",
     rating: 5,
   },
   {
@@ -50,7 +50,7 @@ const testimonials = [
     name: "Lisa Park",
     role: "Operations Manager",
     company: "Twin Clothes",
-    avatar: "TC",
+    avatar: "TS",
     content:
       "Axioware developed an AI-powered customer support voice agent that streamlined our inbound calls and improved customer satisfaction. The assistant handled repetitive queries efficiently, allowing our human agents to focus on complex issues. Excellent execution and communication throughout.",
     rating: 5,

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, PhoneOff, Mic, MicOff, Volume2, VolumeX, Headphones, MessageSquare, User, Bot, Globe, ChefHat, Sparkles, Star } from "lucide-react";
+import { Phone, PhoneOff, Mic, MicOff, Volume2, VolumeX, Headphones, MessageSquare, User, Bot, Globe, Smile, Sparkles, Star } from "lucide-react";
 import { useConversation } from "@elevenlabs/react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
@@ -22,8 +22,8 @@ const AGENT_IDS = {
 
 const AGENT_STYLES = {
   english: {
-    name: "Chefie",
-    icon: ChefHat,
+    name: "Ava",
+    icon: Smile,
     bgColor: "bg-amber-500/20",
     iconColor: "text-amber-400",
     pulseColor: "bg-amber-500/40",
@@ -256,7 +256,25 @@ export default function CallInterface() {
   };
 
   return (
-    <div className="w-full h-full bg-gradient-to-b from-primary via-primary/90 to-primary/80 flex flex-col relative overflow-hidden">
+    <div className="w-full h-full bg-gradient-to-b from-teal-800 via-teal-900 to-cyan-950 flex flex-col relative overflow-hidden isolate">
+      {/* Dental clinic backdrop: soft mint glows, clinic-cross pattern and tooth watermark */}
+      <div aria-hidden="true" className="absolute inset-0 -z-10 pointer-events-none">
+        <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-emerald-300/20 blur-3xl" />
+        <div className="absolute -bottom-20 -left-16 w-64 h-64 rounded-full bg-cyan-300/15 blur-3xl" />
+        <div
+          className="absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage: "linear-gradient(white 2px, transparent 2px), linear-gradient(90deg, white 2px, transparent 2px)",
+            backgroundSize: "28px 28px",
+            backgroundPosition: "center",
+            maskImage: "radial-gradient(circle at 50% 40%, black 0%, transparent 75%)",
+            WebkitMaskImage: "radial-gradient(circle at 50% 40%, black 0%, transparent 75%)",
+          }}
+        />
+        <svg viewBox="0 0 64 64" className="absolute left-1/2 top-[38%] w-56 h-56 -translate-x-1/2 -translate-y-1/2 text-white opacity-[0.06]" fill="currentColor">
+          <path d="M20 6c-6 0-11 4-11 11 0 5 2 8 3 13 1 6 1 12 3 19 1 4 5 4 6 0 1-4 2-9 4-9h2c2 0 3 5 4 9 1 4 5 4 6 0 2-7 2-13 3-19 1-5 3-8 3-13 0-7-5-11-11-11-3 0-5 1-6 2-1-1-3-2-6-2z" transform="translate(4 0)" />
+        </svg>
+      </div>
       {/* Status Bar Area */}
       <div className="pt-12 px-6 pb-2">
         <AnimatePresence mode="wait">
@@ -465,7 +483,7 @@ export default function CallInterface() {
                     {getAgentName()}
                   </motion.h3>
                 </AnimatePresence>
-                <p className="text-white/60 text-sm">AI Restaurant Assistant</p>
+                <p className="text-white/60 text-sm">AI Dental Receptionist</p>
               </motion.div>
 
               {/* Call Duration / Status */}

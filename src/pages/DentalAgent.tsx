@@ -4,117 +4,117 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import AnimatedHeroBackground from "@/components/AnimatedHeroBackground";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone, MessageSquare, Clock, ShieldCheck, CheckCircle, XCircle, Bell, Search, Menu, Users, FileText, TrendingUp, DollarSign, Headphones, Star, PhoneOff, AlertTriangle, Zap, Shield, BarChart3, Loader2, Mic } from "lucide-react";
+import { ArrowRight, Phone, MessageSquare, Clock, ShieldCheck, CheckCircle, XCircle, Bell, Search, Stethoscope, Users, FileText, TrendingUp, DollarSign, Headphones, Star, PhoneOff, AlertTriangle, Zap, Shield, BarChart3, Loader2, Mic } from "lucide-react";
 import { useConversation } from "@elevenlabs/react";
 import { useRef } from "react";
 
-const CHEFIE_AGENT_ID = import.meta.env.VITE_AGENT_ENGLISH;
+const DENTAL_AGENT_ID = import.meta.env.VITE_AGENT_ENGLISH;
 
 const problems = [{
   icon: PhoneOff,
-  title: "Missed Calls = Lost Revenue",
-  description: "During peak hours, staff can't answer every call. Each missed call is a potential $30-50 order walking away to your competition.",
+  title: "Missed Calls = Lost Patients",
+  description: "When the front desk is busy with patients, calls go unanswered. Each missed call can be a new patient choosing another clinic.",
   color: "text-red-500"
 }, {
   icon: Clock,
   title: "Long Hold Times",
-  description: "Customers hate waiting. 75% of callers hang up after 1 minute on hold, never to call back again.",
+  description: "Patients hate waiting. Most callers hang up after a minute on hold and book with the next clinic on their list.",
   color: "text-orange-500"
 }, {
   icon: AlertTriangle,
-  title: "Inconsistent Order Taking",
-  description: "Human errors lead to wrong orders, forgotten items, and unhappy customers demanding refunds.",
+  title: "No-Shows & Scheduling Errors",
+  description: "Double bookings, forgotten reminders, and manual errors leave empty chairs and frustrated patients.",
   color: "text-amber-500"
 }, {
   icon: DollarSign,
-  title: "High Labor Costs",
-  description: "Hiring dedicated phone staff is expensive. Training, turnover, and scheduling add hidden costs that eat into margins.",
+  title: "High Front Desk Costs",
+  description: "Hiring dedicated reception staff is expensive. Training, turnover, and after-hours coverage add hidden costs that eat into margins.",
   color: "text-rose-500"
 }];
 
 const benefits = [{
   icon: TrendingUp,
-  title: "Never Miss an Order",
-  description: "24/7 availability means capturing every order, even at 2 AM or during the lunch rush. No more lost revenue.",
+  title: "Never Miss a Patient",
+  description: "24/7 availability means capturing every appointment request, even at 2 AM or during a packed morning. No more lost bookings.",
   color: "text-emerald-500"
 }, {
   icon: Zap,
   title: "Instant Response",
-  description: "No hold times ever. Customers start ordering immediately, dramatically improving satisfaction and conversion.",
+  description: "No hold times ever. Patients start booking immediately, dramatically improving satisfaction and conversion.",
   color: "text-yellow-500"
 }, {
   icon: CheckCircle,
   title: "Accurate Every Time",
-  description: "AI doesn't get tired, distracted, or have a bad day. Every order is captured correctly with verbal confirmation.",
+  description: "AI doesn't get tired or distracted. Every appointment is captured correctly with verbal confirmation.",
   color: "text-green-500"
 }, {
   icon: DollarSign,
   title: "Reduce Costs Significantly",
-  description: "Replace expensive phone staff while handling 3x more calls during peak hours. ROI in under 30 days.",
+  description: "Free your team from the phones while handling 3x more calls during peak hours, with fewer no-shows.",
   color: "text-teal-500"
 }];
 
 const features = [{
   icon: Phone,
-  title: "Place Orders",
-  desc: "Natural conversation captures name, phone, delivery/pickup preference, items with quantities, and special instructions",
+  title: "Book Appointments",
+  desc: "Natural conversation captures patient name, phone, reason for visit, preferred dentist, and preferred date and time",
   color: "text-blue-500"
 }, {
   icon: XCircle,
-  title: "Cancel Orders",
-  desc: "Allows order cancellation within 15 minutes, validates customer via phone number and order ID",
+  title: "Cancel Appointments",
+  desc: "Handles cancellations, validating the patient via phone number and appointment ID, and offers to rebook",
   color: "text-red-500"
 }, {
   icon: MessageSquare,
   title: "SMS Confirmations",
-  desc: "Automatic SMS with order ID, order summary, estimated ready time, and support contact info",
+  desc: "Automatic SMS with appointment ID, date, time, dentist, and clinic contact info",
   color: "text-purple-500"
 }, {
   icon: Bell,
-  title: "Order Modifications",
-  desc: "Customers can add or remove items within 15 minutes of placing their order",
+  title: "Rescheduling & Reminders",
+  desc: "Patients can move their appointment to a new slot, and reminders reduce no-shows",
   color: "text-amber-500"
 }, {
   icon: Search,
-  title: "Status Inquiry",
-  desc: "Real-time order tracking - answers 'Where is my order?' instantly with accurate status",
+  title: "Appointment Lookup",
+  desc: "Answers 'When is my next appointment?' instantly with accurate details",
   color: "text-cyan-500"
 }, {
-  icon: Menu,
-  title: "Menu & Availability",
-  desc: "Full menu knowledge with item availability, daily specials, and ingredient information",
+  icon: Stethoscope,
+  title: "Services & Insurance FAQs",
+  desc: "Full knowledge of treatments, clinic hours, accepted insurance, and pre-visit instructions",
   color: "text-orange-500"
 }, {
   icon: Users,
   title: "Human Escalation",
-  desc: "Seamless transfer to staff for complex situations, allergies, or special requests",
+  desc: "Seamless transfer to staff for dental emergencies, complex billing, or special requests",
   color: "text-indigo-500"
 }, {
   icon: Shield,
-  title: "Fraud Protection",
-  desc: "Smart limits on repeat orders and flags suspicious cancellation patterns",
+  title: "Patient Privacy",
+  desc: "Verifies identity before sharing details and limits the information disclosed on calls",
   color: "text-emerald-500"
 }, {
   icon: FileText,
   title: "Complete Audit Trail",
-  desc: "Full call transcripts, order change history, and SMS delivery confirmations",
+  desc: "Full call transcripts, appointment change history, and SMS delivery confirmations",
   color: "text-pink-500"
 }];
 
 const testimonials = [{
-  quote: "We were losing 20+ orders every weekend night to missed calls. Now we capture every single one. Revenue is up 35% on weekends.",
-  author: "Maria Garcia",
-  role: "Owner, Taco Loco",
+  quote: "We were missing 20+ calls a week while the front desk was with patients. Now every call is answered and new patient bookings are up 35%.",
+  author: "Dr. Maria Garcia",
+  role: "Owner, Bright Smile Dental",
   rating: 5
 }, {
-  quote: "The accuracy is incredible. We went from 15% order errors to less than 1%. Customer complaints dropped dramatically.",
-  author: "James Chen",
-  role: "GM, Golden Dragon",
+  quote: "Scheduling errors dropped from 15% to under 1%, and automated reminders cut our no-shows dramatically.",
+  author: "Dr. James Chen",
+  role: "Practice Manager, Downtown Dental Care",
   rating: 5
 }, {
-  quote: "Paid for itself in the first week. My staff can focus on food prep instead of being tied to the phone during rush hour.",
-  author: "Anthony Romano",
-  role: "Owner, Romano's Pizzeria",
+  quote: "Paid for itself in the first month. My team can focus on patients in the chair instead of being tied to the phone.",
+  author: "Dr. Anthony Romano",
+  role: "Owner, Romano Family Dentistry",
   rating: 5
 }];
 
@@ -141,12 +141,12 @@ const itemVariants = {
   }
 };
 
-export default function RestaurantAgent() {
+export default function DentalAgent() {
   const [isConnecting, setIsConnecting] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const conversation = useConversation({
   onConnect: () => {
-    console.log("Connected to Chefie");
+    console.log("Connected to Ava");
     setIsConnecting(false);
 
     // Clear any existing timer (safety)
@@ -166,7 +166,7 @@ export default function RestaurantAgent() {
   },
 
   onDisconnect: () => {
-    console.log("Disconnected from Chefie");
+    console.log("Disconnected from Ava");
     setIsConnecting(false);
 
     // Cleanup timer
@@ -177,7 +177,7 @@ export default function RestaurantAgent() {
   },
 
   onError: (error) => {
-    console.error("Chefie error:", error);
+    console.error("Ava error:", error);
     setIsConnecting(false);
 
     // Cleanup timer on error too (important)
@@ -199,7 +199,7 @@ export default function RestaurantAgent() {
         await navigator.mediaDevices.getUserMedia({ audio: true });
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         await (conversation.startSession as any)({
-          agentId: CHEFIE_AGENT_ID,
+          agentId: DENTAL_AGENT_ID,
         });
       } catch (error) {
         console.error("Failed to start call:", error);
@@ -226,25 +226,25 @@ export default function RestaurantAgent() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="inline-flex items-center gap-3 px-5 py-2.5 bg-white/15 text-white text-sm font-medium rounded-full mb-6 border border-white/20"
             >
-              <span className="text-2xl">👨‍🍳</span>
-              <span>Meet Chefie</span>
+              <span className="text-2xl">🦷</span>
+              <span>Meet Ava</span>
             </motion.div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold mb-4 text-white leading-tight">
-              <span className="text-accent">Chefie</span> Your AI
+              <span className="text-accent">Ava</span> Your AI
               <br />
-              Restaurant Assistant
+              Dental Receptionist
             </h1>
             <p className="text-lg md:text-xl text-white/85 mb-4 leading-relaxed max-w-2xl mx-auto">
-              The friendly voice that never sleeps. Chefie takes orders, answers questions, and keeps your customers happy — all while you focus on cooking amazing food.
+              The friendly voice that never sleeps. Ava books appointments, answers questions, and keeps your patients happy — all while you focus on delivering great dental care.
             </p>
             <p className="text-sm text-white/60 mb-10">
-              Available 24/7 for your restaurant
+              Available 24/7 for your dental clinic
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="xl" className="bg-accent hover:bg-accent/90 text-white shadow-lg shadow-accent/30">
                 <a href="#demo" className="group">
                   <Phone className="w-5 h-5 mr-2" />
-                  Talk to Chefie
+                  Talk to Ava
                 </a>
               </Button>
               <Button asChild size="xl" variant="outline" className="border-white/30 text-white hover:bg-white/10">
@@ -271,10 +271,10 @@ export default function RestaurantAgent() {
               The Problem
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Phone Orders Are Costing You Money
+              Missed Calls Are Costing You Patients
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Every restaurant faces these challenges. The question is: how much revenue are you losing?
+              Every dental clinic faces these challenges. The question is: how many patients are you losing?
             </p>
           </motion.div>
 
@@ -312,13 +312,13 @@ export default function RestaurantAgent() {
             className="text-center mb-12"
           >
             <span className="inline-flex items-center gap-2 px-3 py-1 bg-accent/10 text-accent text-sm font-medium rounded-full mb-4">
-              The Chefie Difference
+              The Ava Difference
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Why Restaurants Love Chefie
+              Why Dental Clinics Love Ava
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Chefie handles phone orders with superhuman accuracy and a friendly personality that customers love.
+              Ava handles patient calls with superhuman accuracy and a friendly, reassuring personality that patients love.
             </p>
           </motion.div>
 
@@ -366,10 +366,10 @@ export default function RestaurantAgent() {
               Full Feature Set
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Everything Chefie Can Do
+              Everything Ava Can Do
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Chefie is purpose-built for restaurants with features that actually matter.
+              Ava is purpose-built for dental clinics with features that actually matter.
             </p>
           </motion.div>
 
@@ -442,22 +442,22 @@ export default function RestaurantAgent() {
                       <Mic className="w-12 h-12 text-accent" />
                     </motion.div>
                   ) : (
-                    "👨‍🍳"
+                    "🦷"
                   )}
                 </motion.div>
               </AnimatePresence>
               
               <span className="inline-flex items-center gap-2 px-3 py-1 bg-accent/10 text-accent text-sm font-medium rounded-full mb-4">
-                {isActive ? (conversation.isSpeaking ? "Chefie is speaking..." : "Listening...") : "Live Demo"}
+                {isActive ? (conversation.isSpeaking ? "Ava is speaking..." : "Listening...") : "Live Demo"}
               </span>
               
               <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">
-                Talk to Chefie
+                Talk to Ava
               </h2>
               <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
                 {isActive 
-                  ? "You're now connected! Speak naturally and Chefie will assist you with your order."
-                  : "\"Hey there! I'm Chefie, your friendly AI assistant. Try placing an order, ask about today's specials, or check on an existing order. I'm here to help!\""
+                  ? "You're now connected! Speak naturally and Ava will assist you with your appointment."
+                  : "\"Hello! I'm Ava, your friendly AI dental receptionist. Try booking a cleaning, ask about our services, or reschedule an existing appointment. I'm here to help!\""
                 }
               </p>
 
@@ -483,7 +483,7 @@ export default function RestaurantAgent() {
                 ) : (
                   <>
                     <Phone className="w-5 h-5 mr-2" />
-                    Call Chefie Now
+                    Call Ava Now
                   </>
                 )}
               </Button>
@@ -522,13 +522,13 @@ export default function RestaurantAgent() {
               </AnimatePresence>
               
               <p className="text-sm text-muted-foreground mb-8">
-                No sign-up required. Demo uses sample menu data.
+                No sign-up required. Demo uses sample clinic data.
               </p>
 
               <div className="pt-6 border-t border-border">
-                <p className="text-sm text-muted-foreground mb-4">Try saying to Chefie:</p>
+                <p className="text-sm text-muted-foreground mb-4">Try saying to Ava:</p>
                 <div className="flex flex-wrap gap-2 justify-center">
-                  {["Hey Chefie, I'd like to order a pizza", "What are today's specials?", "Can I cancel my order?", "How long until my order is ready?"].map((phrase, i) => (
+                  {["Hi Ava, I'd like to book a teeth cleaning", "What are your clinic hours?", "Can I reschedule my appointment?", "Do you accept my insurance?"].map((phrase, i) => (
                     <span key={i} className="px-3 py-1.5 rounded-full bg-secondary text-sm text-muted-foreground border border-border/50">
                       "{phrase}"
                     </span>
@@ -551,10 +551,10 @@ export default function RestaurantAgent() {
           >
             <span className="inline-flex items-center gap-2 px-3 py-1 bg-accent/10 text-accent text-sm font-medium rounded-full mb-4">
               <Star className="w-4 h-4" />
-              Chefie Success Stories
+              Ava Success Stories
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Restaurant Owners Love Chefie
+              Dental Clinics Love Ava
             </h2>
           </motion.div>
 
@@ -594,15 +594,15 @@ export default function RestaurantAgent() {
             className="text-center max-w-3xl mx-auto"
           >
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Ready to Let Chefie Handle Your Calls?
+              Ready to Let Ava Handle Your Calls?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Join hundreds of restaurants that trust Chefie with their phone orders. More revenue, happier customers, less stress.
+              Join dental clinics that trust Ava with their patient calls. More bookings, happier patients, less stress.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-accent hover:bg-accent/90">
                 <Link to="/contact" className="group">
-                  Get Chefie for Your Restaurant
+                  Get Ava for Your Clinic
                   <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>

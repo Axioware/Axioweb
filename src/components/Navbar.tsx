@@ -19,7 +19,7 @@ const navItems: NavItem[] = [
     children: [
       { label: "Voice Agents", href: "/services/voice-agents", featured: true },
       { label: "AI Chatbots", href: "/services/chatbots", featured: true },
-      { label: "Restaurant Agent", href: "/restaurant-agent", featured: true },
+      { label: "Dental Receptionist Agent", href: "/dental-agent", featured: true },
       { label: "Machine Learning", href: "/services/machine-learning" },
       { label: "Web Development", href: "/services/web-development" },
       { label: "App Development", href: "/services/app-development" },

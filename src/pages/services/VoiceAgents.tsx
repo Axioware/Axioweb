@@ -66,12 +66,12 @@ const voiceAgentTypes = [
     color: "text-amber-400"
   },
   {
-    icon: Hotel,
-    title: "Chefie - Restaurant Agent",
-    description: "Specialized AI voice agent for restaurants that handles reservations, takes orders, answers menu questions, and manages customer inquiries.",
-    useCases: ["Order taking", "Reservations", "Menu inquiries"],
-    color: "text-orange-400",
-    link: "/restaurant-agent"
+    icon: Stethoscope,
+    title: "Ava - Dental Receptionist Agent",
+    description: "Specialized AI voice agent for dental clinics that books and reschedules appointments, answers questions about treatments and insurance, and handles patient inquiries 24/7.",
+    useCases: ["Appointment booking", "Patient reminders", "Treatment inquiries"],
+    color: "text-sky-400",
+    link: "/dental-agent"
   },
 ];
 

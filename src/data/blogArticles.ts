@@ -594,7 +594,7 @@ Why build from scratch? Pre-trained models for common use cases can be customize
 A local retailer used ML to predict demand, reducing stockouts by 45% and excess inventory by 30%. Monthly savings: $8,000.
 
 **Pricing Optimization**
-A restaurant implemented dynamic pricing based on demand patterns, increasing revenue by 12% without losing customers.
+A dental clinic implemented dynamic scheduling based on demand patterns, increasing chair utilization by 12% without losing patients.
 
 **Customer Churn Prediction**
 A fitness studio identified members likely to cancel, enabling targeted retention efforts. Churn reduced by 28%.

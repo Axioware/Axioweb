@@ -108,9 +108,9 @@
     <priority>0.7</priority>
   </url>
   
-  <!-- Restaurant Agent Demo -->
+  <!-- Dental Agent Demo -->
   <url>
-    <loc>https://axioware.tech/restaurant-agent</loc>
+    <loc>https://axioware.tech/dental-agent</loc>
     <lastmod>2026-01-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

@@ -296,10 +296,10 @@ export default function About() {
                 description: "Learn the key principles behind creating natural, engaging AI conversations."
               },
               {
-                title: "Restaurant AI: How Chefie is Changing Dining",
+                title: "Dental AI: How Ava is Changing Patient Care",
                 category: "Voice Agents & AI Chatbots",
                 date: "Jan 5, 2026",
-                description: "Discover how our restaurant voice agent is transforming the hospitality industry."
+                description: "Discover how our dental receptionist voice agent is transforming how clinics handle patient calls."
               },
             ].map((post, index) => (
               <motion.div

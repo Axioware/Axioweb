@@ -124,7 +124,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Restaurant Agent CTA */}
+      {/* Dental Agent CTA */}
       {/*<section className="section-padding bg-background relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-accent/5 via-transparent to-primary/5" />
         

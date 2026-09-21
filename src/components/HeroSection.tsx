@@ -71,7 +71,7 @@ export default function HeroSection() {
                 variant="ghost"
                 className="rounded-full text-white hover:bg-white/10 border border-white/20 px-6 py-2.5 text-sm font-semibold"
               >
-                <Link to="/restaurant-agent" className="flex items-center gap-2">
+                <Link to="/dental-agent" className="flex items-center gap-2">
                   <Mic className="w-4 h-4" />
                   Meet Our AI
                 </Link>

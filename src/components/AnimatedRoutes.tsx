@@ -13,7 +13,7 @@ import BlogArticle from "@/pages/BlogArticle";
 import VoiceAgentsService from "@/pages/services/VoiceAgents";
 import ChatbotsService from "@/pages/services/Chatbots";
 import GenericService from "@/pages/services/GenericService";
-import RestaurantAgent from "@/pages/RestaurantAgent";
+import DentalAgent from "@/pages/DentalAgent";
 import NotFound from "@/pages/NotFound";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
@@ -108,10 +108,10 @@ export default function AnimatedRoutes() {
           }
         />
         <Route
-          path="/restaurant-agent"
+          path="/dental-agent"
           element={
             <PageTransition>
-              <RestaurantAgent />
+              <DentalAgent />
             </PageTransition>
           }
         />
