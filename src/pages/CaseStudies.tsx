@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, CarFront, HardHat, type LucideIcon } from "lucide-react";
+import { ArrowRight, Bot, HardHat, type LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import AnimatedHeroBackground from "@/components/AnimatedHeroBackground";
@@ -8,8 +8,8 @@ import SEO, { generateBreadcrumbSchema } from "@/components/SEO";
 import { caseStudies } from "@/data/caseStudies";
 
 const icons: Record<string, LucideIcon> = {
+  "AI & Automation": Bot,
   "Design & Build": HardHat,
-  "Driving Instruction": CarFront,
 };
 
 export default function CaseStudies() {
@@ -51,7 +51,9 @@ export default function CaseStudies() {
                 <div className="p-6 md:p-8">
                   <span className="inline-flex items-center gap-2 text-sm text-accent font-medium mb-4"><Icon className="w-4 h-4" />{study.industry}</span>
                   <h2 className="font-display text-2xl font-bold text-foreground mb-3">{study.title}</h2>
-                  <a href={study.clientWebsite} target="_blank" rel="noopener noreferrer" className="inline-block text-sm font-medium text-accent underline underline-offset-4 mb-4">Visit {study.client}</a>
+                  {study.clientWebsite && study.client && (
+                    <a href={study.clientWebsite} target="_blank" rel="noopener noreferrer" className="inline-block text-sm font-medium text-accent underline underline-offset-4 mb-4">Visit {study.client}</a>
+                  )}
                   <p className="text-muted-foreground mb-6">{study.summary}</p>
                   <Button asChild>
                     <Link to={`/case-studies/${study.slug}`}>Read case study <ArrowRight className="w-4 h-4 ml-2" /></Link>

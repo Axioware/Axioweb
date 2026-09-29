@@ -1,58 +1,81 @@
 export interface CaseStudy {
   slug: string;
   title: string;
-  client: string;
-  clientWebsite: string;
+  client?: string;
+  clientWebsite?: string;
   industry: string;
   summary: string;
-  challenge: string;
-  solution: string;
-  capabilities: string[];
-  outcome: string;
+  challenge?: string;
+  solution?: string;
+  capabilities?: string[];
+  outcome?: string;
+  projectDescription?: string;
+  tools?: string[];
+  techStack?: string[];
+  projectGoals?: string[];
   image: string;
   testimonial?: { quote: string; author: string; role: string };
 }
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "vino-design-build-ai-receptionist",
-    title: "AI Receptionist for Vino Design Build",
-    client: "Vino Design Build",
+    slug: "vino-design-build-ai-follow-up-calling-system",
+    title: "AI Follow-Up Calling System",
+    client: "Vino Design & Build",
     clientWebsite: "https://vinodesignbuild.com/",
-    industry: "Design & Build",
-    summary: "An AI receptionist experience for Vino Design Build, designed to help callers get project enquiries to the right team.",
-    challenge: "Design and build businesses receive enquiries from prospective clients with different project needs. A clear first response helps capture the details the team needs to follow up.",
-    solution: "The AI receptionist provides a conversational first point of contact, gathers project enquiry details, answers common questions using approved business information, and routes callers to the appropriate next step.",
-    capabilities: [
-      "Respond to common questions about getting started with a project",
-      "Capture caller contact details and project enquiry context",
-      "Direct enquiries to the appropriate team member",
-      "Provide a consistent first point of contact when staff are occupied",
+    industry: "AI & Automation",
+    summary: "A human-like outbound voice assistant that follows up with Vino Design & Build leads, identifies their intent, and updates lead statuses through automated workflows.",
+    projectDescription: "The AI Follow-Up Calling System is an outbound voice automation solution for re-engaging leads through natural, conversational calls. Built with ElevenLabs voice agents and n8n workflows, it acts as a calm, professional follow-up consultant focused on understanding lead intent and guiding each person toward an appropriate next step. It determines whether a lead wants to schedule an Estimate Overview call, reconnect later, or is no longer interested, then updates lead statuses through n8n automations. The conversation design prioritizes realism, brevity, contextual awareness, voicemail handling, and clear conversational guardrails.",
+    tools: ["ElevenLabs", "n8n", "Twilio", "CRM integrations", "OpenAI APIs"],
+    techStack: ["Conversational Voice AI", "ElevenLabs Voice Agents", "n8n workflow automation", "CRM automation", "Webhook-based lead updates"],
+    projectGoals: [
+      "Automate outbound lead follow-up operations",
+      "Increase lead engagement efficiency",
+      "Reduce manual outbound calling workload",
+      "Provide natural, human-like phone interactions",
+      "Improve lead qualification and status tracking",
+      "Automate appointment scheduling workflows",
+      "Standardize follow-up communication processes",
     ],
-    outcome: "The experience gives prospective clients a clear next step and helps the team receive project enquiries with useful context. Specific performance figures were not provided for this project.",
     image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&auto=format&fit=crop&q=80",
   },
   {
-    slug: "agi-driving-ai-receptionist",
-    title: "AI Receptionist for AGI Driving Academy",
-    client: "AGI Driving Academy",
-    clientWebsite: "https://www.agidrivingmb.com/",
-    industry: "Driving Instruction",
-    summary: "A voice assistant experience for a driving academy, designed around prospective learners' calls and everyday questions.",
-    challenge: "Driving schools need to respond to prospective students while managing lesson enquiries, scheduling questions, and routine calls throughout the day.",
-    solution: "The AI receptionist provides a conversational first point of contact, answers common questions, gathers learner details, and helps direct each enquiry to the next step with the academy.",
-    capabilities: [
-      "Respond to common questions about lessons and getting started",
-      "Capture learner contact details and enquiry context",
-      "Help callers understand how to reach the right staff member",
-      "Offer a consistent call experience when staff are occupied",
+    slug: "ai-voice-receptionist-system",
+    title: "AI Voice Receptionist System",
+    industry: "AI & Automation",
+    summary: "A conversational AI receptionist that handles inbound calls, captures and qualifies leads, assists existing clients, and routes enquiries through CRM-aware workflows.",
+    projectDescription: "The AI Voice Receptionist System is a conversational receptionist designed to handle inbound customer calls with natural, human-like interactions. It understands caller intent, collects structured information, assists existing clients, and routes or escalates calls when needed. Built using GoHighLevel (GHL), AI conversational workflows, and webhook-based automations, it adapts conversations using CRM data, client context, and caller intent. Its prompt architecture supports contextual memory, intelligent question flows, escalation handling, and operational guardrails.",
+    tools: ["GoHighLevel", "CRM integrations", "OpenAI APIs", "ElevenLabs"],
+    techStack: ["AI conversational agents", "Voice AI processing", "GoHighLevel CRM", "Webhook automation"],
+    projectGoals: [
+      "Automate receptionist and inbound call operations",
+      "Provide natural, human-like conversational experiences",
+      "Reduce manual receptionist workload",
+      "Improve lead capture and qualification",
+      "Maintain structured CRM data collection",
+      "Increase response efficiency for inbound enquiries",
+      "Enable scalable AI-powered customer intake operations",
     ],
-    outcome: "The client highlighted reliable delivery, on-time milestones, and a smooth revision process. No call volume or conversion figures were provided.",
-    image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1200&auto=format&fit=crop&q=80",
-    testimonial: {
-      quote: "The milestones always stayed on time and were nearly perfect each time. When revisions were needed, they were handled promptly and without any hassle.",
-      author: "Aaron Gott",
-      role: "CEO, AGI Driving Academy",
-    },
+    image: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=1200&auto=format&fit=crop&q=80",
+  },
+  {
+    slug: "vino-design-build-sop-guide",
+    title: "Vino Design & Build SOP Guide",
+    client: "Vino Design & Build",
+    clientWebsite: "https://vinodesignbuild.com/",
+    industry: "Design & Build",
+    summary: "An AI-powered internal knowledge assistant that helps employees find answers in standard operating procedures and operational documents.",
+    projectDescription: "The Vino Design & Build SOP Guide is an internal knowledge assistant built with ElevenLabs conversational agents and a Retrieval-Augmented Generation (RAG) knowledge base. Employees can ask questions in natural language and receive concise, contextual answers drawn from the SOP and operational documentation, without searching through lengthy files manually. An n8n workflow periodically fetches SOP documents from SmartSuite, cleans and structures them into knowledge chunks, and refreshes the RAG knowledge base so it reflects the latest documentation.",
+    tools: ["ElevenLabs", "n8n", "SmartSuite", "OpenAI APIs", "Vector database / RAG infrastructure"],
+    techStack: ["AI conversational agent architecture", "Retrieval-Augmented Generation (RAG)", "n8n workflow automation", "SmartSuite API integrations", "Knowledge base processing and embedding pipelines"],
+    projectGoals: [
+      "Centralize internal SOP access for employees",
+      "Reduce time spent searching documentation",
+      "Improve onboarding and operational efficiency",
+      "Automate SOP document synchronization and updates",
+      "Increase accuracy and consistency in employee guidance",
+      "Create a scalable AI-driven knowledge management system",
+    ],
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&auto=format&fit=crop&q=80",
   },
 ];
