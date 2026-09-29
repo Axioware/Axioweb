@@ -8,9 +8,6 @@ import {
   ArrowRight,
   Brain,
   Globe,
-  Palette,
-  Search,
-  Share2,
   CheckCircle,
   Settings,
   Target,
@@ -33,6 +30,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import SEO, { generateServiceSchema, generateBreadcrumbSchema } from "@/components/SEO";
+import NotFound from "@/pages/NotFound";
 
 interface ServiceInfo {
   title: string;
@@ -192,144 +190,6 @@ const serviceData: Record<string, ServiceInfo> = {
       ],
     },
   },
-  "ui-ux-design": {
-    title: "UI/UX Design",
-    desc: "Beautiful, intuitive interfaces designed to delight users and drive meaningful engagement.",
-    icon: Palette,
-    features: [
-      { title: "User Research", icon: Users, desc: "Deep understanding of your users' needs and behaviors" },
-      { title: "Wireframing", icon: Layers, desc: "Strategic layouts that guide the user journey" },
-      { title: "Prototyping", icon: Eye, desc: "Interactive prototypes to validate designs early" },
-      { title: "Design Systems", icon: Sparkles, desc: "Scalable component libraries for consistency" },
-    ],
-    overview: {
-      heading: "Design That Converts",
-      description:
-        "Great design is invisible—it just works. Our UI/UX team creates intuitive, beautiful interfaces that guide users naturally toward their goals. We combine research-driven insights with creative excellence to deliver experiences that users love.",
-      benefits: [
-        "Increase conversion rates with optimized user flows",
-        "Reduce support costs with intuitive interfaces",
-        "Build brand loyalty through memorable experiences",
-        "Ensure consistency with scalable design systems",
-      ],
-    },
-    process: {
-      steps: [
-        {
-          title: "User Research",
-          description: "We study your users through interviews, surveys, and analytics to understand their needs.",
-          icon: Users,
-        },
-        {
-          title: "Wireframing",
-          description: "Low-fidelity wireframes map out the user journey and information architecture.",
-          icon: Layers,
-        },
-        {
-          title: "Visual Design",
-          description: "High-fidelity designs bring your brand to life with stunning visuals.",
-          icon: PenTool,
-        },
-        {
-          title: "Prototyping & Testing",
-          description: "Interactive prototypes are tested with real users to validate design decisions.",
-          icon: Eye,
-        },
-      ],
-    },
-  },
-  seo: {
-    title: "SEO",
-    desc: "Data-driven strategies to improve search visibility and drive sustainable organic traffic growth.",
-    icon: Search,
-    features: [
-      { title: "Technical SEO", icon: Settings, desc: "Site architecture, speed, and crawlability optimization" },
-      { title: "Content Strategy", icon: FileSearch, desc: "Keyword-targeted content that ranks and converts" },
-      { title: "Link Building", icon: Link2, desc: "Quality backlinks that build domain authority" },
-      { title: "Local SEO", icon: Target, desc: "Dominate local search results in your area" },
-    ],
-    overview: {
-      heading: "Dominate Search Results",
-      description:
-        "SEO isn't just about rankings—it's about connecting your business with customers actively searching for your solutions. We combine technical expertise, content strategy, and data analysis to build sustainable organic growth.",
-      benefits: [
-        "Increase organic traffic significantly in 12 months",
-        "Reduce customer acquisition costs vs. paid ads",
-        "Build long-term brand authority and trust",
-        "Capture high-intent traffic that converts",
-      ],
-    },
-    process: {
-      steps: [
-        {
-          title: "SEO Audit",
-          description: "Comprehensive analysis of your site's technical health, content, and backlink profile.",
-          icon: FileSearch,
-        },
-        {
-          title: "Keyword Strategy",
-          description: "Research-driven keyword targeting based on search volume, intent, and competition.",
-          icon: Target,
-        },
-        {
-          title: "On-Page Optimization",
-          description: "Content optimization, meta tags, schema markup, and internal linking.",
-          icon: Code,
-        },
-        {
-          title: "Off-Page & Reporting",
-          description: "Link building, local citations, and monthly reporting with actionable insights.",
-          icon: Link2,
-        },
-      ],
-    },
-  },
-  "social-media": {
-    title: "Social Media Marketing",
-    desc: "Strategic campaigns that build brand awareness, engage audiences, and drive measurable results.",
-    icon: Share2,
-    features: [
-      { title: "Content Creation", icon: Camera, desc: "Engaging posts, stories, and videos for every platform" },
-      { title: "Community Management", icon: Users, desc: "Active engagement and relationship building" },
-      { title: "Paid Advertising", icon: Target, desc: "Targeted campaigns with measurable ROI" },
-      { title: "Analytics & Reporting", icon: BarChart, desc: "Data-driven insights to optimize performance" },
-    ],
-    overview: {
-      heading: "Amplify Your Brand Voice",
-      description:
-        "Social media is where brands become human. Our team creates compelling content, manages engaged communities, and runs data-driven ad campaigns that turn followers into customers and customers into advocates.",
-      benefits: [
-        "Build authentic connections with your audience",
-        "Increase brand awareness and reach new markets",
-        "Drive website traffic and lead generation",
-        "Leverage paid social for scalable growth",
-      ],
-    },
-    process: {
-      steps: [
-        {
-          title: "Strategy Development",
-          description: "Define your brand voice, target audience, and content pillars.",
-          icon: Target,
-        },
-        {
-          title: "Content Creation",
-          description: "Engaging posts, stories, reels, and graphics tailored to each platform.",
-          icon: Camera,
-        },
-        {
-          title: "Community Management",
-          description: "Active engagement, response management, and community building.",
-          icon: MessageCircle,
-        },
-        {
-          title: "Paid Campaigns",
-          description: "Targeted advertising with A/B testing and performance optimization.",
-          icon: BarChart,
-        },
-      ],
-    },
-  },
 };
 
 const containerVariants = {
@@ -347,17 +207,15 @@ const itemVariants = {
 
 export default function GenericService() {
   const { slug } = useParams();
-  const service = serviceData[slug || ""] || serviceData["web-development"];
+  const service = serviceData[slug || ""];
+
+  if (!service) return <NotFound />;
 
   const seoKeywords: Record<string, string> = {
     "machine-learning":
       "Machine Learning, ML Solutions, Predictive Analytics, AI Models, Data Science, Business Intelligence",
     "web-development": "Web Development, React, Next.js, Web Applications, E-commerce, Progressive Web Apps",
     "app-development": "App Development, Mobile Apps, iOS Apps, Android Apps, Cross-Platform Apps, React Native",
-    "ui-ux-design": "UI/UX Design, User Experience, User Interface, Product Design, Design Systems, Prototyping",
-    seo: "SEO Services, Search Engine Optimization, Google Rankings, Organic Traffic, Technical SEO, Content SEO",
-    "social-media":
-      "Social Media Marketing, Content Strategy, Social Advertising, Brand Awareness, Engagement Marketing",
   };
 
   return (

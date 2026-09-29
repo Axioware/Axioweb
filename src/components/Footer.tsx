@@ -10,8 +10,6 @@ const footerLinks = {
     { label: "Machine Learning", href: "/services/machine-learning" },
     { label: "Web Development", href: "/services/web-development" },
     { label: "App Development", href: "/services/app-development" },
-    { label: "UI/UX Design", href: "/services/ui-ux-design" },
-    { label: "SEO", href: "/services/seo" },
   ],
   company: [
     { label: "About Us", href: "/about" },

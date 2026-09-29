@@ -1,14 +1,11 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Brain, Globe, Palette, Search, Share2, Smartphone, LucideIcon } from "lucide-react";
+import { ArrowRight, Brain, Globe, Smartphone, LucideIcon } from "lucide-react";
 
 // Import service images (WebP format)
 import machineLearningImg from "@/assets/services/machine-learning.webp";
 import webDevelopmentImg from "@/assets/services/web-development.webp";
-import uiUxDesignImg from "@/assets/services/ui-ux-design.webp";
-import seoImg from "@/assets/services/seo.webp";
-import socialMediaImg from "@/assets/services/social-media.webp";
 
 interface Service {
   id: string;
@@ -51,36 +48,6 @@ const services: Service[] = [
     gradient: "from-violet-500/10 to-fuchsia-500/10",
     accentColor: "text-violet-400",
     image: webDevelopmentImg,
-  },
-  {
-    id: "design",
-    title: "UI/UX Design",
-    description: "Beautiful, intuitive interfaces designed to delight.",
-    icon: Palette,
-    href: "/services/ui-ux-design",
-    gradient: "from-pink-500/10 to-rose-500/10",
-    accentColor: "text-pink-400",
-    image: uiUxDesignImg,
-  },
-  {
-    id: "seo",
-    title: "SEO",
-    description: "Data-driven strategies that improve visibility.",
-    icon: Search,
-    href: "/services/seo",
-    gradient: "from-emerald-500/10 to-green-500/10",
-    accentColor: "text-emerald-400",
-    image: seoImg,
-  },
-  {
-    id: "social",
-    title: "Social Media",
-    description: "Strategic campaigns that build brand awareness.",
-    icon: Share2,
-    href: "/services/social-media",
-    gradient: "from-amber-500/10 to-yellow-500/10",
-    accentColor: "text-amber-400",
-    image: socialMediaImg,
   },
 ];
 

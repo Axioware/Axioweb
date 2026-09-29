@@ -18,6 +18,8 @@ import NotFound from "@/pages/NotFound";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import Careers from "@/pages/Careers";
+import CaseStudies from "@/pages/CaseStudies";
+import CaseStudyDetail from "@/pages/CaseStudyDetail";
 
 export default function AnimatedRoutes() {
   const location = useLocation();
@@ -64,6 +66,22 @@ export default function AnimatedRoutes() {
           element={
             <PageTransition>
               <Portfolio />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/case-studies"
+          element={
+            <PageTransition>
+              <CaseStudies />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/case-studies/:slug"
+          element={
+            <PageTransition>
+              <CaseStudyDetail />
             </PageTransition>
           }
         />

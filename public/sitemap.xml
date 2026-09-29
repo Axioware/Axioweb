@@ -51,34 +51,30 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- SEO Service -->
+
+  <!-- AI Receptionist Case Studies -->
   <url>
-    <loc>https://axioware.tech/services/seo</loc>
-    <lastmod>2026-01-23</lastmod>
+    <loc>https://axioware.tech/case-studies</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://axioware.tech/case-studies/vino-design-build-ai-receptionist</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axioware.tech/case-studies/agi-driving-ai-receptionist</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   
   <!-- Machine Learning Service -->
   <url>
     <loc>https://axioware.tech/services/machine-learning</loc>
-    <lastmod>2026-01-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- UI/UX Design Service -->
-  <url>
-    <loc>https://axioware.tech/services/ui-ux-design</loc>
-    <lastmod>2026-01-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Social Media Service -->
-  <url>
-    <loc>https://axioware.tech/services/social-media</loc>
     <lastmod>2026-01-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

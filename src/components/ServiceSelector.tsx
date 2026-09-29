@@ -1,14 +1,11 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Brain, Globe, Palette, Search, Share2, Smartphone } from "lucide-react";
+import { ArrowRight, Brain, Globe, Smartphone } from "lucide-react";
 
 // Import service images (WebP format)
 import machineLearningImg from "@/assets/services/machine-learning.webp";
 import webDevelopmentImg from "@/assets/services/web-development.webp";
-import uiUxDesignImg from "@/assets/services/ui-ux-design.webp";
-import seoImg from "@/assets/services/seo.webp";
-import socialMediaImg from "@/assets/services/social-media.webp";
 
 const services = [
   {
@@ -46,40 +43,6 @@ const services = [
     image: webDevelopmentImg,
     iconColor: "text-violet-400",
     iconBg: "bg-violet-500/10",
-  },
-  {
-    id: "design",
-    title: "UI/UX Design",
-    description:
-      "Beautiful, intuitive interfaces that delight users with visually stunning and functional experiences.",
-    icon: Palette,
-    href: "/services/ui-ux-design",
-    features: ["User Research", "Prototyping", "Design Systems"],
-    image: uiUxDesignImg,
-    iconColor: "text-rose-400",
-    iconBg: "bg-rose-500/10",
-  },
-  {
-    id: "seo",
-    title: "SEO",
-    description: "Data-driven SEO strategies that improve visibility and drive organic traffic to your business.",
-    icon: Search,
-    href: "/services/seo",
-    features: ["Technical SEO", "Content Strategy", "Local SEO"],
-    image: seoImg,
-    iconColor: "text-amber-400",
-    iconBg: "bg-amber-500/10",
-  },
-  {
-    id: "social",
-    title: "Social Media",
-    description: "Strategic social media campaigns that build brand awareness and turn followers into customers.",
-    icon: Share2,
-    href: "/services/social-media",
-    features: ["Content Creation", "Paid Advertising", "Analytics"],
-    image: socialMediaImg,
-    iconColor: "text-indigo-400",
-    iconBg: "bg-indigo-500/10",
   },
 ];
 

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import SectionHeading from "./SectionHeading";
 import ParallaxImage from "./ParallaxImage";
 import { Button } from "./ui/button";
-import { Mic, MessageSquare, Brain, Globe, Palette, Search, Share2, Smartphone, ArrowRight, CheckCircle } from "lucide-react";
+import { Mic, MessageSquare, Brain, Globe, Smartphone, ArrowRight, CheckCircle } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 
 // Import custom AI illustrations (WebP format)
@@ -11,9 +11,6 @@ import voiceAgentsImg from "@/assets/services/VA.png";
 import chatbotsImg from "@/assets/services/chatbots.webp";
 import machineLearningImg from "@/assets/services/Machine Learning.jpg";
 import webDevelopmentImg from "@/assets/services/web-development.webp";
-import uiUxDesignImg from "@/assets/services/ui-ux-design.webp";
-import seoImg from "@/assets/services/seo.webp";
-import socialMediaImg from "@/assets/services/social-media.webp";
 
 interface Service {
   title: string;
@@ -87,39 +84,6 @@ const otherServices: Service[] = [
     highlights: ["iOS & Android", "Cross-platform builds", "API integrations"],
     color: "text-violet-400",
     bgColor: "bg-violet-500/10",
-  },
-  {
-    title: "UI/UX Design",
-    description:
-      "Beautiful, intuitive interfaces designed to delight users and drive engagement. We combine aesthetics with usability to create memorable digital experiences that set you apart.",
-    icon: Palette,
-    href: "/services/ui-ux-design",
-    image: uiUxDesignImg,
-    highlights: ["User research", "Prototyping", "Design systems"],
-    color: "text-rose-400",
-    bgColor: "bg-rose-500/10",
-  },
-  {
-    title: "SEO",
-    description:
-      "Data-driven SEO strategies that improve your search visibility and drive organic traffic. We optimize your online presence to help customers find you when they need you most.",
-    icon: Search,
-    href: "/services/seo",
-    image: seoImg,
-    highlights: ["Technical SEO", "Content strategy", "Local SEO"],
-    color: "text-amber-400",
-    bgColor: "bg-amber-500/10",
-  },
-  {
-    title: "Social Media Marketing",
-    description:
-      "Strategic social media campaigns that build brand awareness and turn followers into loyal customers. We create engaging content that resonates with your target audience.",
-    icon: Share2,
-    href: "/services/social-media",
-    image: socialMediaImg,
-    highlights: ["Content creation", "Paid advertising", "Analytics"],
-    color: "text-indigo-400",
-    bgColor: "bg-indigo-500/10",
   },
 ];
 
