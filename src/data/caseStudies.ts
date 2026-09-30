@@ -19,6 +19,26 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
+    slug: "hax-vault",
+    title: "HAX Vault",
+    client: "HAX Consulting",
+    clientWebsite: "https://haxconsulting.com/",
+    industry: "Knowledge Management",
+    summary: "A full-stack SOP management platform with rich-text documents, nested folders, role-based access, auto-save, and AI-powered semantic search.",
+    projectDescription: "HAX Vault is a full-stack web application for centralizing internal SOPs in a structured, Notion-style document system. Teams can create, organize, and edit rich-text documents in nested folders, with auto-save, role-based access, and a recycle bin for safe deletion. Supabase provides authentication, database, and storage, while n8n powers AI-based search using embeddings so users can find relevant SOPs by title and content. The platform turns static documentation into a dynamic, searchable knowledge system and lays the foundation for a future custom AI chatbot.",
+    tools: ["Supabase", "n8n", "Zapier"],
+    techStack: ["Frontend: Vite + React", "Backend: Python", "Vector database: Supabase", "Hosting: Vercel and Lovable Cloud", "Database: Supabase"],
+    projectGoals: [
+      "Deliver a rich content editor tailored for HAX Consulting",
+      "Centralize internal document management",
+      "Automatically embed and index saved documents",
+      "Make SOPs searchable by title and content",
+      "Create a knowledge foundation for a future custom AI chatbot",
+      "Support accurate retrieval of SOPs, policies, and internal documentation",
+    ],
+    image: "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https%3A//assets.cdn.filesafe.space/BGL3ZjGmMr1ajpXNKlhX/media/63ed48a44db3b965e42c8d96.png",
+  },
+  {
     slug: "vino-design-build-ai-follow-up-calling-system",
     title: "AI Follow-Up Calling System",
     client: "Vino Design & Build",

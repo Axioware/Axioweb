@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Bot, HardHat, type LucideIcon } from "lucide-react";
+import { ArrowRight, Bot, Files, HardHat, type LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import AnimatedHeroBackground from "@/components/AnimatedHeroBackground";
@@ -10,6 +10,7 @@ import { caseStudies } from "@/data/caseStudies";
 const icons: Record<string, LucideIcon> = {
   "AI & Automation": Bot,
   "Design & Build": HardHat,
+  "Knowledge Management": Files,
 };
 
 export default function CaseStudies() {
