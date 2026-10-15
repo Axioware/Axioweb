@@ -27,14 +27,14 @@ type ContactFormData = z.infer<typeof contactSchema>;
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const services = [
-  { value: "voice-agents", label: "Voice Agents" },
-  { value: "chatbots", label: "AI Chatbots" },
-  { value: "machine-learning", label: "Machine Learning" },
-  { value: "web-development", label: "Web Development" },
-  { value: "app-development", label: "App Development" },
-  { value: "ui-ux-design", label: "UI/UX Design" },
-  { value: "seo", label: "SEO" },
-  { value: "social-media", label: "Social Media Marketing" },
+  { value: "ai-receptionist", label: "AI Receptionist" },
+  { value: "ai-lead-generation", label: "AI Lead Generation" },
+  { value: "linkedin-bdr", label: "LinkedIn BDR" },
+  { value: "automated-follow-ups", label: "Automated Follow-Ups" },
+  { value: "outbound-ai-calling", label: "Outbound AI Calling" },
+  { value: "whatsapp-and-chat-agents", label: "WhatsApp and Chat Agents" },
+  { value: "crm-and-workflow-setup", label: "CRM and Workflow Setup" },
+  { value: "web-development", label: "Website build add-on" },
   { value: "other", label: "Other" },
 ];
 
@@ -91,8 +91,7 @@ export default function Contact() {
     <Layout>
       <SEO
         title="Contact Us - Get in Touch"
-        description="Contact Axioware for AI solutions, Voice Agents, Chatbots, and digital transformation services. Get a free consultation and quote within 24 hours."
-        keywords="Contact Axioware, AI Consultation, Voice Agent Quote, Chatbot Development, Get in Touch, Free Quote"
+        description="Contact Axioware about AI receptionists, lead follow-up, LinkedIn outreach, or workflow setup for your service business."
         canonical="/contact"
         structuredData={generateLocalBusinessSchema()}
       />
@@ -101,9 +100,8 @@ export default function Contact() {
         <div className="container-custom relative z-10">
           <SectionHeading
             badge="Contact Us"
-            title="Let's Build Something Amazing"
-            highlight="Amazing"
-            subtitle="Have a project in mind? We'd love to hear about it. Reach out and let's discuss how we can help transform your business."
+            title="Let's talk about your workflows"
+            subtitle="Tell us how your team handles calls, leads, and appointments. We can discuss where automation may help."
             light
           />
         </div>

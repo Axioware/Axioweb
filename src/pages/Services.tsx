@@ -8,23 +8,21 @@ import ServiceSelector from "@/components/ServiceSelector";
 import MobileServiceGrid from "@/components/MobileServiceGrid";
 import SectionHeading from "@/components/SectionHeading";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { ArrowRight, Mic, MessageSquare, Utensils } from "lucide-react";
+import { ArrowRight, Mic, Target } from "lucide-react";
 import SEO, { generateBreadcrumbSchema } from "@/components/SEO";
 const featuredServices = [
   {
-    title: "Voice Agents",
-    description:
-      "Intelligent voice-powered assistants that handle customer calls, appointments, and support with natural conversations.",
+    title: "AI Receptionist",
+    description: "Answers calls, handles common questions, and books or reschedules appointments, with handoff to your staff when needed.",
     icon: Mic,
-    href: "/services/voice-agents",
+    href: "/services/ai-receptionist",
     featured: true,
   },
   {
-    title: "AI Chatbots",
-    description:
-      "Smart conversational agents that engage customers 24/7, answer questions, and drive conversions effortlessly.",
-    icon: MessageSquare,
-    href: "/services/chatbots",
+    title: "AI Lead Generation",
+    description: "Finds businesses that fit your ideal customer and qualifies them before anyone on your team spends time.",
+    icon: Target,
+    href: "/services/ai-lead-generation",
     featured: true,
   },
 ];
@@ -33,9 +31,8 @@ export default function Services() {
   return (
     <Layout>
       <SEO
-        title="Services - AI Voice Agents, Chatbots & Digital Solutions"
-        description="Explore Axioware's AI and digital services, including Voice Agents, AI Chatbots, Machine Learning, Web Development, and App Development."
-        keywords="AI Services, Voice Agents, AI Chatbots, Machine Learning, Web Development, App Development, Digital Solutions"
+        title="AI Automation Services for Small Businesses"
+        description="Explore AI receptionists, lead generation, LinkedIn outreach, automated follow-ups, and workflow setup for small service businesses."
         canonical="/services"
         structuredData={generateBreadcrumbSchema([
           { name: "Home", url: "/" },
@@ -65,7 +62,7 @@ export default function Services() {
             </span>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">Our Services</h1>
             <p className="text-lg md:text-xl text-white/85 mb-10 leading-relaxed">
-              Comprehensive AI and digital solutions to transform your business and drive growth.
+              AI that answers your calls, follows up with your leads, and books your appointments.
             </p>
             <Button asChild size="xl" className="bg-accent hover:bg-accent/90 text-white shadow-lg shadow-accent/30">
               <Link to="/contact" className="group">
@@ -82,9 +79,8 @@ export default function Services() {
         <div className="container-custom">
           <SectionHeading
             badge="AI-Powered"
-            title="Featured Services"
-            highlight="Featured"
-            subtitle="Our flagship AI solutions that transform how businesses operate."
+            title="Start with calls and leads"
+            subtitle="AI systems for calls, lead qualification, and appointment bookings."
           />
 
           <motion.div
@@ -99,7 +95,7 @@ export default function Services() {
             }}
             className="mb-8 pt-4 relative z-20"
           >
-            <p className="text-center text-sm font-medium text-accent">★ Core AI Solutions</p>
+            <p className="text-center text-sm font-medium text-accent">★ Core services</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
@@ -114,13 +110,15 @@ export default function Services() {
       <section className="section-padding bg-secondary/30">
         <div className="container-custom">
           <SectionHeading
-            badge="Full Suite"
-            title="Additional Services"
-            highlight="Additional"
-            subtitle="Comprehensive digital solutions to complement your AI strategy."
+            badge="More services"
+            title="Follow-up and workflow systems"
+            subtitle="Outreach, customer messaging, and CRM workflows that support your team."
           />
 
           {isMobile ? <MobileServiceGrid /> : <ServiceSelector />}
+          <p className="mt-10 text-center text-sm text-muted-foreground">
+            Need a website to go with it? We build sites that plug straight into these systems.
+          </p>
         </div>
       </section>
 
@@ -149,7 +147,7 @@ export default function Services() {
           >
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">Ready to Get Started?</h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Let's discuss how our services can help you achieve your business goals.
+              Let's discuss your calls, leads, and workflows.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-accent hover:bg-accent/90">

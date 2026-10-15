@@ -70,7 +70,7 @@ const techStacks: TechStack[] = [
     ],
   },
   {
-    name: "AI & ML",
+    name: "AI tools",
     color: "text-purple-500",
     technologies: [
       { name: "OpenAI", logo: openaiLogo },
@@ -119,7 +119,7 @@ export default function TechnologiesSection() {
           badge="Technologies"
           title="Specialized in Modern Tech"
           highlight="Modern Tech"
-          subtitle="We leverage the latest technologies to build scalable, maintainable, and high-performance solutions."
+          subtitle="These are some of the tools used to build and connect business systems."
         />
 
         {/* Stack Pills */}

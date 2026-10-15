@@ -6,7 +6,7 @@ import SectionHeading from "./SectionHeading";
 import IPhoneMockup from "./IPhoneMockup";
 import CallInterface from "./CallInterface";
 
-const capabilities = ["24/7 availability", "Natural conversations", "CRM integration", "Multi-language support"];
+const capabilities = ["Answers incoming calls", "Handles common questions", "Books appointments", "Hands off to staff"];
 
 export default function VoiceAgentDemo() {
   return (
@@ -14,9 +14,9 @@ export default function VoiceAgentDemo() {
       <div className="container-custom">
         <SectionHeading
           badge="Featured"
-          title="AI Voice Agents"
-          highlight="Voice Agents"
-          subtitle="Intelligent voice-powered assistants that handle customer calls with natural conversations."
+          title="AI Receptionist"
+          highlight="Receptionist"
+          subtitle="Answers calls, handles common questions, and helps book or reschedule appointments."
         />
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -32,11 +32,10 @@ export default function VoiceAgentDemo() {
               See It In Action
             </span>
             <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-6">
-              Transform Your Phone System
+              A receptionist for routine calls
             </h3>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              Our Voice Agents handle customer calls around the clock, from appointment scheduling to support queries.
-              They sound natural, understand context, and never miss a call.
+              It answers incoming calls, handles routine questions, and supports appointment scheduling, with a handoff to your staff when needed.
             </p>
             <ul className="space-y-3 mb-8">
               {capabilities.map((item) => (
@@ -48,7 +47,7 @@ export default function VoiceAgentDemo() {
             </ul>
             <div className="flex flex-wrap gap-4">
               <Button asChild size="lg" className="bg-accent hover:bg-accent/90">
-                <Link to="/services/voice-agents" className="group">
+                <Link to="/services/ai-receptionist" className="group">
                   Learn More
                   <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
                 </Link>

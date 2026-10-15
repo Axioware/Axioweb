@@ -19,7 +19,7 @@ export default function HeroSection() {
         >
           <div className="w-8 h-px bg-white/50" />
           <span className="text-[11px] font-semibold tracking-[0.22em] uppercase text-white/60 font-sans">
-            Intelligence Engineered for Growth
+            AI for small service businesses
           </span>
         </motion.div>
 
@@ -31,12 +31,12 @@ export default function HeroSection() {
           className="font-display font-bold text-white leading-[0.92] tracking-tight mb-12 md:mb-16
                      text-[clamp(3.2rem,9vw,7.5rem)]"
         >
-          Transform your
+          Answer calls,
           <br />
-          business with
+          follow up with leads,
           <br />
           <em className="text-accent" style={{ fontStyle: "italic" }}>
-            intelligent AI
+            book appointments
           </em>
         </motion.h1>
 
@@ -49,9 +49,7 @@ export default function HeroSection() {
         >
           {/* Description */}
           <p className="text-base md:text-lg text-white/70 max-w-sm leading-relaxed font-sans">
-            Axioware builds cutting-edge software solutions and AI-powered products
-            that help businesses engage clients, automate workflows, and scale
-            intelligently.
+            AI that answers your calls, follows up with your leads, and books your appointments.
           </p>
 
           {/* CTA + tagline */}

@@ -5,11 +5,13 @@ import logoWhite from "@/assets/axioware-logo-white.webp";
 
 const footerLinks = {
   services: [
-    { label: "Voice Agents", href: "/services/voice-agents" },
-    { label: "AI Chatbots", href: "/services/chatbots" },
-    { label: "Machine Learning", href: "/services/machine-learning" },
-    { label: "Web Development", href: "/services/web-development" },
-    { label: "App Development", href: "/services/app-development" },
+    { label: "AI Receptionist", href: "/services/ai-receptionist" },
+    { label: "AI Lead Generation", href: "/services/ai-lead-generation" },
+    { label: "LinkedIn BDR", href: "/services/linkedin-bdr" },
+    { label: "Automated Follow-Ups", href: "/services/automated-follow-ups" },
+    { label: "Outbound AI Calling", href: "/services/outbound-ai-calling" },
+    { label: "WhatsApp and Chat Agents", href: "/services/whatsapp-and-chat-agents" },
+    { label: "CRM and Workflow Setup", href: "/services/crm-and-workflow-setup" },
   ],
   company: [
     { label: "About Us", href: "/about" },
@@ -68,8 +70,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-background/70 mb-6 leading-relaxed">
-              Empowering businesses with intelligent automation. From Voice Agents to AI Chatbots, we build the future
-              of customer engagement.
+              AI systems that answer calls, follow up with leads, and help small service businesses book appointments.
             </p>
             <div className="flex items-center gap-4">
               {footerLinks.social.map((social) => (

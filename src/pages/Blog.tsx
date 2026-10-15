@@ -84,9 +84,8 @@ export default function Blog() {
   return (
     <Layout>
       <SEO
-        title="Blog - AI Insights, Tutorials & Industry News"
-        description="Explore the Axioware blog for expert insights on AI, Voice Agents, Chatbots, Machine Learning, Web Development, and SEO. Stay ahead with the latest trends."
-        keywords="AI Blog, Voice Agents Articles, Chatbot Tutorials, Machine Learning Insights, Web Development Tips, SEO Guides, Digital Transformation"
+        title="Blog - AI Automation Guides"
+        description="Read guides about AI receptionists, lead follow-up, customer messaging, and automation for service businesses."
         canonical="/blog"
         structuredData={generateBreadcrumbSchema([
           { name: "Home", url: "/" },
