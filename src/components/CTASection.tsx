@@ -29,15 +29,15 @@ export default function CTASection() {
           className="max-w-3xl mx-auto"
         >
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
-            Ready to Transform Your Business?
+            Ready to put a system in place?
           </h2>
           <p className="text-lg text-primary-foreground/80 mb-10 leading-relaxed">
-            Let's discuss how our AI-powered solutions can drive growth and efficiency for your organization. Get in touch for a free consultation.
+            Let's discuss your calls, leads, and workflows. Get in touch to plan your next step.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button asChild size="xl" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 group">
               <Link to="/contact">
-                Start Your Project
+                Get in touch
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
