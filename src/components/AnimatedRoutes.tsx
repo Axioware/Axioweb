@@ -135,6 +135,30 @@ export default function AnimatedRoutes() {
           }
         />
         <Route
+          path="/services/ai-lead-generation"
+          element={<PageTransition><ServicePageTemplate service={servicePages["ai-lead-generation"]} /></PageTransition>}
+        />
+        <Route
+          path="/services/linkedin-bdr"
+          element={<PageTransition><ServicePageTemplate service={servicePages["linkedin-bdr"]} /></PageTransition>}
+        />
+        <Route
+          path="/services/automated-follow-ups"
+          element={<PageTransition><ServicePageTemplate service={servicePages["automated-follow-ups"]} /></PageTransition>}
+        />
+        <Route
+          path="/services/outbound-ai-calling"
+          element={<PageTransition><ServicePageTemplate service={servicePages["outbound-ai-calling"]} /></PageTransition>}
+        />
+        <Route
+          path="/services/whatsapp-and-chat-agents"
+          element={<PageTransition><ServicePageTemplate service={servicePages["whatsapp-and-chat-agents"]} /></PageTransition>}
+        />
+        <Route
+          path="/services/crm-and-workflow-setup"
+          element={<PageTransition><ServicePageTemplate service={servicePages["crm-and-workflow-setup"]} /></PageTransition>}
+        />
+        <Route
           path="/dental-agent"
           element={
             <PageTransition>
