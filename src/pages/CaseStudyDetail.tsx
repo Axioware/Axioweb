@@ -1,121 +1,138 @@
 import { Link, Navigate, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Layout from "@/components/Layout";
 import AnimatedHeroBackground from "@/components/AnimatedHeroBackground";
+import CTASection from "@/components/CTASection";
+import FlowDiagram from "@/components/case-studies/FlowDiagram";
 import { Button } from "@/components/ui/button";
 import SEO, { generateBreadcrumbSchema } from "@/components/SEO";
-import { caseStudies } from "@/data/caseStudies";
+import { featuredCaseStudies } from "@/data/caseStudies";
+import type { ServiceSlug } from "@/data/caseStudies";
+
+const serviceLabels: Record<ServiceSlug, string> = {
+  "ai-receptionist": "AI Receptionist",
+  "ai-lead-generation": "AI Lead Generation",
+  "linkedin-bdr": "LinkedIn BDR",
+  "automated-follow-ups": "Automated Follow-Ups",
+  "outbound-ai-calling": "Outbound AI Calling",
+  "whatsapp-and-chat-agents": "WhatsApp and Chat Agents",
+  "crm-and-workflow-setup": "CRM and Workflow Setup",
+};
 
 export default function CaseStudyDetail() {
   const { slug } = useParams();
-  const study = caseStudies.find((item) => item.slug === slug);
+  const study = featuredCaseStudies.find((item) => item.slug === slug);
 
   if (!study) return <Navigate to="/case-studies" replace />;
+
+  const canonical = `/case-studies/${study.slug}`;
 
   return (
     <Layout>
       <SEO
         title={study.title}
         description={study.summary}
-        keywords={`${study.industry} AI Receptionist, Voice AI Case Study`}
-        canonical={`/case-studies/${study.slug}`}
+        canonical={canonical}
         structuredData={generateBreadcrumbSchema([
           { name: "Home", url: "/" },
           { name: "Case Studies", url: "/case-studies" },
-          { name: study.title, url: `/case-studies/${study.slug}` },
+          { name: study.title, url: canonical },
         ])}
       />
       <section className="relative py-24 md:py-32 overflow-hidden">
         <AnimatedHeroBackground />
         <div className="container-custom relative z-10 max-w-4xl">
-          <Link to="/case-studies" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-8"><ArrowLeft className="w-4 h-4" />All case studies</Link>
-          <p className="text-accent font-medium mb-4">{study.industry}{study.client && ` · ${study.client}`}</p>
+          <Link to="/case-studies" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-8">
+            <ArrowRight className="w-4 h-4 rotate-180" /> All case studies
+          </Link>
+          <p className="text-accent font-medium mb-4">{study.clientLabel}</p>
           <h1 className="font-display text-4xl md:text-6xl font-bold text-white mb-6">{study.title}</h1>
-          <p className="text-lg md:text-xl text-white/85 max-w-3xl">{study.summary}</p>
-          {study.clientWebsite && study.client && (
-            <a href={study.clientWebsite} target="_blank" rel="noopener noreferrer" className="inline-block mt-6 text-white underline underline-offset-4 hover:text-accent">Visit {study.client}'s website</a>
-          )}
+          <div className="flex flex-wrap gap-2">
+            {study.tags.map((tag) => (
+              <Link
+                key={tag}
+                to={`/services/${tag}`}
+                className="inline-flex px-3 py-1.5 rounded-full border border-white/25 bg-white/10 text-sm text-white hover:bg-white/20 transition-colors"
+              >
+                {serviceLabels[tag]}
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
-      <div className="container-custom max-w-5xl py-12 md:py-20">
-        <img src={study.image} alt="" className="w-full h-64 md:h-[420px] object-cover rounded-2xl mb-14" />
-        {study.projectDescription && (
-          <section className="mb-14">
-            <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-3">Project Description</p>
-            <p className="text-lg text-muted-foreground leading-relaxed">{study.projectDescription}</p>
-          </section>
-        )}
+      <section className="container-custom max-w-5xl py-12 md:py-16">
+        <p className="text-lg md:text-xl text-foreground leading-relaxed">{study.summary}</p>
+      </section>
 
-        {(study.tools || study.techStack) && (
-          <div className="grid md:grid-cols-2 gap-6 mb-14">
-            {study.tools && (
-              <section className="rounded-2xl bg-secondary/50 border border-border/50 p-6 md:p-8">
-                <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-4">Tools</p>
-                <ul className="space-y-3">
-                  {study.tools.map((tool) => <li key={tool} className="flex gap-3 text-foreground/85"><CheckCircle2 className="w-5 h-5 text-accent shrink-0" />{tool}</li>)}
-                </ul>
-              </section>
-            )}
-            {study.techStack && (
-              <section className="rounded-2xl bg-secondary/50 border border-border/50 p-6 md:p-8">
-                <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-4">Tech Stack</p>
-                <ul className="space-y-3">
-                  {study.techStack.map((technology) => <li key={technology} className="flex gap-3 text-foreground/85"><CheckCircle2 className="w-5 h-5 text-accent shrink-0" />{technology}</li>)}
-                </ul>
-              </section>
-            )}
-          </div>
-        )}
+      <section className="container-custom max-w-5xl pb-12 md:pb-16">
+        <FlowDiagram nodes={study.flow} />
+      </section>
 
-        {study.projectGoals && (
-          <section className="mb-14 rounded-2xl bg-secondary/50 border border-border/50 p-6 md:p-10">
-            <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-4">Project Outcome / Goals</p>
-            <ul className="grid md:grid-cols-2 gap-4">
-              {study.projectGoals.map((goal) => <li key={goal} className="flex gap-3 text-foreground/85"><CheckCircle2 className="w-5 h-5 text-accent shrink-0" />{goal}</li>)}
-            </ul>
-          </section>
-        )}
-
-        {study.challenge && study.solution && study.capabilities && (
-          <div className="grid md:grid-cols-[1fr_1.2fr] gap-10 md:gap-16">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-3">The challenge</p>
-              <h2 className="font-display text-2xl md:text-3xl font-bold mb-4">A better first response for every caller</h2>
-              <p className="text-muted-foreground leading-relaxed">{study.challenge}</p>
-            </div>
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-3">The solution</p>
-              <p className="text-muted-foreground leading-relaxed">{study.solution}</p>
-              <ul className="space-y-3 mt-6">
-                {study.capabilities.map((capability) => (
-                  <li key={capability} className="flex gap-3 text-foreground/85"><CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />{capability}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        )}
-
-        {study.outcome && (
-          <section className="mt-14 rounded-2xl bg-secondary/50 border border-border/50 p-6 md:p-10">
-            <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-3">The outcome</p>
-            <p className="text-lg text-foreground/85 leading-relaxed">{study.outcome}</p>
-          </section>
-        )}
-
-        {study.testimonial && (
-          <blockquote className="my-14 border-l-4 border-accent pl-6 md:pl-8">
-            <p className="font-display text-xl md:text-2xl text-foreground leading-relaxed">“{study.testimonial.quote}”</p>
-            <footer className="mt-4 text-sm text-muted-foreground">{study.testimonial.author} · {study.testimonial.role}</footer>
-          </blockquote>
-        )}
-
-        <div className="mt-16 text-center">
-          <h2 className="font-display text-3xl font-bold mb-4">Have a project in mind?</h2>
-          <p className="text-muted-foreground mb-7">Tell us about the challenge you want to solve and how we can help.</p>
-          <Button asChild size="lg"><Link to="/contact">Talk to our team <ArrowRight className="w-4 h-4 ml-2" /></Link></Button>
+      <section className="section-padding bg-secondary/30">
+        <div className="container-custom max-w-5xl">
+          <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-3">The problem</p>
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">What needed to be handled</h2>
+          <p className="text-lg text-muted-foreground leading-relaxed">{study.problem}</p>
         </div>
-      </div>
+      </section>
+
+      <section className="section-padding bg-background">
+        <div className="container-custom max-w-5xl">
+          <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-3">What we built</p>
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">System details</h2>
+          <ul className="space-y-4">
+            {study.built.map((item) => (
+              <li key={item} className="flex gap-3 text-foreground/85 leading-relaxed">
+                <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {study.facts.length > 0 && (
+        <section className="section-padding bg-secondary/30">
+          <div className="container-custom max-w-5xl">
+            <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-3">Facts</p>
+            <dl className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {study.facts.map((fact) => (
+                <div key={fact.label} className="rounded-xl border border-border/50 bg-card p-5">
+                  <dt className="text-sm text-muted-foreground mb-2">{fact.label}</dt>
+                  <dd className="font-semibold text-foreground">{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+      )}
+
+      <section className="section-padding bg-background">
+        <div className="container-custom max-w-5xl">
+          <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-4">Stack</p>
+          <ul className="flex flex-wrap gap-2">
+            {study.stack.map((item) => (
+              <li key={item} className="px-3 py-1.5 rounded-full bg-secondary text-sm text-foreground">{item}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="section-padding bg-secondary/30">
+        <div className="container-custom max-w-5xl">
+          <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-4">Related services</p>
+          <div className="flex flex-wrap gap-3">
+            {study.tags.map((tag) => (
+              <Button key={tag} asChild variant="outline">
+                <Link to={`/services/${tag}`}>{serviceLabels[tag]}</Link>
+              </Button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <CTASection />
     </Layout>
   );
 }
