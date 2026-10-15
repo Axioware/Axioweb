@@ -12,7 +12,7 @@ export interface CaseStudy {
   clientLabel: string;
   /** Internal only. Never render unless clientNameApproved is true. */
   clientName: string;
-  clientNameApproved: false;
+  clientNameApproved: boolean;
   tags: ServiceSlug[];
   title: string;
   summary: string;
@@ -251,5 +251,10 @@ export const featuredCaseStudies = caseStudies.filter(
 );
 
 // TODO: Confirm the AGI Driving Academy client name before it is approved for public display.
-// TODO: Add approved screenshots for all nine featured cases when the owner supplies them.
-// TODO: Add real audio files for the voice cases only if recordings are supplied.
+// TODO screenshots: vino-voice-receptionist, agi-bilingual-receptionist, vino-followup-calling,
+// sellersfirst-lead-qualification, fasttranslate-outbound, platinumlist-instagram-rag,
+// hax-haxmind-assistant, hax-onboarding-automation, sellersfirst-sheets-monday-sync.
+// TODO audio: public/case-studies/vino-voice-receptionist/call.mp3.
+// TODO audio: public/case-studies/agi-bilingual-receptionist/call.mp3.
+// TODO audio: public/case-studies/vino-followup-calling/call.mp3.
+// TODO client approval: keep all nine client names internal until clientNameApproved is changed.
