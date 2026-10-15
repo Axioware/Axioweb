@@ -9,9 +9,11 @@ import CallInterface from "@/components/CallInterface";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import SEO, { generateFAQSchema, generateServiceSchema } from "@/components/SEO";
+import RelatedWorkSection from "@/components/case-studies/RelatedWorkSection";
+import type { ServiceSlug } from "@/data/caseStudies";
 
 export interface ServicePageContent {
-  slug: string;
+  slug: ServiceSlug;
   title: string;
   outcome: string;
   description: string;
@@ -269,6 +271,7 @@ export default function ServicePageTemplate({ service }: { service: ServicePageC
         </div>
       </section>
 
+      <RelatedWorkSection service={service.slug} />
       <CTASection />
     </Layout>
   );
