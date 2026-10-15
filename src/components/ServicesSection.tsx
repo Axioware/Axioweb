@@ -3,14 +3,15 @@ import { Link } from "react-router-dom";
 import SectionHeading from "./SectionHeading";
 import ParallaxImage from "./ParallaxImage";
 import { Button } from "./ui/button";
-import { Mic, MessageSquare, Brain, Globe, Smartphone, ArrowRight, CheckCircle } from "lucide-react";
+import { Mic, MessageSquare, ArrowRight, CheckCircle, Target, Linkedin, Bell, PhoneCall, Workflow } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 
 // Import custom AI illustrations (WebP format)
 import voiceAgentsImg from "@/assets/services/VA.png";
 import chatbotsImg from "@/assets/services/chatbots.webp";
-import machineLearningImg from "@/assets/services/Machine Learning.jpg";
 import webDevelopmentImg from "@/assets/services/web-development.webp";
+import socialMediaImg from "@/assets/services/social-media.webp";
+import outboundCallImg from "@/assets/services/VoiceAgent.jpg";
 
 interface Service {
   title: string;
@@ -26,26 +27,26 @@ interface Service {
 
 const featuredServices: Service[] = [
   {
-    title: "Voice Agents",
+    title: "AI Receptionist",
     description:
-      "Intelligent voice-powered assistants that handle customer calls, appointments, and support with natural conversations. Transform your phone system into a 24/7 sales and support powerhouse.",
+      "Answers every call, handles common questions, and books or reschedules appointments, with handoff to your staff when needed.",
     icon: Mic,
-    href: "/services/voice-agents",
+    href: "/services/ai-receptionist",
     featured: true,
     image: voiceAgentsImg,
-    highlights: ["24/7 availability", "Natural conversations", "CRM integration"],
+    highlights: ["Answers calls", "Books appointments", "Handoff to staff"],
     color: "text-blue-400",
     bgColor: "bg-blue-500/10",
   },
   {
-    title: "AI Chatbots",
+    title: "AI Lead Generation",
     description:
-      "Smart conversational agents that engage customers around the clock, answer questions instantly, and drive conversions effortlessly. Deploy on web, mobile, and messaging platforms.",
-    icon: MessageSquare,
-    href: "/services/chatbots",
+      "Finds businesses that fit your ideal customer and qualifies them before anyone on your team spends time.",
+    icon: Target,
+    href: "/services/ai-lead-generation",
     featured: true,
-    image: chatbotsImg,
-    highlights: ["Multi-platform", "Lead qualification", "Instant responses"],
+    image: socialMediaImg,
+    highlights: ["Finds target businesses", "Qualifies prospects", "Shares lead details"],
     color: "text-purple-400",
     bgColor: "bg-purple-500/10",
   },
@@ -53,37 +54,59 @@ const featuredServices: Service[] = [
 
 const otherServices: Service[] = [
   {
-    title: "Machine Learning",
+    title: "LinkedIn BDR",
     description:
-      "Custom ML models and predictive analytics solutions that unlock deep insights from your data. Make smarter decisions with AI-powered intelligence that learns and improves over time.",
-    icon: Brain,
-    href: "/services/machine-learning",
-    image: machineLearningImg,
-    highlights: ["Predictive analytics", "Custom models", "Data insights"],
-    color: "text-emerald-400",
-    bgColor: "bg-emerald-500/10",
+      "Handles outreach and replies on LinkedIn and books meetings with qualified prospects.",
+    icon: Linkedin,
+    href: "/services/linkedin-bdr",
+    image: socialMediaImg,
+    highlights: ["Sends outreach", "Handles replies", "Books meetings"],
+    color: "text-blue-400",
+    bgColor: "bg-blue-500/10",
   },
   {
-    title: "Web Development",
+    title: "Automated Follow-Ups",
     description:
-      "Modern, responsive websites and web applications built with cutting-edge technologies. From landing pages to complex platforms, we create experiences that convert visitors into customers.",
-    icon: Globe,
-    href: "/services/web-development",
+      "Sends messages about missed calls, no-shows, quiet quotes, and old leads without anyone having to remember.",
+    icon: Bell,
+    href: "/services/automated-follow-ups",
+    image: chatbotsImg,
+    highlights: ["Missed calls", "No-shows and quotes", "Old leads"],
+    color: "text-purple-400",
+    bgColor: "bg-purple-500/10",
+  },
+  {
+    title: "Outbound AI Calling",
+    description:
+      "Calls your list, qualifies interest, and books appointments straight into your calendar.",
+    icon: PhoneCall,
+    href: "/services/outbound-ai-calling",
+    image: outboundCallImg,
+    highlights: ["Calls your list", "Qualifies interest", "Books appointments"],
+    color: "text-amber-400",
+    bgColor: "bg-amber-500/10",
+  },
+  {
+    title: "WhatsApp and Chat Agents",
+    description:
+      "Answers customer questions and takes bookings on WhatsApp, SMS, and your website chat.",
+    icon: MessageSquare,
+    href: "/services/whatsapp-and-chat-agents",
+    image: chatbotsImg,
+    highlights: ["WhatsApp and SMS", "Website chat", "Customer bookings"],
+    color: "text-purple-400",
+    bgColor: "bg-purple-500/10",
+  },
+  {
+    title: "CRM and Workflow Setup",
+    description:
+      "Connects these systems to your CRM and calendar so your work runs in one place.",
+    icon: Workflow,
+    href: "/services/crm-and-workflow-setup",
     image: webDevelopmentImg,
-    highlights: ["React & Next.js", "E-commerce", "API development"],
+    highlights: ["CRM connection", "Calendar connection", "Connected workflows"],
     color: "text-cyan-400",
     bgColor: "bg-cyan-500/10",
-  },
-  {
-    title: "App Development",
-    description:
-      "Custom mobile and cross-platform applications designed for reliable performance, intuitive workflows, and measurable business growth. We build apps that feel polished from first tap to daily use.",
-    icon: Smartphone,
-    href: "/services/app-development",
-    image: webDevelopmentImg,
-    highlights: ["iOS & Android", "Cross-platform builds", "API integrations"],
-    color: "text-violet-400",
-    bgColor: "bg-violet-500/10",
   },
 ];
 
@@ -122,9 +145,9 @@ export default function ServicesSection() {
       <div className="container-custom relative z-10">
         <SectionHeading
           badge="Our Services"
-          title="Solutions That Drive Growth"
+          title="AI Automation for Service Businesses"
           highlight="Growth"
-          subtitle="From AI-powered automation to creative digital solutions, we deliver comprehensive services tailored to your business needs."
+          subtitle="Practical systems that answer calls, follow up with leads, and book appointments for small service businesses."
         />
 
         {/* Alternating Service Rows */}
@@ -205,6 +228,10 @@ export default function ServicesSection() {
             );
           })}
         </motion.div>
+
+        <p className="mt-12 text-center text-sm text-muted-foreground">
+          Need a website to go with it? We build sites that plug straight into these systems.
+        </p>
       </div>
     </section>
   );
