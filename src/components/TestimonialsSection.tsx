@@ -131,7 +131,7 @@ export default function TestimonialsSection() {
           badge="Testimonials"
           title="What Our Clients Say"
           highlight="Clients"
-          subtitle="Don't just take our word for it. Hear from businesses we've helped transform."
+          subtitle="Hear from businesses that have worked with our team."
           light
         />
 

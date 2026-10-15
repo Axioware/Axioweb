@@ -31,7 +31,7 @@ const values = [
   {
     icon: Lightbulb,
     title: "Innovation First",
-    description: "We stay at the forefront of technology, constantly exploring and implementing cutting-edge solutions.",
+    description: "We keep learning about the tools and methods that suit each project.",
     points: [
       "Latest AI/ML technologies",
       "Continuous R&D investment",
@@ -108,9 +108,8 @@ export default function About() {
   return (
     <Layout>
       <SEO 
-        title="About Us - Our Story, Mission & Values"
-        description="Learn about Axioware's mission to make advanced AI technology accessible. Discover our values, expertise, and commitment to transforming businesses through intelligent automation."
-        keywords="About Axioware, AI Company, Software House, Our Story, Company Values, AI Expertise, Digital Transformation"
+        title="About Axioware"
+        description="Learn about Axioware and our work building AI receptionists, follow-up systems, and workflow automation for small service businesses."
         canonical="/about"
         structuredData={generateBreadcrumbSchema([
           { name: "Home", url: "/" },
@@ -122,9 +121,9 @@ export default function About() {
         <div className="container-custom relative z-10">
           <SectionHeading
             badge="About Axioware"
-            title="Pioneering the Future of AI"
+            title="AI automation for service businesses"
             highlight="AI"
-            subtitle="We're a team of passionate technologists, designers, and strategists dedicated to transforming businesses through intelligent automation."
+            subtitle="We build systems that answer calls, follow up with leads, and help service businesses manage appointments."
             light
           />
         </div>
@@ -149,10 +148,10 @@ export default function About() {
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed text-lg">
                 <p>
-                  Axioware was founded with a simple yet ambitious mission: to make advanced AI technology accessible to businesses of all sizes. We saw the transformative potential of voice agents and chatbots, and we set out to build solutions that could revolutionize customer engagement.
+                  Axioware focuses on practical AI automation for small service businesses. Our work includes answering calls, following up with leads, and helping teams manage appointment requests.
                 </p>
                 <p>
-                  Today, we're proud to be at the forefront of AI innovation, helping organizations across the globe leverage intelligent automation to drive growth, improve efficiency, and deliver exceptional customer experiences.
+                  We are starting with dental clinics and insurance agencies, where timely answers and follow-up can help staff manage day-to-day customer requests.
                 </p>
               </div>
               <div className="mt-8">
@@ -222,7 +221,7 @@ export default function About() {
           <div className="max-w-3xl mx-auto text-center">
             <SectionHeading
               badge="Why Axioware"
-              title="Your Partner in Digital Transformation"
+              title="Practical automation for your team"
               highlight="Partner"
             />
 
@@ -273,7 +272,7 @@ export default function About() {
             badge="Our Blog"
             title="Insights & Resources"
             highlight="Insights"
-            subtitle="Stay updated with the latest trends in AI, automation, and digital transformation."
+            subtitle="Read about AI reception, customer follow-up, and business workflows."
           />
 
           <motion.div
@@ -287,7 +286,7 @@ export default function About() {
                 title: "The Future of Voice AI in Customer Service",
                 category: "Voice Agents & AI Chatbots",
                 date: "Jan 15, 2026",
-                description: "Explore how AI voice agents are revolutionizing customer support across industries."
+                description: "Explore how AI phone assistants can handle common customer questions."
               },
               {
                 title: "Building Conversational AI That Feels Human",
@@ -299,7 +298,7 @@ export default function About() {
                 title: "Dental AI: How Ava is Changing Patient Care",
                 category: "Voice Agents & AI Chatbots",
                 date: "Jan 5, 2026",
-                description: "Discover how our dental receptionist voice agent is transforming how clinics handle patient calls."
+                description: "Learn how a dental receptionist can answer calls and help with appointment requests."
               },
             ].map((post, index) => (
               <motion.div

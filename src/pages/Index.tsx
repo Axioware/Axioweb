@@ -10,19 +10,19 @@ import SEO, { generateFAQSchema } from "@/components/SEO";
 
 const homeFAQs = [
   {
-    question: "What are Voice Agents?",
+    question: "Can an AI receptionist answer calls and book appointments?",
     answer:
-      "Voice Agents are AI-powered virtual assistants that can handle phone calls, customer inquiries, and automate voice-based interactions 24/7.",
+      "An AI receptionist can answer calls, handle common questions, and book or reschedule appointments based on the instructions and calendar access agreed for your setup.",
   },
   {
-    question: "How can AI Chatbots help my business?",
+    question: "Can follow-up messages be sent automatically?",
     answer:
-      "AI Chatbots provide instant customer support, qualify leads, and automate repetitive tasks, improving efficiency and customer satisfaction.",
+      "Yes. Follow-up workflows can send messages after situations such as missed calls, no-shows, quiet quotes, or older leads, based on rules agreed with your team.",
   },
   {
-    question: "What industries does Axioware serve?",
+    question: "Who are these services for?",
     answer:
-      "We serve various industries including healthcare, retail, hospitality, finance, and technology with customized AI solutions.",
+      "Axioware works with dental clinics, insurance agencies, and other small service businesses.",
   },
 ];
 
