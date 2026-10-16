@@ -51,8 +51,6 @@ const allServices: Service[] = [
     color: "text-purple-400",
     bgColor: "bg-purple-500/10",
   },
-];
-
   {
     title: "LinkedIn BDR",
     headline: "Spend your time on calls, not on LinkedIn messages.",
