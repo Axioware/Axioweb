@@ -6,11 +6,13 @@ import CTASection from "@/components/CTASection";
 import VoiceAgentDemo from "@/components/VoiceAgentDemo";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import SEO, { generateFAQSchema, generateServiceSchema } from "@/components/SEO";
+import SEO, { generateBreadcrumbSchema, generateFAQSchema, generateServiceSchema } from "@/components/SEO";
+import ServicePageExpansion, { type ServicePageExpansionData } from "@/components/services/ServicePageExpansion";
 
 export interface ServicePageContent {
   slug: string;
   label: string;
+  homeHeadline?: string;
   h1: string;
   subhead: string;
   metaTitle: string;
@@ -18,6 +20,7 @@ export interface ServicePageContent {
   whatItDoes: string[];
   faqs: { question: string; answer: string }[];
   showReceptionistDemo?: boolean;
+  expansion?: ServicePageExpansionData;
 }
 
 export const servicePages: Record<string, ServicePageContent> = {
@@ -182,7 +185,11 @@ export default function ServicePageTemplate({ service }: { service: ServicePageC
         structuredData={{
           "@graph": [
             generateServiceSchema({ name: service.label, description: service.metaDescription, url: `https://axioware.tech${canonical}` }),
-            generateFAQSchema(service.faqs),
+            generateBreadcrumbSchema([
+              { name: "Home", url: "/" },
+              { name: service.label, url: canonical },
+            ]),
+            generateFAQSchema(service.expansion?.faqs ?? service.faqs),
           ],
         }}
       />
@@ -218,6 +225,19 @@ export default function ServicePageTemplate({ service }: { service: ServicePageC
         </>
       )}
 
+      {service.expansion ? (
+        <ServicePageExpansion
+          content={service.expansion}
+          relatedServices={service.expansion.relatedServices.map((slug) => {
+            const relatedService = servicePages[slug];
+            return {
+              slug,
+              label: relatedService.label,
+              headline: relatedService.homeHeadline ?? "",
+            };
+          })}
+        />
+      ) : <>
       <section className="section-padding bg-background">
         <div className="container-custom">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground text-center mb-10">What it does</h2>
@@ -267,6 +287,7 @@ export default function ServicePageTemplate({ service }: { service: ServicePageC
           </Accordion>
         </div>
       </section>
+      </>}
 
       <CTASection
         title="Talk about your service needs"
