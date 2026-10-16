@@ -268,7 +268,11 @@ export default function ServicePageTemplate({ service }: { service: ServicePageC
         </div>
       </section>
 
-      <CTASection buttonLabel="Book a 15-minute call" />
+      <CTASection
+        title="Talk about your service needs"
+        description="Tell us how your team handles calls, leads, and appointments."
+        buttonLabel="Book a 15-minute call"
+      />
     </Layout>
   );
 }
