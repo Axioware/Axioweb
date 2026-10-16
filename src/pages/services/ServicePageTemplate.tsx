@@ -103,6 +103,7 @@ export const servicePages: Record<string, ServicePageContent> = {
   "ai-lead-generation": {
     slug: "ai-lead-generation",
     label: "AI Lead Generation",
+    homeHeadline: "Too many hours go to the wrong leads.",
     h1: "Stop chasing leads that were never going to buy.",
     subhead: "We research each prospect, score them against what you look for, and send you a short list with the reasoning behind each one.",
     metaTitle: "AI Lead Generation",
@@ -115,10 +116,64 @@ export const servicePages: Record<string, ServicePageContent> = {
       "Sends you a short list and a weekly report",
     ],
     faqs: [
-      { question: "How does it decide which businesses are a fit?", answer: "It compares each prospect with the ideal customer profile and criteria you provide, and shows the reasoning behind its score." },
-      { question: "Does the service contact prospects?", answer: "It researches and qualifies prospects, then prepares a personalized first message for each one." },
-      { question: "What information do I receive?", answer: "You receive a short list of prospects with the reasoning behind each one, along with a weekly report." },
+      { question: "How does it decide which businesses are a fit?", answer: "We agree on your criteria first: type of business, size, location, services, and any deal-breakers. The system scores each prospect against them and records the reasons, so you can review and adjust." },
+      { question: "Does the service contact prospects?", answer: "It drafts the first message for each prospect. Whether messages are sent automatically or reviewed by you first is your choice." },
+      { question: "What information do I receive?", answer: "A short list of qualified prospects with a score, the reasoning, the evidence found, and a draft message, plus a weekly report." },
+      { question: "Where does the prospect data come from?", answer: "Public sources such as business websites and listings, and lead databases such as Apollo.io." },
     ],
+    expansion: {
+      problem: {
+        heading: "Why prospecting takes up your week",
+        paragraphs: [
+          "Finding prospects is slow. Someone searches directories and LinkedIn, opens websites, guesses who might be a fit, and writes messages one at a time.",
+          "Much of that time goes to businesses that were never a match: the wrong size, the wrong service, or not in a position to buy. The hours are gone before the first real conversation.",
+        ],
+      },
+      whatItDoesHeading: "What you get",
+      whatItDoes: [
+        { title: "Finds matching businesses", description: "Builds a list from your ideal customer profile: type of business, size, location, and services." },
+        { title: "Researches each company", description: "Reads the website and public information to understand what the business does before anyone reaches out." },
+        { title: "Scores and explains", description: "Rates each prospect against your criteria and records why. Businesses that clearly do not fit are dropped, so they never reach your team." },
+        { title: "Writes the first message", description: "Drafts a personalized opening message based on what the research found." },
+        { title: "Delivers a short list", description: "Sends the qualified prospects with their scores and reasoning, plus a weekly report." },
+      ],
+      example: {
+        heading: "What a scored prospect looks like",
+        label: "Illustrative example, not a real business",
+        items: [
+          "Prospect A: Independent dental practice, two dentists, takes new patient bookings online.",
+          "Score: 8 out of 10.",
+          "Why: Matches target size and service. No sign of after-hours phone coverage.",
+          "Draft opener: \"Hi [Name], I saw you take new patient bookings online. Do calls outside office hours get answered?\"",
+          "Prospect B: Dental group with more than 40 locations and a central call center.",
+          "Result: Disqualified. Outside the target size.",
+        ],
+      },
+      howItWorks: {
+        heading: "How lead generation gets set up",
+        steps: [
+          { title: "We define your ideal customer.", description: "Who you sell to, what makes a good fit, and what rules a prospect out." },
+          { title: "We build the research and scoring.", description: "We set up the research steps and scoring rules, then test them on a sample list with you." },
+          { title: "You get a short list on a schedule.", description: "Qualified prospects arrive with scores and reasoning, plus a weekly report. We tune the criteria as you give feedback." },
+        ],
+      },
+      worksWith: "Apollo.io, Instantly, Google Sheets, GoHighLevel, and n8n.",
+      whoItIsFor: {
+        heading: "Who uses AI lead generation",
+        items: [
+          "Service businesses that sell to other businesses and need a steady list of qualified prospects.",
+          "Agencies and consultants who do their prospecting by hand today.",
+          "Sales teams that want to spend their time on conversations instead of research.",
+        ],
+      },
+      faqs: [
+        { question: "How does it decide which businesses are a fit?", answer: "We agree on your criteria first: type of business, size, location, services, and any deal-breakers. The system scores each prospect against them and records the reasons, so you can review and adjust." },
+        { question: "Does the service contact prospects?", answer: "It drafts the first message for each prospect. Whether messages are sent automatically or reviewed by you first is your choice." },
+        { question: "What information do I receive?", answer: "A short list of qualified prospects with a score, the reasoning, the evidence found, and a draft message, plus a weekly report." },
+        { question: "Where does the prospect data come from?", answer: "Public sources such as business websites and listings, and lead databases such as Apollo.io." },
+      ],
+      relatedServices: ["linkedin-bdr", "outbound-ai-calling", "automated-follow-ups"],
+    },
   },
   "linkedin-bdr": {
     slug: "linkedin-bdr",
