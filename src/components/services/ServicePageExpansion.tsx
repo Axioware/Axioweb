@@ -55,17 +55,14 @@ export default function ServicePageExpansion({
 }) {
   return (
     <>
-      <section className="section-padding bg-background">
-        <div className="container-custom max-w-4xl">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">{content.problem.heading}</h2>
-          {content.problem.paragraphs.map((paragraph) => (
-            <p key={paragraph} className="text-muted-foreground leading-relaxed mb-4 last:mb-0">{paragraph}</p>
-          ))}
-        </div>
-      </section>
-
       <section className="section-padding bg-secondary/30">
         <div className="container-custom">
+          <div className="max-w-4xl mx-auto mb-12">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">{content.problem.heading}</h2>
+            {content.problem.paragraphs.map((paragraph) => (
+              <p key={paragraph} className="text-muted-foreground leading-relaxed mb-4 last:mb-0">{paragraph}</p>
+            ))}
+          </div>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground text-center mb-10">{content.whatItDoesHeading}</h2>
           <div className="grid gap-4 md:grid-cols-2 max-w-5xl mx-auto">
             {content.whatItDoes.map((item) => (
@@ -78,6 +75,9 @@ export default function ServicePageExpansion({
                 </CardContent>
               </Card>
             ))}
+          </div>
+          <div className="max-w-5xl mx-auto mt-6 rounded-xl border border-border/60 bg-background/70 px-5 py-4 text-sm leading-relaxed text-muted-foreground">
+            <span className="font-semibold text-foreground">Works with: </span>{content.worksWith}
           </div>
         </div>
       </section>
@@ -122,18 +122,16 @@ export default function ServicePageExpansion({
         </div>
       </section>
 
-      <section className="section-padding bg-background">
-        <div className="container-custom max-w-4xl">
-          <p className="text-foreground leading-relaxed"><strong>Works with:</strong> {content.worksWith}</p>
-        </div>
-      </section>
-
       <section className="section-padding bg-secondary/30">
-        <div className="container-custom max-w-4xl">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">{content.whoItIsFor.heading}</h2>
-          <ul className="space-y-4 list-disc pl-6 text-muted-foreground leading-relaxed">
-            {content.whoItIsFor.items.map((item) => <li key={item}>{item}</li>)}
-          </ul>
+        <div className="container-custom">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground text-center mb-10">{content.whoItIsFor.heading}</h2>
+          <div className="grid gap-4 md:grid-cols-3 max-w-5xl mx-auto">
+            {content.whoItIsFor.items.map((item) => (
+              <Card key={item} className="h-full">
+                <CardContent className="p-6 text-muted-foreground leading-relaxed">{item}</CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
