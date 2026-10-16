@@ -19,9 +19,8 @@ interface SEOProps {
   };
 }
 
-const DEFAULT_TITLE = "Axioware - AI-Powered Software Solutions | Voice Agents & Chatbots";
-const DEFAULT_DESCRIPTION = "Axioware delivers cutting-edge Voice Agents, AI Chatbots, Web Development, SEO, and Machine Learning solutions. Transform your business with intelligent automation.";
-const DEFAULT_KEYWORDS = "Voice Agents, AI Chatbots, Machine Learning, Web Development, SEO, UI/UX Design, Software House, AI Solutions, Business Automation";
+const DEFAULT_TITLE = "Axioware | AI Receptionist, Lead Follow-Up and LinkedIn Outreach for Small Businesses";
+const DEFAULT_DESCRIPTION = "AI receptionists and follow-up systems that answer calls, qualify leads, and book appointments for dental clinics, insurance agencies, and small businesses.";
 const SITE_NAME = "Axioware";
 const BASE_URL = "https://axioware.tech";
 const DEFAULT_OG_IMAGE = "https://axioware.tech/og-image.webp";
@@ -29,7 +28,7 @@ const DEFAULT_OG_IMAGE = "https://axioware.tech/og-image.webp";
 export default function SEO({
   title,
   description = DEFAULT_DESCRIPTION,
-  keywords = DEFAULT_KEYWORDS,
+  keywords,
   canonical,
   ogImage = DEFAULT_OG_IMAGE,
   ogType = "website",
@@ -84,7 +83,7 @@ export default function SEO({
       <title>{fullTitle}</title>
       <meta name="title" content={fullTitle} />
       <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
+      {keywords && <meta name="keywords" content={keywords} />}
       <meta name="author" content="Axioware" />
       <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow"} />
       <meta name="googlebot" content={noIndex ? "noindex, nofollow" : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"} />

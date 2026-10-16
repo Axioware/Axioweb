@@ -48,7 +48,7 @@ export default function VoiceAgentDemo() {
             </ul>
             <div className="flex flex-wrap gap-4">
               <Button asChild size="lg" className="bg-accent hover:bg-accent/90">
-                <Link to="/services/voice-agents" className="group">
+                <Link to="/services/ai-receptionist" className="group">
                   Learn More
                   <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
                 </Link>
