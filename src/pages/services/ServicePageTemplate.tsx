@@ -330,6 +330,7 @@ export const servicePages: Record<string, ServicePageContent> = {
   "outbound-ai-calling": {
     slug: "outbound-ai-calling",
     label: "Outbound AI Calling",
+    homeHeadline: "Fill your calendar without picking up the phone.",
     h1: "Fill your calendar without making a single call.",
     subhead: "Our AI voice agent calls your leads, finds out who is interested, and books them straight into your calendar.",
     metaTitle: "Outbound AI Calling",
@@ -342,10 +343,64 @@ export const servicePages: Record<string, ServicePageContent> = {
       "Records every outcome in your CRM",
     ],
     faqs: [
-      { question: "Who can the voice agent call?", answer: "It can call your leads or past customers." },
-      { question: "What happens if a call reaches voicemail?", answer: "The voice agent handles voicemail and records the outcome in your CRM." },
-      { question: "How are interested people scheduled?", answer: "Interested people can be booked into your calendar." },
+      { question: "Will people know they are talking to an AI?", answer: "You decide how the call opens. We recommend the agent is upfront about being an AI assistant, and you should check the calling and disclosure rules where you operate." },
+      { question: "Who does it call?", answer: "Only the lists you give it, such as leads who asked for contact, past customers, or quotes awaiting a reply. Calling rules vary by country and by type of list, and we will go through them with you." },
+      { question: "What happens when someone wants to talk to a person?", answer: "The agent can book a call with your team or transfer the call, depending on the setup." },
+      { question: "How do I see the results?", answer: "Every call outcome is recorded in your CRM, so you can see who booked, who wants a later call, and who declined." },
     ],
+    expansion: {
+      problem: {
+        heading: "The calls nobody has time to make",
+        paragraphs: [
+          "Calling every new lead, every old lead, and every open quote takes hours your team does not have. So the list goes uncalled, or gets called days late.",
+          "People who asked about your service are most open to a conversation soon after they ask. A call that comes days later reaches someone who has moved on.",
+        ],
+      },
+      whatItDoesHeading: "What the AI voice agent does",
+      whatItDoes: [
+        { title: "Calls your list", description: "Phones new leads, old leads, or past customers on a schedule you set." },
+        { title: "Sounds like a calm team member", description: "Holds short, natural conversations using a voice and script we set up with you." },
+        { title: "Handles voicemail and objections", description: "Leaves a message when no one answers and responds to common pushback." },
+        { title: "Books interested people", description: "Offers times and books straight into your calendar." },
+        { title: "Records every outcome", description: "Marks each lead as booked, call later, or not interested, and updates your CRM." },
+      ],
+      example: {
+        heading: "What a call looks like",
+        label: "Illustrative example",
+        items: [
+          "Agent: Hi, this is Sam from Riverside Dental. You asked about a cleaning last week. Is now a good time for a quick chat?",
+          "Lead: Sure.",
+          "Agent: I have Thursday at 2:30 or Friday at 9:00. Which suits you?",
+          "Lead: Friday.",
+          "Agent: Booked for Friday at 9:00. You will get a text with the details.",
+        ],
+        note: "Other outcomes: \"Call me later\" schedules a callback. \"Not interested\" is recorded and the lead is not called again.",
+      },
+      howItWorks: {
+        heading: "How outbound calling gets set up",
+        steps: [
+          { title: "We define who to call and why.", description: "The list, the reason for the call, and what counts as a good outcome." },
+          { title: "We build the voice agent and test it.", description: "Script, voice, calendar connection, and test calls with you listening." },
+          { title: "Calls run and outcomes flow into your CRM.", description: "You see who booked, who asked for a later call, and who declined. We refine the script from real calls." },
+        ],
+      },
+      worksWith: "Twilio, ElevenLabs, n8n, GoHighLevel, and your calendar and CRM.",
+      whoItIsFor: {
+        heading: "Who uses outbound AI calling",
+        items: [
+          "Businesses with leads that went cold after an enquiry or a quote.",
+          "Clinics and agencies that want to re-contact past customers.",
+          "Sales teams that want appointments booked without manual dialing.",
+        ],
+      },
+      faqs: [
+        { question: "Will people know they are talking to an AI?", answer: "You decide how the call opens. We recommend the agent is upfront about being an AI assistant, and you should check the calling and disclosure rules where you operate." },
+        { question: "Who does it call?", answer: "Only the lists you give it, such as leads who asked for contact, past customers, or quotes awaiting a reply. Calling rules vary by country and by type of list, and we will go through them with you." },
+        { question: "What happens when someone wants to talk to a person?", answer: "The agent can book a call with your team or transfer the call, depending on the setup." },
+        { question: "How do I see the results?", answer: "Every call outcome is recorded in your CRM, so you can see who booked, who wants a later call, and who declined." },
+      ],
+      relatedServices: ["automated-follow-ups", "ai-receptionist", "crm-and-workflow-setup"],
+    },
   },
   "whatsapp-and-chat-agents": {
     slug: "whatsapp-and-chat-agents",
