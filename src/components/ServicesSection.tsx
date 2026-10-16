@@ -15,6 +15,7 @@ import outboundCallImg from "@/assets/services/VoiceAgent.jpg";
 
 interface Service {
   title: string;
+  headline: string;
   description: string;
   icon: LucideIcon;
   href: string;
@@ -28,6 +29,7 @@ interface Service {
 const featuredServices: Service[] = [
   {
     title: "AI Receptionist",
+    headline: "Never miss a call again.",
     description:
       "Answers every call, handles common questions, and books or reschedules appointments, with handoff to your staff when needed.",
     icon: Mic,
@@ -40,6 +42,7 @@ const featuredServices: Service[] = [
   },
   {
     title: "AI Lead Generation",
+    headline: "Too many hours go to the wrong leads.",
     description:
       "Finds businesses that fit your ideal customer and qualifies them before anyone on your team spends time.",
     icon: Target,
@@ -55,6 +58,7 @@ const featuredServices: Service[] = [
 const otherServices: Service[] = [
   {
     title: "LinkedIn BDR",
+    headline: "Spend your time on calls, not on LinkedIn messages.",
     description:
       "Handles outreach and replies on LinkedIn and books meetings with qualified prospects.",
     icon: Linkedin,
@@ -66,6 +70,7 @@ const otherServices: Service[] = [
   },
   {
     title: "Automated Follow-Ups",
+    headline: "The lead went quiet and nobody followed up.",
     description:
       "Sends messages about missed calls, no-shows, quiet quotes, and old leads without anyone having to remember.",
     icon: Bell,
@@ -77,6 +82,7 @@ const otherServices: Service[] = [
   },
   {
     title: "Outbound AI Calling",
+    headline: "Fill your calendar without picking up the phone.",
     description:
       "Calls your list, qualifies interest, and books appointments straight into your calendar.",
     icon: PhoneCall,
@@ -88,6 +94,7 @@ const otherServices: Service[] = [
   },
   {
     title: "WhatsApp and Chat Agents",
+    headline: "Messages pile up when your team is busy.",
     description:
       "Answers customer questions and takes bookings on WhatsApp, SMS, and your website chat.",
     icon: MessageSquare,
@@ -99,6 +106,7 @@ const otherServices: Service[] = [
   },
   {
     title: "CRM and Workflow Setup",
+    headline: "Your tools do not talk to each other.",
     description:
       "Connects these systems to your CRM and calendar so your work runs in one place.",
     icon: Workflow,
@@ -201,7 +209,7 @@ export default function ServicesSection() {
                     <span className={`text-sm font-medium ${service.color}`}>{service.title}</span>
                   </div>
 
-                  <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground">{service.title}</h3>
+                  <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground">{service.headline}</h3>
 
                   <p className="text-muted-foreground leading-relaxed text-base md:text-lg">{service.description}</p>
 
