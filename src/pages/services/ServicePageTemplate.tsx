@@ -178,6 +178,7 @@ export const servicePages: Record<string, ServicePageContent> = {
   "linkedin-bdr": {
     slug: "linkedin-bdr",
     label: "LinkedIn BDR",
+    homeHeadline: "Spend your time on calls, not on LinkedIn messages.",
     h1: "Spend your time on calls, not on LinkedIn messages.",
     subhead: "We run your outreach, handle the replies, and book interested prospects onto your calendar. You step in for the conversation that matters.",
     metaTitle: "LinkedIn BDR",
@@ -190,10 +191,67 @@ export const servicePages: Record<string, ServicePageContent> = {
       "Leaves the real conversations to you",
     ],
     faqs: [
-      { question: "Who does the outreach target?", answer: "Outreach targets people who match the ideal customer profile you provide." },
-      { question: "What happens when someone replies?", answer: "Replies and follow-ups are handled, with interested prospects booked onto your calendar." },
-      { question: "When do I join the conversation?", answer: "You step in for the conversation with an interested prospect." },
+      { question: "Will the messages sound automated?", answer: "Messages are short and specific to the person, and we write them with you so they sound like you. When a prospect wants a real conversation, it goes to you." },
+      // TODO: OWNER TO CONFIRM whether the Sales Navigator advice matches how you work.
+      { question: "Do I need LinkedIn Sales Navigator?", answer: "It helps with precise targeting. We will recommend the setup that fits your audience." },
+      // TODO: OWNER TO CONFIRM FAQ 3 and FAQ 4 wording before publishing.
+      { question: "Who handles the replies?", answer: "Common replies are handled for you, and anything that needs a real conversation is passed to you." },
+      { question: "Is this safe for my LinkedIn account?", answer: "LinkedIn limits automated activity, so we keep outreach at a steady, modest daily volume and avoid aggressive tactics. No tool can remove all risk to an account." },
     ],
+    expansion: {
+      problem: {
+        heading: "Why LinkedIn outreach stalls",
+        paragraphs: [
+          "LinkedIn works for business development, but it takes steady daily effort: finding the right people, sending requests, following up, and replying quickly.",
+          "When work gets busy, outreach is the first thing to stop. Replies sit unanswered and conversations go cold. Results come from consistency, and consistency is hard when your schedule is full.",
+        ],
+      },
+      whatItDoesHeading: "What we handle on LinkedIn",
+      whatItDoes: [
+        { title: "Targets the right people", description: "Builds your prospect list from your ideal customer profile: role, industry, company size, and location." },
+        { title: "Connects and messages daily", description: "Sends connection requests and opening messages at a steady daily pace." },
+        { title: "Handles replies and follow-ups", description: "Responds to common replies and follows up with people who go quiet." },
+        { title: "Books meetings", description: "Moves interested prospects to a booking link and puts the meeting on your calendar." },
+        { title: "Leaves real conversations to you", description: "When a prospect wants to talk in depth, you take over with the full history in front of you." },
+      ],
+      example: {
+        heading: "What an outreach sequence looks like",
+        label: "Illustrative example",
+        ordered: true,
+        items: [
+          "Day 1: A short connection request that mentions something specific to their role.",
+          "Day 3: After they accept, a brief message about a problem relevant to their business, ending with one question.",
+          "Day 7: If there is no reply, one follow-up from a different angle.",
+          "When someone replies with interest: They get a booking link, and the meeting appears in your calendar.",
+        ],
+      },
+      howItWorks: {
+        heading: "How LinkedIn outreach gets set up",
+        steps: [
+          { title: "We define who to reach and what to say.", description: "Your ideal customer, your offer, and the tone you want in messages." },
+          { title: "We set up and test the outreach.", description: "Profile review, message drafts, targeting, and a test run with a small group." },
+          { title: "Outreach runs daily and you see the results.", description: "You can see the conversations and booked meetings, and we adjust messaging based on the replies." },
+        ],
+      },
+      worksWith: "LinkedIn, Sales Navigator, GoHighLevel, n8n, and Zapier.",
+      whoItIsFor: {
+        heading: "Who uses LinkedIn BDR",
+        items: [
+          "Founders and owners who know LinkedIn works but do not have time for it.",
+          "Agencies and service firms that sell to decision makers.",
+          "Professional businesses that want a steady flow of conversations without a full-time hire.",
+        ],
+      },
+      faqs: [
+        { question: "Will the messages sound automated?", answer: "Messages are short and specific to the person, and we write them with you so they sound like you. When a prospect wants a real conversation, it goes to you." },
+        // TODO: OWNER TO CONFIRM whether the Sales Navigator advice matches how you work.
+        { question: "Do I need LinkedIn Sales Navigator?", answer: "It helps with precise targeting. We will recommend the setup that fits your audience." },
+        // TODO: OWNER TO CONFIRM FAQ 3 and FAQ 4 wording before publishing.
+        { question: "Who handles the replies?", answer: "Common replies are handled for you, and anything that needs a real conversation is passed to you." },
+        { question: "Is this safe for my LinkedIn account?", answer: "LinkedIn limits automated activity, so we keep outreach at a steady, modest daily volume and avoid aggressive tactics. No tool can remove all risk to an account." },
+      ],
+      relatedServices: ["ai-lead-generation", "automated-follow-ups", "crm-and-workflow-setup"],
+    },
   },
   "automated-follow-ups": {
     slug: "automated-follow-ups",
