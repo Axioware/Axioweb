@@ -478,6 +478,7 @@ export const servicePages: Record<string, ServicePageContent> = {
   "crm-and-workflow-setup": {
     slug: "crm-and-workflow-setup",
     label: "CRM and Workflow Setup",
+    homeHeadline: "Your tools do not talk to each other.",
     h1: "When your tools do not talk to each other, your team becomes the connection.",
     subhead: "We link your CRM, calendar, forms, and messaging so data moves by itself and nothing depends on someone remembering to copy it.",
     metaTitle: "CRM and Workflow Setup",
@@ -490,10 +491,67 @@ export const servicePages: Record<string, ServicePageContent> = {
       "Moves data between your tools so nothing is copied by hand",
     ],
     faqs: [
-      { question: "Which CRM can you set up?", answer: "CRM setup can include GoHighLevel." },
-      { question: "What tools can the workflow connect?", answer: "Workflows can connect your CRM, calendar, forms, email, and messaging." },
-      { question: "Which tools can automate repetitive steps?", answer: "The service can use n8n or Zapier to automate repetitive steps." },
+      { question: "Which CRMs do you work with?", answer: "We work most with GoHighLevel and also connect tools such as Salesforce, Monday.com, and Asana. Ask us about yours." },
+      { question: "Do I need to change my current tools?", answer: "Not necessarily. We connect what you already use where we can, and suggest changes only when they save real work." },
+      { question: "Can you fix a CRM that is already set up?", answer: "Yes. We review what is there, tidy pipelines and fields, and connect the missing steps." },
+      // TODO: OWNER TO CONFIRM the documentation promise before publishing.
+      { question: "Will my team understand what you built?", answer: "We document each workflow and walk your team through it." },
     ],
+    expansion: {
+      problem: {
+        heading: "When your team is the connection between your tools",
+        paragraphs: [
+          "A lead fills in a form. Someone copies the details into the CRM, adds a calendar event, and sends a message. Each step is small, and each one depends on a person remembering.",
+          "As the business grows, the copying grows with it. Data ends up in different places, and nobody is sure which version is right.",
+        ],
+      },
+      whatItDoesHeading: "What we set up",
+      whatItDoes: [
+        { title: "Sets up your CRM", description: "Configures GoHighLevel or your current CRM with the pipelines and fields you actually use." },
+        { title: "Captures leads automatically", description: "Connects forms, calls, and messages so every enquiry creates a record." },
+        { title: "Connects your tools", description: "Links your calendar, email, messaging, and spreadsheets so data moves between them." },
+        { title: "Automates repeated steps", description: "Builds workflows in n8n or Zapier for notifications, assignments, and updates." },
+        { title: "Keeps records consistent", description: "Syncs changes between systems so each one shows the same information." },
+      ],
+      example: {
+        heading: "What a connected workflow looks like",
+        label: "Illustrative example",
+        ordered: true,
+        items: [
+          "A lead submits a form on your website.",
+          "A contact and an opportunity are created in the CRM.",
+          "A calendar event is created and your team is notified.",
+          "The lead gets a welcome message.",
+          "As the lead moves through your pipeline, each stage change updates the CRM and notifies the right person.",
+        ],
+      },
+      howItWorks: {
+        heading: "How workflow setup works",
+        steps: [
+          { title: "We map how information flows today.", description: "Where leads come in, where details get copied, and where things get lost." },
+          { title: "We build the connections and test them.", description: "We set up the CRM and workflows, then run test records through them." },
+          // TODO: OWNER TO CONFIRM the documentation promise before publishing.
+          { title: "We hand it over and stay available.", description: "We document what we built and support your team as your needs change." },
+        ],
+      },
+      worksWith: "GoHighLevel, n8n, Zapier, Salesforce, Monday.com, Asana, Microsoft Teams, Slack, and Google Sheets.",
+      whoItIsFor: {
+        heading: "Who uses workflow setup",
+        items: [
+          "Businesses whose CRM is only half set up.",
+          "Teams that copy data between spreadsheets and apps by hand.",
+          "Companies adding an AI receptionist or follow-ups that need a CRM behind them.",
+        ],
+      },
+      faqs: [
+        { question: "Which CRMs do you work with?", answer: "We work most with GoHighLevel and also connect tools such as Salesforce, Monday.com, and Asana. Ask us about yours." },
+        { question: "Do I need to change my current tools?", answer: "Not necessarily. We connect what you already use where we can, and suggest changes only when they save real work." },
+        { question: "Can you fix a CRM that is already set up?", answer: "Yes. We review what is there, tidy pipelines and fields, and connect the missing steps." },
+        // TODO: OWNER TO CONFIRM the documentation promise before publishing.
+        { question: "Will my team understand what you built?", answer: "We document each workflow and walk your team through it." },
+      ],
+      relatedServices: ["ai-receptionist", "automated-follow-ups", "ai-lead-generation"],
+    },
   },
 };
 
