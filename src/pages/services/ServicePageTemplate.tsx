@@ -30,7 +30,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     slug: "ai-receptionist",
     label: "AI Receptionist",
     homeHeadline: "Never miss a call again.",
-    h1: "Never miss a call again.",
+    h1: "AI Receptionist for Calls and Appointments",
     subhead: "Your AI receptionist answers every call, handles common questions, and books appointments into your calendar. Your staff step in only when needed.",
     metaTitle: "AI Receptionist for Small Businesses",
     metaDescription: "An AI receptionist that answers every call, handles common questions, and books appointments into your calendar. Staff step in only when needed.",
@@ -49,11 +49,11 @@ export const servicePages: Record<string, ServicePageContent> = {
       { question: "Can it book into my existing calendar?", answer: "We connect it to your calendar or booking tool so it only offers times that are open. Ask us about your specific tool." },
     ],
     expansion: {
-      problem: {
-        heading: "What happens when nobody can answer the phone",
+      overview: {
+        heading: "AI receptionist for calls and appointments",
         paragraphs: [
-          "Your front desk is busy with the person in front of them. The phone rings anyway: at lunch, after closing, and while your team is on another call.",
-          "Most people who reach voicemail do not leave a message. They call the next business on their list, and the call you missed was often someone asking to book.",
+          "The AI receptionist answers incoming calls, handles common questions about your services, hours, and policies, and books appointments into your calendar.",
+          "It can reschedule and confirm appointments, send caller details to your CRM, and hand the call to your staff when a person is needed.",
         ],
       },
       whatItDoesHeading: "What your AI receptionist handles",
@@ -106,7 +106,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     slug: "ai-lead-generation",
     label: "AI Lead Generation",
     homeHeadline: "Too many hours go to the wrong leads.",
-    h1: "Stop chasing leads that were never going to buy.",
+    h1: "AI Lead Generation for Qualified Prospects",
     subhead: "We research each prospect, score them against what you look for, and send you a short list with the reasoning behind each one.",
     metaTitle: "AI Lead Generation",
     metaDescription: "We find businesses that fit your ideal customer, research and score each one, and send you a short list worth contacting.",
@@ -124,11 +124,11 @@ export const servicePages: Record<string, ServicePageContent> = {
       { question: "Where does the prospect data come from?", answer: "Public sources such as business websites and listings, and lead databases such as Apollo.io." },
     ],
     expansion: {
-      problem: {
-        heading: "Why prospecting takes up your week",
+      overview: {
+        heading: "AI lead generation for focused prospecting",
         paragraphs: [
-          "Finding prospects is slow. Someone searches directories and LinkedIn, opens websites, guesses who might be a fit, and writes messages one at a time.",
-          "Much of that time goes to businesses that were never a match: the wrong size, the wrong service, or not in a position to buy. The hours are gone before the first real conversation.",
+          "AI lead generation finds businesses that match your ideal customer profile, researches each company, and scores prospects against criteria you provide.",
+          "Your team receives a focused list with the reasoning behind each score, along with a personalized first message and a weekly report.",
         ],
       },
       whatItDoesHeading: "What you get",
@@ -181,7 +181,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     slug: "linkedin-bdr",
     label: "LinkedIn BDR",
     homeHeadline: "Spend your time on calls, not on LinkedIn messages.",
-    h1: "Spend your time on calls, not on LinkedIn messages.",
+    h1: "LinkedIn BDR for Outreach and Meetings",
     subhead: "We run your outreach, handle the replies, and book interested prospects onto your calendar. You step in for the conversation that matters.",
     metaTitle: "LinkedIn BDR",
     metaDescription: "We run your LinkedIn outreach, handle replies, and book interested prospects onto your calendar, so you only join the meetings.",
@@ -201,11 +201,11 @@ export const servicePages: Record<string, ServicePageContent> = {
       { question: "Is this safe for my LinkedIn account?", answer: "LinkedIn limits automated activity, so we keep outreach at a steady, modest daily volume and avoid aggressive tactics. No tool can remove all risk to an account." },
     ],
     expansion: {
-      problem: {
-        heading: "Why LinkedIn outreach stalls",
+      overview: {
+        heading: "LinkedIn BDR for outreach and follow-up",
         paragraphs: [
-          "LinkedIn works for business development, but it takes steady daily effort: finding the right people, sending requests, following up, and replying quickly.",
-          "When work gets busy, outreach is the first thing to stop. Replies sit unanswered and conversations go cold. Results come from consistency, and consistency is hard when your schedule is full.",
+          "LinkedIn BDR targets people who match your ideal customer profile, sends connection requests and messages, and handles replies and follow-ups.",
+          "Interested prospects are booked onto your calendar, so you can focus on the conversations that matter.",
         ],
       },
       whatItDoesHeading: "What we handle on LinkedIn",
@@ -259,7 +259,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     slug: "automated-follow-ups",
     label: "Automated Follow-Ups",
     homeHeadline: "The lead went quiet and nobody followed up.",
-    h1: "Leads rarely say no. They go quiet.",
+    h1: "Automated Follow-Ups for Leads and Customers",
     subhead: "A call goes unreturned, a quote sits unanswered, a patient skips an appointment. We set up follow-ups that go out on time without adding to anyone's workload.",
     metaTitle: "Automated Follow-Ups",
     metaDescription: "Automatic follow-ups for missed calls, no-shows, and unanswered quotes, by text, email, or call, with your CRM updated each time.",
@@ -277,11 +277,11 @@ export const servicePages: Record<string, ServicePageContent> = {
       { question: "Does it work with my CRM?", answer: "We build follow-ups in GoHighLevel and connect other tools through n8n or Zapier. Ask us about yours." },
     ],
     expansion: {
-      problem: {
-        heading: "Why good leads go cold",
+      overview: {
+        heading: "Automated follow-ups for every lead",
         paragraphs: [
-          "A call goes unreturned. A quote sits unanswered for a week. A patient misses an appointment and nobody reschedules them.",
-          "None of this is deliberate. Follow-up depends on someone remembering, and that person is busy. A lead that hears nothing tends to look elsewhere.",
+          "Automated follow-ups send messages after missed calls, appointment no-shows, unanswered quotes, and older leads, using rules you choose.",
+          "The system can re-engage leads on a schedule and update your CRM after each step, helping your team keep track of every follow-up.",
         ],
       },
       whatItDoesHeading: "What gets followed up automatically",
@@ -333,7 +333,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     slug: "outbound-ai-calling",
     label: "Outbound AI Calling",
     homeHeadline: "Fill your calendar without picking up the phone.",
-    h1: "Fill your calendar without making a single call.",
+    h1: "Outbound AI Calling for Lead Qualification",
     subhead: "Our AI voice agent calls your leads, finds out who is interested, and books them straight into your calendar.",
     metaTitle: "Outbound AI Calling",
     metaDescription: "An AI voice agent that calls your leads, finds out who is interested, and books them into your calendar.",
@@ -351,11 +351,11 @@ export const servicePages: Record<string, ServicePageContent> = {
       { question: "How do I see the results?", answer: "Every call outcome is recorded in your CRM, so you can see who booked, who wants a later call, and who declined." },
     ],
     expansion: {
-      problem: {
-        heading: "The calls nobody has time to make",
+      overview: {
+        heading: "Outbound AI calling for lead qualification",
         paragraphs: [
-          "Calling every new lead, every old lead, and every open quote takes hours your team does not have. So the list goes uncalled, or gets called days late.",
-          "People who asked about your service are most open to a conversation soon after they ask. A call that comes days later reaches someone who has moved on.",
+          "An outbound AI voice agent calls leads or past customers, handles voicemail and common objections, and finds out who is interested.",
+          "It can book interested people into your calendar and record each call outcome in your CRM.",
         ],
       },
       whatItDoesHeading: "What the AI voice agent does",
@@ -408,7 +408,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     slug: "whatsapp-and-chat-agents",
     label: "WhatsApp and Chat Agents",
     homeHeadline: "Messages pile up when your team is busy.",
-    h1: "Messages should not wait until someone is free.",
+    h1: "WhatsApp and Chat Agents for Customer Conversations",
     subhead: "Our chat agent replies straight away using your own information, and passes anything complicated to your team.",
     metaTitle: "WhatsApp and Chat Agents",
     metaDescription: "AI chat agents for WhatsApp, SMS, and your website that answer from your own information and pass complex cases to your team.",
@@ -426,11 +426,11 @@ export const servicePages: Record<string, ServicePageContent> = {
       { question: "Can my team see the conversations?", answer: "Yes. Conversations are logged so your team can read them, step in, and review how the agent handled each one." },
     ],
     expansion: {
-      problem: {
-        heading: "Why messages wait for someone to be free",
+      overview: {
+        heading: "WhatsApp and chat agents for customer conversations",
         paragraphs: [
-          "Customers message on WhatsApp, by text, and through your website chat, and they expect a quick answer. Your team is busy with other work, so replies come hours later.",
-          "Most of these questions are the same few: prices, hours, availability, and how to book. They take time away from work that needs a person, and slow replies send customers elsewhere.",
+          "WhatsApp and chat agents reply on WhatsApp, SMS, and your website chat using your information about services, prices, hours, and policies.",
+          "The agent can take bookings, keep the conversation history, and pass complicated questions to your team.",
         ],
       },
       whatItDoesHeading: "What your chat agent handles",
@@ -481,7 +481,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     slug: "crm-and-workflow-setup",
     label: "CRM and Workflow Setup",
     homeHeadline: "Your tools do not talk to each other.",
-    h1: "When your tools do not talk to each other, your team becomes the connection.",
+    h1: "CRM and Workflow Setup for Connected Operations",
     subhead: "We link your CRM, calendar, forms, and messaging so data moves by itself and nothing depends on someone remembering to copy it.",
     metaTitle: "CRM and Workflow Setup",
     metaDescription: "We connect your CRM, calendar, and messaging tools so leads, calls, and bookings are recorded automatically.",
@@ -500,11 +500,11 @@ export const servicePages: Record<string, ServicePageContent> = {
       { question: "Will my team understand what you built?", answer: "We document each workflow and walk your team through it." },
     ],
     expansion: {
-      problem: {
-        heading: "When your team is the connection between your tools",
+      overview: {
+        heading: "CRM and workflow setup for connected operations",
         paragraphs: [
-          "A lead fills in a form. Someone copies the details into the CRM, adds a calendar event, and sends a message. Each step is small, and each one depends on a person remembering.",
-          "As the business grows, the copying grows with it. Data ends up in different places, and nobody is sure which version is right.",
+          "CRM and workflow setup connects your CRM with lead forms, calendars, email, and messaging so information moves between your tools.",
+          "Pipelines, lead capture forms, and workflows in n8n or Zapier can automate repeated steps and reduce manual data entry.",
         ],
       },
       whatItDoesHeading: "What we set up",

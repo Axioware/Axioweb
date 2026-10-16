@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ServiceCard from "@/components/ServiceCard";
 
 export interface ServicePageExpansionData {
-  problem: {
+  overview: {
     heading: string;
     paragraphs: [string, string];
   };
@@ -58,8 +58,8 @@ export default function ServicePageExpansion({
       <section className="section-padding bg-secondary/30">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto mb-12">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">{content.problem.heading}</h2>
-            {content.problem.paragraphs.map((paragraph) => (
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">{content.overview.heading}</h2>
+            {content.overview.paragraphs.map((paragraph) => (
               <p key={paragraph} className="text-muted-foreground leading-relaxed mb-4 last:mb-0">{paragraph}</p>
             ))}
           </div>
