@@ -5,11 +5,13 @@ import logoWhite from "@/assets/axioware-logo-white.webp";
 
 const footerLinks = {
   services: [
-    { label: "Voice Agents", href: "/services/voice-agents" },
-    { label: "AI Chatbots", href: "/services/chatbots" },
-    { label: "Machine Learning", href: "/services/machine-learning" },
-    { label: "Web Development", href: "/services/web-development" },
-    { label: "App Development", href: "/services/app-development" },
+    { label: "AI Receptionist", href: "/services/ai-receptionist" },
+    { label: "AI Lead Generation", href: "/services/ai-lead-generation" },
+    { label: "LinkedIn BDR", href: "/services/linkedin-bdr" },
+    { label: "Automated Follow-Ups", href: "/services/automated-follow-ups" },
+    { label: "Outbound AI Calling", href: "/services/outbound-ai-calling" },
+    { label: "WhatsApp and Chat Agents", href: "/services/whatsapp-and-chat-agents" },
+    { label: "CRM and Workflow Setup", href: "/services/crm-and-workflow-setup" },
   ],
   company: [
     { label: "About Us", href: "/about" },
