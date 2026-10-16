@@ -13,6 +13,7 @@ import BlogArticle from "@/pages/BlogArticle";
 import VoiceAgentsService from "@/pages/services/VoiceAgents";
 import ChatbotsService from "@/pages/services/Chatbots";
 import GenericService from "@/pages/services/GenericService";
+import ServicePageTemplate, { servicePages } from "@/pages/services/ServicePageTemplate";
 import DentalAgent from "@/pages/DentalAgent";
 import NotFound from "@/pages/NotFound";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
@@ -106,6 +107,14 @@ export default function AnimatedRoutes() {
           element={
             <PageTransition>
               <Services />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/services/ai-receptionist"
+          element={
+            <PageTransition>
+              <ServicePageTemplate service={servicePages["ai-receptionist"]} />
             </PageTransition>
           }
         />

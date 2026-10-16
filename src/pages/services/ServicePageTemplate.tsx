@@ -3,6 +3,7 @@ import { ArrowRight, CheckCircle } from "lucide-react";
 import Layout from "@/components/Layout";
 import AnimatedHeroBackground from "@/components/AnimatedHeroBackground";
 import CTASection from "@/components/CTASection";
+import VoiceAgentDemo from "@/components/VoiceAgentDemo";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import SEO, { generateFAQSchema, generateServiceSchema } from "@/components/SEO";
@@ -201,6 +202,21 @@ export default function ServicePageTemplate({ service }: { service: ServicePageC
           </div>
         </div>
       </section>
+
+      {service.showReceptionistDemo && (
+        <>
+          <section className="section-padding bg-secondary/30">
+            <div className="container-custom">
+              <div className="mx-auto max-w-5xl rounded-2xl border border-border/50 bg-card p-6 md:p-8 text-center">
+                <p className="font-display text-3xl md:text-4xl font-bold text-foreground">69% of callers who reach voicemail hang up without leaving a message.</p>
+                <p className="mt-3 text-sm text-muted-foreground">Source: <a className="underline underline-offset-4 hover:text-accent" href="https://moneypenny.com/us/resources/news/small-business-call-report/" target="_blank" rel="noreferrer">Moneypenny Small Business Call Report</a></p>
+                {/* TODO: Check the report's publication date. */}
+              </div>
+            </div>
+          </section>
+          <VoiceAgentDemo />
+        </>
+      )}
 
       <section className="section-padding bg-background">
         <div className="container-custom">
