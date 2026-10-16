@@ -256,6 +256,7 @@ export const servicePages: Record<string, ServicePageContent> = {
   "automated-follow-ups": {
     slug: "automated-follow-ups",
     label: "Automated Follow-Ups",
+    homeHeadline: "The lead went quiet and nobody followed up.",
     h1: "Leads rarely say no. They go quiet.",
     subhead: "A call goes unreturned, a quote sits unanswered, a patient skips an appointment. We set up follow-ups that go out on time without adding to anyone's workload.",
     metaTitle: "Automated Follow-Ups",
@@ -268,10 +269,63 @@ export const servicePages: Record<string, ServicePageContent> = {
       "Updates the CRM after every step",
     ],
     faqs: [
-      { question: "Which situations can start a follow-up?", answer: "Follow-ups can start after missed calls, no-shows, unanswered quotes, or when you choose to re-engage an old lead." },
-      { question: "Can the follow-up reach someone by text?", answer: "Yes. The workflows can text back missed callers and send follow-ups for the situations you select." },
-      { question: "What happens in the CRM?", answer: "The CRM is updated after every step in the follow-up workflow." },
+      { question: "What channels does it use?", answer: "Text, email, and phone calls, depending on the follow-up and what you prefer." },
+      { question: "Will it keep messaging someone who already replied?", answer: "No. Each sequence stops as soon as the person replies or books, so nobody gets a message that no longer applies." },
+      { question: "Can I control the wording and timing?", answer: "Yes. We write the messages with you, and you approve the timing and the rules for when each sequence starts and stops." },
+      { question: "Does it work with my CRM?", answer: "We build follow-ups in GoHighLevel and connect other tools through n8n or Zapier. Ask us about yours." },
     ],
+    expansion: {
+      problem: {
+        heading: "Why good leads go cold",
+        paragraphs: [
+          "A call goes unreturned. A quote sits unanswered for a week. A patient misses an appointment and nobody reschedules them.",
+          "None of this is deliberate. Follow-up depends on someone remembering, and that person is busy. A lead that hears nothing tends to look elsewhere.",
+        ],
+      },
+      whatItDoesHeading: "What gets followed up automatically",
+      whatItDoes: [
+        { title: "Missed call text-back", description: "Texts people who called and did not get through, with a link to book or reply." },
+        { title: "No-show recovery", description: "Reminds people before appointments and offers a new time if they miss one." },
+        { title: "Quote follow-up", description: "Checks in on quotes and proposals that have not had a response." },
+        { title: "Old lead re-engagement", description: "Reaches back out to past leads on a schedule you choose." },
+        { title: "CRM updates", description: "Records every message and response so you can see where each lead stands." },
+      ],
+      example: {
+        heading: "What a follow-up sequence looks like",
+        label: "Illustrative example",
+        ordered: true,
+        items: [
+          "5:42 PM: A call comes in and nobody answers.",
+          "Right away: The caller gets a text: \"Sorry we missed your call. Want to book a time? [link]\"",
+          "Next morning: If there is no reply, one short second message.",
+          "Caller replies \"Thursday works\": The booking is made, the sequence stops, and the CRM is updated.",
+        ],
+      },
+      howItWorks: {
+        heading: "How automated follow-ups get set up",
+        steps: [
+          { title: "We map your follow-up moments.", description: "Where leads currently go quiet: missed calls, quotes, no-shows, and old enquiries." },
+          { title: "We write and build the sequences.", description: "Messages in your voice, timing rules, and stop conditions, tested before they go live." },
+          { title: "It runs and we refine it.", description: "We review replies and booking rates with you and adjust wording and timing." },
+        ],
+      },
+      worksWith: "GoHighLevel, Twilio, email, n8n, Zapier, and your calendar and CRM.",
+      whoItIsFor: {
+        heading: "Who uses automated follow-ups",
+        items: [
+          "Dental clinics: Missed calls, appointment reminders, no-shows, and patients overdue for a visit.",
+          "Insurance agencies: Quotes waiting for a decision and upcoming renewals.",
+          "Service businesses: Estimates and enquiries that need a nudge.",
+        ],
+      },
+      faqs: [
+        { question: "What channels does it use?", answer: "Text, email, and phone calls, depending on the follow-up and what you prefer." },
+        { question: "Will it keep messaging someone who already replied?", answer: "No. Each sequence stops as soon as the person replies or books, so nobody gets a message that no longer applies." },
+        { question: "Can I control the wording and timing?", answer: "Yes. We write the messages with you, and you approve the timing and the rules for when each sequence starts and stops." },
+        { question: "Does it work with my CRM?", answer: "We build follow-ups in GoHighLevel and connect other tools through n8n or Zapier. Ask us about yours." },
+      ],
+      relatedServices: ["ai-receptionist", "outbound-ai-calling", "crm-and-workflow-setup"],
+    },
   },
   "outbound-ai-calling": {
     slug: "outbound-ai-calling",
