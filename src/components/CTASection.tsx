@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
-export default function CTASection() {
+export default function CTASection({ buttonLabel = "Start Your Project" }: { buttonLabel?: string }) {
   return (
     <section className="section-padding bg-primary relative overflow-hidden">
       {/* Background Elements */}
@@ -37,7 +37,7 @@ export default function CTASection() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button asChild size="xl" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 group">
               <Link to="/contact">
-                Start Your Project
+                {buttonLabel}
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
