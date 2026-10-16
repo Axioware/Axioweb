@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 export default function CTASection({
-  title = "Ready to Transform Your Business?",
-  description = "Let's discuss how our AI-powered solutions can drive growth and efficiency for your organization. Get in touch for a free consultation.",
-  buttonLabel = "Start Your Project",
+  title = "Ready to put a system in place?",
+  description = "Let's discuss your calls, leads, and workflows. Get in touch to plan your next step.",
+  buttonLabel = "Get in touch",
 }: { title?: string; description?: string; buttonLabel?: string }) {
   return (
     <section className="section-padding bg-primary relative overflow-hidden">

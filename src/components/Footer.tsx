@@ -70,8 +70,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-background/70 mb-6 leading-relaxed">
-              Empowering businesses with intelligent automation. From Voice Agents to AI Chatbots, we build the future
-              of customer engagement.
+              AI systems that answer calls, follow up with leads, and help small service businesses book appointments.
             </p>
             <div className="flex items-center gap-4">
               {footerLinks.social.map((social) => (

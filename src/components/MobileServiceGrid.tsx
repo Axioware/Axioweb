@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Brain, Globe, Smartphone, LucideIcon } from "lucide-react";
+import { ArrowRight, Linkedin, Bell, PhoneCall, MessageSquare, Workflow, LucideIcon } from "lucide-react";
 
 // Import service images (WebP format)
-import machineLearningImg from "@/assets/services/machine-learning.webp";
 import webDevelopmentImg from "@/assets/services/web-development.webp";
+import socialMediaImg from "@/assets/services/social-media.webp";
+import chatbotsImg from "@/assets/services/chatbots.webp";
+import voiceAgentsImg from "@/assets/services/VA.png";
 
 interface Service {
   id: string;
@@ -20,33 +22,53 @@ interface Service {
 
 const services: Service[] = [
   {
-    id: "ml",
-    title: "Machine Learning",
-    description: "Custom ML models and predictive analytics solutions.",
-    icon: Brain,
-    href: "/services/machine-learning",
+    id: "linkedin-bdr",
+    title: "LinkedIn BDR",
+    description: "Handles LinkedIn outreach and replies, then books meetings with qualified prospects.",
+    icon: Linkedin,
+    href: "/services/linkedin-bdr",
     gradient: "from-purple-500/10 to-blue-500/10",
     accentColor: "text-purple-400",
-    image: machineLearningImg,
+    image: socialMediaImg,
   },
   {
-    id: "web",
-    title: "Web Development",
-    description: "Modern, responsive websites and web applications.",
-    icon: Globe,
-    href: "/services/web-development",
+    id: "automated-follow-ups",
+    title: "Automated Follow-Ups",
+    description: "Sends follow-up messages for missed calls, no-shows, quiet quotes, and old leads.",
+    icon: Bell,
+    href: "/services/automated-follow-ups",
     gradient: "from-cyan-500/10 to-teal-500/10",
     accentColor: "text-cyan-400",
-    image: webDevelopmentImg,
+    image: chatbotsImg,
   },
   {
-    id: "app",
-    title: "App Development",
-    description: "Custom mobile and cross-platform applications.",
-    icon: Smartphone,
-    href: "/services/app-development",
+    id: "outbound-ai-calling",
+    title: "Outbound AI Calling",
+    description: "Calls your list, qualifies interest, and books appointments into your calendar.",
+    icon: PhoneCall,
+    href: "/services/outbound-ai-calling",
     gradient: "from-violet-500/10 to-fuchsia-500/10",
     accentColor: "text-violet-400",
+    image: voiceAgentsImg,
+  },
+  {
+    id: "whatsapp-and-chat-agents",
+    title: "WhatsApp and Chat Agents",
+    description: "Answers questions and takes bookings on WhatsApp, SMS, and your website chat.",
+    icon: MessageSquare,
+    href: "/services/whatsapp-and-chat-agents",
+    gradient: "from-emerald-500/10 to-teal-500/10",
+    accentColor: "text-emerald-400",
+    image: chatbotsImg,
+  },
+  {
+    id: "crm-and-workflow-setup",
+    title: "CRM and Workflow Setup",
+    description: "Connects your automation to your CRM and calendar so work runs in one place.",
+    icon: Workflow,
+    href: "/services/crm-and-workflow-setup",
+    gradient: "from-cyan-500/10 to-blue-500/10",
+    accentColor: "text-cyan-400",
     image: webDevelopmentImg,
   },
 ];

@@ -24,7 +24,7 @@ const navItems: NavItem[] = [
       { label: "Outbound AI Calling", href: "/services/outbound-ai-calling" },
       { label: "WhatsApp and Chat Agents", href: "/services/whatsapp-and-chat-agents" },
       { label: "CRM and Workflow Setup", href: "/services/crm-and-workflow-setup" },
-      { label: "Dental Receptionist Agent", href: "/dental-agent" },
+      { label: "Dental Receptionist Demo", href: "/dental-agent" },
     ],
   },
   { label: "Portfolio", href: "/portfolio" },

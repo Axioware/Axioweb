@@ -15,7 +15,6 @@ import outboundCallImg from "@/assets/services/VoiceAgent.jpg";
 
 interface Service {
   title: string;
-  headline: string;
   description: string;
   icon: LucideIcon;
   href: string;
@@ -26,87 +25,92 @@ interface Service {
   bgColor: string;
 }
 
-const allServices: Service[] = [
+const featuredServices: Service[] = [
   {
     title: "AI Receptionist",
-    headline: "Never miss a call again.",
-    description: "Every call answered and every appointment booked, even after hours.",
+    description:
+      "Answers every call, handles common questions, and books or reschedules appointments, with handoff to your staff when needed.",
     icon: Mic,
     href: "/services/ai-receptionist",
     featured: true,
     image: voiceAgentsImg,
-    highlights: ["Answers every call, day and night", "Handles common questions about your services, hours, and policies", "Books, reschedules, and confirms appointments in your calendar"],
+    highlights: ["Answers calls", "Books appointments", "Handoff to staff"],
     color: "text-blue-400",
     bgColor: "bg-blue-500/10",
   },
   {
     title: "AI Lead Generation",
-    headline: "Too many hours go to the wrong leads.",
-    description: "We research and qualify prospects before anyone picks up the phone.",
+    description:
+      "Finds businesses that fit your ideal customer and qualifies them before anyone on your team spends time.",
     icon: Target,
     href: "/services/ai-lead-generation",
     featured: true,
     image: socialMediaImg,
-    highlights: ["Finds businesses that match your ideal customer", "Researches each company before anyone contacts it", "Scores every prospect against your criteria and shows the reasoning"],
+    highlights: ["Finds target businesses", "Qualifies prospects", "Shares lead details"],
     color: "text-purple-400",
     bgColor: "bg-purple-500/10",
   },
+];
+
+const otherServices: Service[] = [
   {
     title: "LinkedIn BDR",
-    headline: "Spend your time on calls, not on LinkedIn messages.",
-    description: "Outreach and replies run in the background. You show up for the meeting.",
+    description:
+      "Handles outreach and replies on LinkedIn and books meetings with qualified prospects.",
     icon: Linkedin,
     href: "/services/linkedin-bdr",
     image: socialMediaImg,
-    highlights: ["Targets the right people based on your ideal customer profile", "Sends connection requests and messages every day", "Handles replies and follow-ups"],
+    highlights: ["Sends outreach", "Handles replies", "Books meetings"],
     color: "text-blue-400",
     bgColor: "bg-blue-500/10",
   },
   {
     title: "Automated Follow-Ups",
-    headline: "The lead went quiet and nobody followed up.",
-    description: "We make sure someone always does, automatically.",
+    description:
+      "Sends messages about missed calls, no-shows, quiet quotes, and old leads without anyone having to remember.",
     icon: Bell,
     href: "/services/automated-follow-ups",
     image: chatbotsImg,
-    highlights: ["Texts back missed callers", "Reminds and rebooks no-shows", "Chases quotes that have gone unanswered"],
+    highlights: ["Missed calls", "No-shows and quotes", "Old leads"],
     color: "text-purple-400",
     bgColor: "bg-purple-500/10",
   },
   {
     title: "Outbound AI Calling",
-    headline: "Fill your calendar without picking up the phone.",
-    description: "An AI agent calls your list, qualifies interest, and books appointments for you.",
+    description:
+      "Calls your list, qualifies interest, and books appointments straight into your calendar.",
     icon: PhoneCall,
     href: "/services/outbound-ai-calling",
     image: outboundCallImg,
-    highlights: ["Calls your leads or past customers", "Handles voicemail and common objections", "Works out who is interested and who is not"],
+    highlights: ["Calls your list", "Qualifies interest", "Books appointments"],
     color: "text-amber-400",
     bgColor: "bg-amber-500/10",
   },
   {
     title: "WhatsApp and Chat Agents",
-    headline: "Messages pile up when your team is busy.",
-    description: "An AI agent replies right away and hands over to a person when needed.",
+    description:
+      "Answers customer questions and takes bookings on WhatsApp, SMS, and your website chat.",
     icon: MessageSquare,
     href: "/services/whatsapp-and-chat-agents",
     image: chatbotsImg,
-    highlights: ["Replies on WhatsApp, SMS, and your website chat", "Answers from your own information: services, prices, hours, and policies", "Takes bookings"],
+    highlights: ["WhatsApp and SMS", "Website chat", "Customer bookings"],
     color: "text-purple-400",
     bgColor: "bg-purple-500/10",
   },
   {
     title: "CRM and Workflow Setup",
-    headline: "Your tools do not talk to each other.",
-    description: "We connect them so information moves on its own.",
+    description:
+      "Connects these systems to your CRM and calendar so your work runs in one place.",
     icon: Workflow,
     href: "/services/crm-and-workflow-setup",
     image: webDevelopmentImg,
-    highlights: ["Sets up your CRM, including GoHighLevel", "Builds pipelines and lead capture forms", "Connects your calendar, email, and messaging"],
+    highlights: ["CRM connection", "Calendar connection", "Connected workflows"],
     color: "text-cyan-400",
     bgColor: "bg-cyan-500/10",
   },
 ];
+
+const allServices = [...featuredServices, ...otherServices];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -141,9 +145,9 @@ export default function ServicesSection() {
       <div className="container-custom relative z-10">
         <SectionHeading
           badge="Our Services"
-          title="Solutions That Drive Growth"
+          title="AI Automation for Service Businesses"
           highlight="Growth"
-          subtitle="From AI-powered automation to creative digital solutions, we deliver comprehensive services tailored to your business needs."
+          subtitle="Practical systems that answer calls, follow up with leads, and book appointments for small service businesses."
         />
 
         {/* Alternating Service Rows */}
@@ -197,7 +201,7 @@ export default function ServicesSection() {
                     <span className={`text-sm font-medium ${service.color}`}>{service.title}</span>
                   </div>
 
-                  <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground">{service.headline}</h3>
+                  <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground">{service.title}</h3>
 
                   <p className="text-muted-foreground leading-relaxed text-base md:text-lg">{service.description}</p>
 
@@ -224,6 +228,10 @@ export default function ServicesSection() {
             );
           })}
         </motion.div>
+
+        <p className="mt-12 text-center text-sm text-muted-foreground">
+          Need a website to go with it? We build sites that plug straight into these systems.
+        </p>
       </div>
     </section>
   );

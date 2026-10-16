@@ -8,9 +8,11 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import SEO, { generateBreadcrumbSchema, generateFAQSchema, generateServiceSchema } from "@/components/SEO";
 import ServicePageExpansion, { type ServicePageExpansionData } from "@/components/services/ServicePageExpansion";
+import RelatedWorkSection from "@/components/case-studies/RelatedWorkSection";
+import type { ServiceSlug } from "@/data/caseStudies";
 
 export interface ServicePageContent {
-  slug: string;
+  slug: ServiceSlug;
   label: string;
   homeHeadline?: string;
   h1: string;
@@ -676,6 +678,8 @@ export default function ServicePageTemplate({ service }: { service: ServicePageC
         </div>
       </section>
       </>}
+
+      <RelatedWorkSection service={service.slug} />
 
       <CTASection
         title="Talk about your service needs"

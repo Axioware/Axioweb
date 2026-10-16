@@ -87,9 +87,8 @@ export default function Careers() {
           <div className="mt-14 rounded-2xl border border-border/60 bg-secondary/40 p-6 md:p-8">
             <h2 className="font-display text-2xl font-semibold text-foreground mb-3">Open roles</h2>
             <p className="text-muted-foreground leading-relaxed">
-              We do not have specific openings listed right now. If your skills align with AI development, web and app
-              development, UI/UX design, SEO, or social media marketing, send us your profile and a short note about the
-              kind of work you want to do.
+              We do not have specific openings listed right now. If your skills align with AI automation, web
+              development, design, or business operations, send us your profile and a short note about the work you want to do.
             </p>
           </div>
         </div>
