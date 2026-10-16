@@ -405,6 +405,7 @@ export const servicePages: Record<string, ServicePageContent> = {
   "whatsapp-and-chat-agents": {
     slug: "whatsapp-and-chat-agents",
     label: "WhatsApp and Chat Agents",
+    homeHeadline: "Messages pile up when your team is busy.",
     h1: "Messages should not wait until someone is free.",
     subhead: "Our chat agent replies straight away using your own information, and passes anything complicated to your team.",
     metaTitle: "WhatsApp and Chat Agents",
@@ -417,10 +418,62 @@ export const servicePages: Record<string, ServicePageContent> = {
       "Keeps the full conversation history",
     ],
     faqs: [
-      { question: "Which channels can the chat agent reply on?", answer: "It can reply on WhatsApp, SMS, and your website chat." },
-      { question: "What information does it use to answer?", answer: "It answers using your own information, such as services, prices, hours, and policies." },
-      { question: "What happens when a question is complicated?", answer: "The chat agent flags the question and passes it to your team." },
+      { question: "Which channels does it support?", answer: "WhatsApp, SMS, and website chat. Other channels may be possible, so ask us." },
+      { question: "Will it make up answers?", answer: "We set it up to answer from the information you provide. When it does not know something, it passes the conversation to your team instead of guessing." },
+      { question: "Can it book appointments?", answer: "Yes. It checks your calendar and books directly." },
+      { question: "Can my team see the conversations?", answer: "Yes. Conversations are logged so your team can read them, step in, and review how the agent handled each one." },
     ],
+    expansion: {
+      problem: {
+        heading: "Why messages wait for someone to be free",
+        paragraphs: [
+          "Customers message on WhatsApp, by text, and through your website chat, and they expect a quick answer. Your team is busy with other work, so replies come hours later.",
+          "Most of these questions are the same few: prices, hours, availability, and how to book. They take time away from work that needs a person, and slow replies send customers elsewhere.",
+        ],
+      },
+      whatItDoesHeading: "What your chat agent handles",
+      whatItDoes: [
+        { title: "Replies right away", description: "Answers messages on WhatsApp, SMS, and website chat as they arrive." },
+        { title: "Uses your information", description: "Answers from your services, prices, hours, and policies, not generic text." },
+        { title: "Takes bookings", description: "Checks availability and books the appointment in the chat." },
+        { title: "Hands over smoothly", description: "Flags anything complicated and passes the full conversation to your team." },
+        { title: "Keeps the history", description: "Remembers the conversation so customers do not repeat themselves, and logs it to your CRM." },
+      ],
+      example: {
+        heading: "What a chat looks like",
+        label: "Illustrative example",
+        items: [
+          "Customer: Hi, do you do same-day appointments?",
+          "Agent: We do when there is space. Today I have 3:30 PM or 5:00 PM. Would one of those work?",
+          "Customer: 5 please.",
+          "Agent: Booked for 5:00 PM today. You will get a confirmation here.",
+        ],
+      },
+      howItWorks: {
+        heading: "How a chat agent gets set up",
+        steps: [
+          { title: "We collect your answers.", description: "Services, prices, hours, policies, and the questions customers ask most." },
+          { title: "We build and test the agent.", description: "We connect your channels and calendar, then test it with real questions, including tricky ones." },
+          { title: "It goes live and we improve it.", description: "We review conversations with you, fill gaps in its answers, and tune when it hands over to your team." },
+        ],
+      },
+      worksWith: "WhatsApp, SMS through Twilio, your website chat, GoHighLevel, n8n, and your calendar and CRM.",
+      whoItIsFor: {
+        heading: "Who uses chat agents",
+        items: [
+          "Clinics and agencies that get booking questions on WhatsApp and text.",
+          "Businesses with a small team and a busy inbox.",
+          "Anyone answering the same questions again and again.",
+        ],
+      },
+      faqs: [
+        { question: "Which channels does it support?", answer: "WhatsApp, SMS, and website chat. Other channels may be possible, so ask us." },
+        { question: "Will it make up answers?", answer: "We set it up to answer from the information you provide. When it does not know something, it passes the conversation to your team instead of guessing." },
+        { question: "Can it book appointments?", answer: "Yes. It checks your calendar and books directly." },
+        { question: "Can my team see the conversations?", answer: "Yes. Conversations are logged so your team can read them, step in, and review how the agent handled each one." },
+      ],
+      relatedServices: ["ai-receptionist", "automated-follow-ups", "crm-and-workflow-setup"],
+    },
   },
   "crm-and-workflow-setup": {
     slug: "crm-and-workflow-setup",
