@@ -27,6 +27,7 @@ export const servicePages: Record<string, ServicePageContent> = {
   "ai-receptionist": {
     slug: "ai-receptionist",
     label: "AI Receptionist",
+    homeHeadline: "Never miss a call again.",
     h1: "Never miss a call again.",
     subhead: "Your AI receptionist answers every call, handles common questions, and books appointments into your calendar. Your staff step in only when needed.",
     metaTitle: "AI Receptionist for Small Businesses",
@@ -40,10 +41,64 @@ export const servicePages: Record<string, ServicePageContent> = {
       "Hands the call to your staff when a person is needed",
     ],
     faqs: [
-      { question: "What questions can the receptionist answer?", answer: "It can answer common questions about your services, hours, and policies using the information provided for your business." },
-      { question: "Can it book or reschedule appointments?", answer: "It can book, reschedule, and confirm appointments in your calendar." },
-      { question: "When does a staff member step in?", answer: "The receptionist hands the call to your staff when a person is needed." },
+      { question: "Will callers know it is an AI?", answer: "That depends on how you set it up. We can have it say at the start that it is an AI assistant, and we recommend being open about it." },
+      { question: "What happens if it cannot answer a question?", answer: "It takes a message with the caller's details or transfers the call to your team, depending on the rules we set with you." },
+      { question: "Does it work after hours?", answer: "Yes. It answers whenever a call comes in, including evenings, weekends, and when your team is busy." },
+      { question: "Can it book into my existing calendar?", answer: "We connect it to your calendar or booking tool so it only offers times that are open. Ask us about your specific tool." },
     ],
+    expansion: {
+      problem: {
+        heading: "What happens when nobody can answer the phone",
+        paragraphs: [
+          "Your front desk is busy with the person in front of them. The phone rings anyway: at lunch, after closing, and while your team is on another call.",
+          "Most people who reach voicemail do not leave a message. They call the next business on their list, and the call you missed was often someone asking to book.",
+        ],
+      },
+      whatItDoesHeading: "What your AI receptionist handles",
+      whatItDoes: [
+        { title: "Answers every call", description: "Picks up right away, day and night, including when your team is busy or the office is closed." },
+        { title: "Answers common questions", description: "Covers your services, hours, location, and policies using the information you give us." },
+        { title: "Books and reschedules", description: "Checks your calendar, offers open times, confirms the booking, and texts the caller a confirmation." },
+        { title: "Logs everything", description: "Sends caller details and a summary of each call to your CRM, so nothing depends on someone's notes." },
+        { title: "Hands over when needed", description: "Transfers the call or takes a message when the caller needs a person." },
+      ],
+      example: {
+        heading: "What a call looks like",
+        label: "Illustrative example",
+        items: [
+          "Caller: Hi, I'd like to book a cleaning for next week.",
+          "Receptionist: Of course. Are you a new or existing patient?",
+          "Caller: New.",
+          "Receptionist: Welcome. I have Tuesday at 10:00 or Thursday at 2:30. Which works better?",
+          "Caller: Thursday.",
+          "Receptionist: Booked for Thursday at 2:30. I'm sending a confirmation to your phone now, and the details are with the team.",
+        ],
+      },
+      howItWorks: {
+        heading: "How your AI receptionist gets set up",
+        steps: [
+          { title: "We learn how you handle calls.", description: "Your services, hours, common questions, booking rules, and when a call should go to a person." },
+          { title: "We build and test your receptionist.", description: "We set the voice, connect your calendar and CRM, and run test calls on real scenarios." },
+          { title: "It goes live and we review the calls.", description: "We go through real calls with you and adjust answers and handoffs." },
+        ],
+      },
+      worksWith: "Your calendar and CRM, including GoHighLevel, Salesforce, and Calendly.",
+      whoItIsFor: {
+        heading: "Who uses an AI receptionist",
+        items: [
+          "Dental clinics: New patient calls, bookings, reschedules, and basic questions while the front desk is with patients.",
+          "Insurance agencies: Quote requests and callback details captured while agents are on other calls.",
+          "Other service businesses: Any business where a call usually means a booking or a quote request.",
+        ],
+      },
+      faqs: [
+        { question: "Will callers know it is an AI?", answer: "That depends on how you set it up. We can have it say at the start that it is an AI assistant, and we recommend being open about it." },
+        { question: "What happens if it cannot answer a question?", answer: "It takes a message with the caller's details or transfers the call to your team, depending on the rules we set with you." },
+        { question: "Does it work after hours?", answer: "Yes. It answers whenever a call comes in, including evenings, weekends, and when your team is busy." },
+        { question: "Can it book into my existing calendar?", answer: "We connect it to your calendar or booking tool so it only offers times that are open. Ask us about your specific tool." },
+      ],
+      relatedServices: ["automated-follow-ups", "whatsapp-and-chat-agents", "crm-and-workflow-setup"],
+    },
   },
   "ai-lead-generation": {
     slug: "ai-lead-generation",
