@@ -9,6 +9,7 @@ interface SectionHeadingProps {
   centered?: boolean;
   children?: ReactNode;
   light?: boolean;
+  headingLevel?: "h1" | "h2";
 }
 
 export default function SectionHeading({
@@ -19,7 +20,9 @@ export default function SectionHeading({
   centered = true,
   children,
   light = false,
+  headingLevel = "h2",
 }: SectionHeadingProps) {
+  const Heading = headingLevel === "h1" ? motion.h1 : motion.h2;
   // Split title to highlight specific word
   const renderTitle = () => {
     if (!highlight) return title;
@@ -53,7 +56,7 @@ export default function SectionHeading({
         </motion.div>
       )}
 
-      <motion.h2
+      <Heading
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -63,7 +66,7 @@ export default function SectionHeading({
         }`}
       >
         {renderTitle()}
-      </motion.h2>
+      </Heading>
 
       {subtitle && (
         <motion.p
