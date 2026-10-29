@@ -21,6 +21,7 @@ import TermsOfService from "@/pages/TermsOfService";
 import Careers from "@/pages/Careers";
 import CaseStudies from "@/pages/CaseStudies";
 import CaseStudyDetail from "@/pages/CaseStudyDetail";
+import DentalClinics from "@/pages/DentalClinics";
 
 export default function AnimatedRoutes() {
   const location = useLocation();
@@ -110,6 +111,7 @@ export default function AnimatedRoutes() {
             </PageTransition>
           }
         />
+        <Route path="/ai-receptionist-for-dental-clinics" element={<PageTransition><DentalClinics /></PageTransition>} />
         <Route
           path="/services/ai-receptionist"
           element={

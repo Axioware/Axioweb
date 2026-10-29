@@ -19,6 +19,7 @@ export function getPrerenderRoutes(sitemapUrls: string[] = []) {
     "/services/voice-agents",
     "/services/chatbots",
     "/dental-agent",
+    "/ai-receptionist-for-dental-clinics",
     "/privacy",
     "/terms",
     "/careers",
