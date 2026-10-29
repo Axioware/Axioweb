@@ -32,9 +32,9 @@ import SEO, { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema
 import { useBookCallHref } from "@/lib/booking";
 
 const voiceAgentFAQs = [
-  { question: "What are AI Voice Agents?", answer: "AI Voice Agents are intelligent virtual assistants that handle phone calls using natural language processing to understand and respond to customer inquiries automatically." },
+  { question: "What are AI Voice Agents?", answer: "AI Voice Agents answer phone calls and respond to customer questions using natural language processing." },
   { question: "How much do Voice Agents cost?", answer: "Voice Agent pricing varies based on call volume and features. Contact us for a customized quote tailored to your business needs." },
-  { question: "Can Voice Agents integrate with my existing systems?", answer: "Yes, our Voice Agents integrate seamlessly with popular CRMs, helpdesk platforms, and business tools including Salesforce, HubSpot, and Zendesk." },
+  { question: "Can Voice Agents integrate with my existing systems?", answer: "Yes, our Voice Agents connect with popular CRMs, helpdesk platforms, and business tools including Salesforce, HubSpot, and Zendesk." },
 ];
 
 const voiceAgentTypes = [
@@ -172,7 +172,7 @@ export default function VoiceAgentsService() {
       </section>
 
       {/* Overview Section */}
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-background overflow-x-clip">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -407,6 +407,20 @@ export default function VoiceAgentsService() {
               </Link>
             </Button>
           </motion.div>
+        </div>
+      </section>
+
+      <section className="section-padding bg-secondary/30" aria-labelledby="voice-agent-faq-title">
+        <div className="container-custom max-w-3xl">
+          <h2 id="voice-agent-faq-title" className="font-display text-3xl font-bold text-foreground mb-8">Voice agent FAQs</h2>
+          <div className="space-y-4">
+            {voiceAgentFAQs.map((faq) => (
+              <details key={faq.question} className="rounded-xl border border-border/50 bg-card p-5">
+                <summary className="cursor-pointer font-semibold text-foreground">{faq.question}</summary>
+                <p className="mt-3 text-muted-foreground">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 

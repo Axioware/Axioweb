@@ -153,7 +153,7 @@ export default function ChatbotsService() {
       </section>
 
       {/* Overview Section */}
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-background overflow-x-clip">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -371,6 +371,20 @@ export default function ChatbotsService() {
               </motion.div>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      <section className="section-padding bg-background" aria-labelledby="chatbot-faq-title">
+        <div className="container-custom max-w-3xl">
+          <h2 id="chatbot-faq-title" className="font-display text-3xl font-bold text-foreground mb-8">Chatbot FAQs</h2>
+          <div className="space-y-4">
+            {chatbotFAQs.map((faq) => (
+              <details key={faq.question} className="rounded-xl border border-border/50 bg-card p-5">
+                <summary className="cursor-pointer font-semibold text-foreground">{faq.question}</summary>
+                <p className="mt-3 text-muted-foreground">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 
