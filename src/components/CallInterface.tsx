@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Phone, PhoneOff, Mic, MicOff, Volume2, VolumeX, Headphones, MessageSquare, User, Bot, Globe, Smile, Sparkles, Star } from "lucide-react";
 import { useConversation } from "@elevenlabs/react";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { trackAnalyticsEvent } from "@/lib/analytics";
 
 type CallState = "incoming" | "connecting" | "active" | "ended";
 type Language = "english" | "urdu" | "arabic";
@@ -73,6 +74,7 @@ export default function CallInterface() {
       if (connectedRef.current) return;
       connectedRef.current = true;
       sessionActiveRef.current = true;
+      trackAnalyticsEvent("demo_call_connected", { agent_language: selectedLanguage });
       setCallStateSync("active");
       // ...
 
@@ -193,6 +195,7 @@ export default function CallInterface() {
       return;
     }
 
+    trackAnalyticsEvent("demo_start", { agent_language: selectedLanguage });
     setCallState("connecting");
 
     try {

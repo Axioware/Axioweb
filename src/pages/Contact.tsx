@@ -14,6 +14,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import SEO, { generateBreadcrumbSchema, generateLocalBusinessSchema } from "@/components/SEO";
+import { trackAnalyticsEvent } from "@/lib/analytics";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(100),
@@ -87,6 +88,8 @@ export default function Contact() {
       if (!response.ok) {
         throw new Error(result.message || "Failed to send message");
       }
+
+      trackAnalyticsEvent("generate_lead", { form_name: "contact" });
 
       toast({
         title: "Message sent successfully!",

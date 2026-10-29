@@ -1,4 +1,4 @@
-import { useEffect, lazy, Suspense } from "react";
+import { useEffect, useRef, lazy, Suspense } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import PageTransition from "./PageTransition";
@@ -22,9 +22,11 @@ import Careers from "@/pages/Careers";
 import CaseStudies from "@/pages/CaseStudies";
 import CaseStudyDetail from "@/pages/CaseStudyDetail";
 import DentalClinics from "@/pages/DentalClinics";
+import { trackAnalyticsEvent } from "@/lib/analytics";
 
 export default function AnimatedRoutes() {
   const location = useLocation();
+  const previousPageLocation = useRef<string | null>(null);
 
   // Instant scroll to top on route change (works on mobile too)
   useEffect(() => {
@@ -35,6 +37,43 @@ export default function AnimatedRoutes() {
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
   }, [location.pathname]);
+
+  useEffect(() => {
+    const pagePath = `${location.pathname}${location.search}`;
+    const pageLocation = `${window.location.origin}${pagePath}`;
+    const frame = window.requestAnimationFrame(() => {
+      trackAnalyticsEvent("page_view", {
+        page_title: document.title,
+        page_location: pageLocation,
+        page_path: pagePath,
+        page_referrer: previousPageLocation.current ?? document.referrer,
+      });
+      previousPageLocation.current = pageLocation;
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [location.pathname, location.search]);
+
+  useEffect(() => {
+    const handleBookingClick = (event: MouseEvent) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+
+      const anchor = target.closest("a[href]");
+      if (!(anchor instanceof HTMLAnchorElement)) return;
+
+      const destination = new URL(anchor.href, window.location.origin);
+      if (destination.pathname !== "/contact" || destination.hash !== "#book") return;
+
+      trackAnalyticsEvent("booking_click", {
+        page_path: window.location.pathname,
+        link_url: `${destination.pathname}${destination.hash}`,
+      });
+    };
+
+    document.addEventListener("click", handleBookingClick, true);
+    return () => document.removeEventListener("click", handleBookingClick, true);
+  }, []);
 
   return (
     <AnimatePresence mode="wait">
