@@ -5,6 +5,7 @@ import path from "node:path";
 const root = process.cwd();
 const outputDir = path.join(root, "dist");
 const sitemap = await readFile(path.join(root, "public/sitemap.xml"), "utf8");
+const assetManifest = JSON.parse(await readFile(path.join(outputDir, ".vite/manifest.json"), "utf8"));
 const sitemapUrls = [...sitemap.matchAll(/<loc>https:\/\/axioware\.tech([^<]*)<\/loc>/g)]
   .map((match) => match[1] || "/");
 
@@ -48,7 +49,12 @@ try {
       helmet.script?.toString(),
       helmet.noscript?.toString(),
     ].filter(Boolean).join("\n    ");
-    const rootMarkup = `<div id="root" data-prerendered="true">${html}</div>`;
+    const prerenderedHtml = html.replace(/\/src\/assets\/([^\s"'?#)]+)/g, (_match, sourcePath) => {
+      const entry = assetManifest[`src/assets/${sourcePath}`];
+      if (!entry?.file) throw new Error(`No built asset was found for /src/assets/${sourcePath}`);
+      return `/${entry.file}`;
+    });
+    const rootMarkup = `<div id="root" data-prerendered="true">${prerenderedHtml}</div>`;
     const page = `${beforeMeta}${pageHead}${afterMeta}`.replace(rootPattern, rootMarkup);
 
     if (page === `${beforeMeta}${pageHead}${afterMeta}`) {
