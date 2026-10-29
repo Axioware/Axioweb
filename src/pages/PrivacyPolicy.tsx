@@ -21,7 +21,7 @@ const sections = [
   {
     title: "Cookies and Analytics",
     content:
-      "Our website may use cookies or analytics tools to understand usage patterns and improve the user experience. You can control cookies through your browser settings.",
+      "Optional Google Analytics and LinkedIn tags measure website visits and outreach activity. They load only when allowed in Cookie Preferences. You can change your choice using the Cookie Preferences link in the footer.",
   },
   {
     title: "Contact",

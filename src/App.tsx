@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import AnimatedRoutes from "./components/AnimatedRoutes";
 import { PrerenderProvider } from "@/contexts/PrerenderContext";
+import AnalyticsConsent from "@/components/AnalyticsConsent";
 import { useState, type ReactNode } from "react";
 
 export function AppProviders({
@@ -28,6 +29,7 @@ export function AppProviders({
           </PrerenderProvider>
           <Toaster />
           <Sonner />
+          <AnalyticsConsent />
         </TooltipProvider>
       </QueryClientProvider>
     </HelmetProvider>

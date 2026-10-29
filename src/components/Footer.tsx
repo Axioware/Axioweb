@@ -176,6 +176,13 @@ export default function Footer() {
             <Link to="/terms" className="text-background/60 text-sm hover:text-primary-light transition-colors">
               Terms of Service
             </Link>
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event("axioware:open-cookie-preferences"))}
+              className="text-background/60 text-sm hover:text-primary-light transition-colors"
+            >
+              Cookie preferences
+            </button>
           </div>
         </div>
       </div>
