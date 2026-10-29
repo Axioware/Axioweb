@@ -21,10 +21,11 @@ export default function Portfolio() {
       <SEO
         title="Selected Work"
         description="Examples of AI reception, lead follow-up, and appointment workflows built for business teams."
-        canonical="/portfolio"
+        canonical="/case-studies"
+        noIndex
         structuredData={generateBreadcrumbSchema([
           { name: "Home", url: "/" },
-          { name: "Selected Work", url: "/portfolio" },
+          { name: "Case Studies", url: "/case-studies" },
         ])}
       />
       <section className="relative min-h-screen pt-20 pb-12 flex items-center justify-center overflow-hidden">
