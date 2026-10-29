@@ -49,7 +49,7 @@ export default function DentalClinics() {
     generateBreadcrumbSchema([{ name: "Home", url: "/" }, { name: "AI Receptionist for Dental Clinics", url: "/ai-receptionist-for-dental-clinics" }]),
   ] };
   return <Layout>
-    <SEO title="AI Receptionist for Dental Clinics" titleIsComplete description={description} canonical="/ai-receptionist-for-dental-clinics" ogLocale="en_GB" structuredData={structuredData} />
+    <SEO title="AI Receptionist for Dental Clinics | Axioware" titleIsComplete description={description} canonical="/ai-receptionist-for-dental-clinics" ogLocale="en_GB" structuredData={structuredData} />
     <section className="relative min-h-[calc(100svh-4rem)] md:min-h-[calc(100svh-5rem)] py-12 md:py-16 flex items-center justify-center overflow-hidden">
       <AnimatedHeroBackground />
       <div className="container-custom relative z-10 text-center"><div className="max-w-3xl mx-auto">

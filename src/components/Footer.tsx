@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Linkedin, Facebook, Github, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Facebook, Instagram } from "lucide-react";
 import logoWhite from "@/assets/axioware-logo-white.webp";
 
 const footerLinks = {
@@ -32,10 +32,9 @@ const footerLinks = {
       label: "Facebook",
       color: "hover:bg-[#1877F2] hover:text-white",
     },
-    { icon: Github, href: "https://github.com/axioware", label: "GitHub", color: "hover:bg-[#333] hover:text-white" },
     {
       icon: Instagram,
-      href: "https://www.instagram.com/axiowaretech?igsh=ajRnenB1c3V4dWE3&utm_source=qr",
+      href: "https://www.instagram.com/axiowaretech",
       label: "Instagram",
       color: "hover:bg-gradient-to-br hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] hover:text-white",
     },
@@ -70,7 +69,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-background/70 mb-6 leading-relaxed">
-              AI systems that answer calls, follow up with leads, and help small service businesses book appointments.
+              AI receptionists and follow-up systems for dental clinics and small service businesses.
             </p>
             <div className="flex items-center gap-4">
               {footerLinks.social.map((social) => (

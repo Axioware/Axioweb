@@ -35,7 +35,7 @@ export default function SEO({
   canonical,
   ogImage = DEFAULT_OG_IMAGE,
   ogType = "website",
-  ogLocale = "en_US",
+  ogLocale = "en_GB",
   twitterCard = "summary_large_image",
   noIndex = false,
   structuredData,
