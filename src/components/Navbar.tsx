@@ -27,6 +27,7 @@ const navItems: NavItem[] = [
       { label: "Dental Receptionist Demo", href: "/dental-agent" },
     ],
   },
+  { label: "Dental clinics", href: "/ai-receptionist-for-dental-clinics" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Blog", href: "/blog" },

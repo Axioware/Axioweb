@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
@@ -8,6 +8,7 @@ export default function CTASection({
   description = "Let's discuss your calls, leads, and workflows. Get in touch to plan your next step.",
   buttonLabel = "Get in touch",
 }: { title?: string; description?: string; buttonLabel?: string }) {
+  const location = useLocation();
   return (
     <section className="section-padding bg-primary relative overflow-hidden">
       {/* Background Elements */}
@@ -35,12 +36,12 @@ export default function CTASection({
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
             {title}
           </h2>
-          <p className="text-lg text-primary-foreground/80 mb-10 leading-relaxed">
+          {description && <p className="text-lg text-primary-foreground/80 mb-10 leading-relaxed">
             {description}
-          </p>
+          </p>}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button asChild size="xl" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 group">
-              <Link to="/contact">
+              <Link to={`/contact${location.search}`}>
                 {buttonLabel}
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Link>

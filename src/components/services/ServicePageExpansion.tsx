@@ -2,6 +2,7 @@ import { Bell, Linkedin, MessageSquare, Mic, PhoneCall, Target, Workflow, type L
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ServiceCard from "@/components/ServiceCard";
+import { Link, useLocation } from "react-router-dom";
 
 export interface ServicePageExpansionData {
   overview: {
@@ -49,10 +50,13 @@ const relatedServiceIcons: Record<string, LucideIcon> = {
 export default function ServicePageExpansion({
   content,
   relatedServices,
+  serviceSlug,
 }: {
   content: ServicePageExpansionData;
   relatedServices: RelatedServiceData[];
+  serviceSlug?: string;
 }) {
+  const location = useLocation();
   return (
     <>
       <section className="section-padding bg-secondary/30">
@@ -132,6 +136,7 @@ export default function ServicePageExpansion({
               </Card>
             ))}
           </div>
+          {(serviceSlug === "ai-receptionist" || serviceSlug === "automated-follow-ups") && <p className="text-center mt-6 text-muted-foreground">Looking for dental clinics specifically? See our <Link className="text-accent underline underline-offset-4" to={`/ai-receptionist-for-dental-clinics${location.search}`}>dental clinic page</Link>.</p>}
         </div>
       </section>
 

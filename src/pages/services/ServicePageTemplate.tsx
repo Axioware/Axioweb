@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import Layout from "@/components/Layout";
 import AnimatedHeroBackground from "@/components/AnimatedHeroBackground";
@@ -565,6 +565,7 @@ const processSteps = [
 
 export default function ServicePageTemplate({ service }: { service: ServicePageContent }) {
   const canonical = `/services/${service.slug}`;
+  const location = useLocation();
 
   return (
     <Layout>
@@ -591,7 +592,7 @@ export default function ServicePageTemplate({ service }: { service: ServicePageC
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">{service.h1}</h1>
             <p className="text-lg md:text-xl text-white/85 mb-10 leading-relaxed">{service.subhead}</p>
             <Button asChild size="xl" className="bg-accent hover:bg-accent/90 text-white shadow-lg shadow-accent/30">
-              <Link to="/contact" className="group">
+              <Link to={`/contact${location.search}`} className="group">
                 Book a 15-minute call
                 <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
@@ -618,6 +619,7 @@ export default function ServicePageTemplate({ service }: { service: ServicePageC
       {service.expansion ? (
         <ServicePageExpansion
           content={service.expansion}
+          serviceSlug={service.slug}
           relatedServices={service.expansion.relatedServices.map((slug) => {
             const relatedService = servicePages[slug];
             return {

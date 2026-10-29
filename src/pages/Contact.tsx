@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -39,6 +40,7 @@ const services = [
 ];
 
 export default function Contact() {
+  const location = useLocation();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [selectedService, setSelectedService] = useState("");
 
@@ -54,7 +56,11 @@ export default function Contact() {
   const onSubmit = async (data: ContactFormData) => {
     try {
       // Attach the selected service
-      const payload = { ...data, service: selectedService };
+      const payload = {
+        ...data,
+        service: selectedService,
+        attribution: Object.fromEntries(new URLSearchParams(location.search)),
+      };
 
       const response = await fetch(`${BASE_URL}/contact`, {
         method: "POST",

@@ -6,6 +6,7 @@ import logoWhite from "@/assets/axioware-logo-white.webp";
 const footerLinks = {
   services: [
     { label: "AI Receptionist", href: "/services/ai-receptionist" },
+    { label: "Dental clinics", href: "/ai-receptionist-for-dental-clinics" },
     { label: "AI Lead Generation", href: "/services/ai-lead-generation" },
     { label: "LinkedIn BDR", href: "/services/linkedin-bdr" },
     { label: "Automated Follow-Ups", href: "/services/automated-follow-ups" },
