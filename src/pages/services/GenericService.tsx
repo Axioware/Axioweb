@@ -52,7 +52,7 @@ interface ServiceInfo {
 export const serviceData: Record<string, ServiceInfo> = {
   "machine-learning": {
     title: "Machine Learning",
-    desc: "Custom ML models and predictive analytics that transform your data into actionable business intelligence.",
+    desc: "Custom ML models and predictive analytics that turn your data into actionable business intelligence.",
     icon: Brain,
     features: [
       { title: "Predictive Analytics", icon: LineChart, desc: "Forecast trends and make data-driven decisions" },
@@ -65,9 +65,9 @@ export const serviceData: Record<string, ServiceInfo> = {
       { title: "Recommendation Engines", icon: Sparkles, desc: "Personalized suggestions that drive engagement" },
     ],
     overview: {
-      heading: "Transform Data Into Intelligence",
+      heading: "Turn Data Into Useful Insights",
       description:
-        "Our machine learning solutions leverage cutting-edge algorithms to uncover hidden patterns, automate decision-making, and predict future trends. From customer behavior analysis to fraud detection, we build custom models tailored to your unique business challenges.",
+        "Our machine learning solutions use current algorithms to uncover hidden patterns, automate decision-making, and predict future trends. From customer behavior analysis to fraud detection, we build custom models tailored to your unique business challenges.",
       benefits: [
         "Reduce operational costs with automated decision-making",
         "Increase revenue with personalized recommendations",
@@ -89,7 +89,7 @@ export const serviceData: Record<string, ServiceInfo> = {
         },
         {
           title: "Integration & Testing",
-          description: "We seamlessly integrate the model into your systems with rigorous testing.",
+          description: "We integrate the model into your systems with rigorous testing.",
           icon: Code,
         },
         {
@@ -102,10 +102,10 @@ export const serviceData: Record<string, ServiceInfo> = {
   },
   "web-development": {
     title: "Web Development",
-    desc: "Modern, responsive web applications built with cutting-edge technology for exceptional user experiences.",
+    desc: "Responsive web applications built for clear user journeys and common business needs.",
     icon: Globe,
     features: [
-      { title: "React & Next.js", icon: Code, desc: "Modern frameworks for fast, scalable applications" },
+      { title: "React & Next.js", icon: Code, desc: "Modern frameworks for fast applications that can grow" },
       { title: "E-commerce Solutions", icon: Globe, desc: "Full-featured online stores that convert" },
       { title: "Progressive Web Apps", icon: Zap, desc: "Native-like experiences on any device" },
       { title: "API Development", icon: Link2, desc: "Robust backend services and integrations" },
@@ -113,7 +113,7 @@ export const serviceData: Record<string, ServiceInfo> = {
     overview: {
       heading: "Build Your Digital Presence",
       description:
-        "We create stunning, high-performance web applications that drive engagement and conversions. Using modern frameworks like React, Next.js, and Node.js, we deliver scalable solutions that grow with your business.",
+        "We create stunning, high-performance web applications that drive engagement and conversions. Using modern frameworks like React, Next.js, and Node.js, we build solutions that can grow with your business.",
       benefits: [
         "Lightning-fast load times with optimized performance",
         "Mobile-first responsive design for all devices",
@@ -164,7 +164,7 @@ export const serviceData: Record<string, ServiceInfo> = {
         "Launch on iOS and Android with a consistent experience",
         "Reduce manual work with app-driven workflows",
         "Integrate your app with existing business systems",
-        "Ship a scalable product that can evolve after launch",
+        "Ship a product that can evolve after launch",
       ],
     },
     process: {
@@ -444,7 +444,7 @@ export default function GenericService() {
               Ready to Get Started?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Let's discuss how our {service.title.toLowerCase()} services can help transform your business.
+              Let's discuss how our {service.title.toLowerCase()} services can help improve your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-accent hover:bg-accent/90">

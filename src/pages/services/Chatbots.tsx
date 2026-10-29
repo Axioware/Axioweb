@@ -47,13 +47,13 @@ const features = [
   { icon: Globe, title: "Omnichannel", desc: "Deploy on web, WhatsApp, Messenger, Slack & more from a single platform" },
   { icon: BarChart, title: "Analytics", desc: "Track performance, conversation insights, and customer behavior patterns" },
   { icon: Clock, title: "24/7 Availability", desc: "Never miss a customer query, even outside business hours" },
-  { icon: Headphones, title: "Human Handoff", desc: "Seamless escalation to live agents when needed" },
+  { icon: Headphones, title: "Human Handoff", desc: "Smooth handoff to a live agent when needed" },
 ];
 
 const useCases = [
   {
     title: "Customer Support",
-    description: "Automate FAQ responses, ticket creation, and issue resolution to reduce support costs by 60%.",
+    description: "Automate FAQ responses, ticket creation, and issue resolution to reduce repetitive support work.",
     icon: Headphones,
   },
   {
@@ -102,7 +102,7 @@ export default function ChatbotsService() {
     "@graph": [
       generateServiceSchema({
         name: "AI Chatbots",
-        description: "Intelligent conversational agents that engage customers 24/7, answer questions, qualify leads, and drive conversions across multiple platforms.",
+        description: "AI chat assistants that engage customers 24/7, answer questions, qualify leads, and drive conversions across multiple platforms.",
         url: "https://axioware.tech/services/chatbots"
       }),
       generateBreadcrumbSchema([
@@ -117,7 +117,7 @@ export default function ChatbotsService() {
   return (
     <Layout>
       <SEO 
-        title="AI Chatbots - Intelligent Conversational Agents"
+        title="AI Chatbots for Customer Support"
         description="Deploy AI Chatbots that engage customers 24/7 on web, WhatsApp, Messenger, and more. Automate support, qualify leads, and boost conversions."
         keywords="AI Chatbots, Conversational AI, Customer Support Bot, WhatsApp Bot, Messenger Bot, Lead Generation Bot, Customer Service Automation"
         canonical="/services/chatbots"
@@ -140,7 +140,7 @@ export default function ChatbotsService() {
               AI Chatbots
             </h1>
             <p className="text-lg md:text-xl text-white/85 mb-10 leading-relaxed">
-              Intelligent conversational agents that engage and convert customers 24/7.
+              AI chat assistants that engage and convert customers 24/7.
             </p>
             <Button asChild size="xl" className="bg-accent hover:bg-accent/90 text-white shadow-lg shadow-accent/30">
               <Link to={bookingHref} className="group">
@@ -195,7 +195,7 @@ export default function ChatbotsService() {
             badge="Features"
             title="Powerful Capabilities"
             highlight="Capabilities"
-            subtitle="Everything you need for intelligent customer engagement."
+            subtitle="Tools for customer conversations."
           />
 
           <motion.div
@@ -329,7 +329,7 @@ export default function ChatbotsService() {
             badge="Integrations"
             title="Works With Your Existing Tools"
             highlight="Existing Tools"
-            subtitle="Seamlessly connect with the platforms you already use."
+            subtitle="Connect with the platforms you already use."
           />
 
           <motion.div
@@ -402,7 +402,7 @@ export default function ChatbotsService() {
               Ready to Automate Customer Conversations?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Join hundreds of businesses that have transformed their customer engagement with our AI chatbots.
+              Talk with us about AI chatbots for customer conversations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-accent hover:bg-accent/90">

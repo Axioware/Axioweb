@@ -12,7 +12,7 @@ const testimonials = [
     company: "Talegacy",
     avatar: "TG",
     content:
-      "An excellent experience! The Axioware team delivered exceptional work on time, consistently going above and beyond the basic requirements. The project was seamless from start to finish. Highly professional and absolutely worth the investment. Will definitely be connecting with them again.",
+      "An excellent experience! The Axioware team delivered exceptional work on time, consistently going above and beyond the basic requirements. The project ran smoothly from start to finish. Highly professional and absolutely worth the investment. Will definitely be connecting with them again.",
     rating: 5,
   },
   {
@@ -32,7 +32,7 @@ const testimonials = [
     company: "VYVA Life",
     avatar: "VYVA",
     content:
-      "The automation solutions provided by Axioware transformed our operations. Manual data handling was removed entirely, workflows became faster, and our team could focus on higher-value work. Highly efficient and well-implemented solution.",
+      "The automation solutions provided by Axioware changed our operations. Manual data handling was removed entirely, workflows became faster, and our team could focus on higher-value work. Highly efficient and well-implemented solution.",
     rating: 5,
   },
   {

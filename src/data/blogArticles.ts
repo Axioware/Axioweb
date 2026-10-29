@@ -10,6 +10,7 @@ import {
 
 export interface BlogPost {
   id: string;
+  legacyIds?: string[];
   title: string;
   excerpt: string;
   category: string;
@@ -27,9 +28,10 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   // Voice Agents & AI Chatbots
   {
-    id: "voice-agents-transforming-customer-support",
-    title: "How Voice Agents Are Transforming Customer Support in 2026",
-    excerpt: "Discover how AI-powered voice agents are revolutionizing customer service, reducing wait times, and delivering personalized experiences at scale.",
+    id: "voice-agents-customer-support",
+    legacyIds: ["voice-agents-transforming-customer-support"],
+    title: "How Voice Agents Are Changing Customer Support in 2026",
+    excerpt: "Discover how AI-powered voice agents are improving customer service, reducing wait times, and delivering personalized experiences at scale.",
     category: "Voice Agents & AI Chatbots",
     categoryIcon: Mic,
     author: "Sarah Mitchell",
@@ -46,7 +48,7 @@ The customer support landscape has undergone a seismic shift. What once required
 
 ### Why Businesses Are Making the Switch
 
-Companies across industries are discovering that voice AI isn't just a cost-cutting measure—it's a genuine improvement in customer experience. Here's what's driving adoption:
+Companies across industries are discovering that voice AI isn't just a cost-cutting measure; it can improve customer experience. Here's what's driving adoption:
 
 **1. Instant Response Times**
 
@@ -58,7 +60,7 @@ Every interaction maintains the same high standard. Voice agents don't have bad 
 
 **3. 24/7 Availability**
 
-Global businesses no longer need to staff overnight shifts or worry about holiday coverage. Voice AI provides seamless support across all time zones.
+Global businesses no longer need to staff overnight shifts or worry about holiday coverage. Voice AI provides smooth support across all time zones.
 
 ### Real-World Impact: By the Numbers
 
@@ -71,7 +73,7 @@ The results speak for themselves:
 
 ### The Technology Behind Modern Voice Agents
 
-Today's voice agents leverage multiple AI technologies working in concert:
+Today's voice agents use multiple AI technologies together:
 
 **Natural Language Understanding (NLU)**: Comprehends intent, context, and nuance in human speech, including accents and colloquialisms.
 
@@ -86,9 +88,9 @@ Today's voice agents leverage multiple AI technologies working in concert:
 For businesses considering voice AI adoption, success depends on thoughtful implementation:
 
 1. **Start with high-volume, low-complexity queries** to build confidence and gather data
-2. **Design seamless handoff protocols** for situations requiring human expertise
+2. **Design smooth handoff protocols** for situations requiring human expertise
 3. **Continuously train and refine** based on real conversation data
-4. **Maintain transparency**—customers appreciate knowing they're speaking with AI
+4. **Maintain transparency**; customers appreciate knowing they're speaking with AI
 
 ### The Future of Voice AI
 
@@ -103,7 +105,7 @@ As we move through 2026, expect voice agents to become even more sophisticated. 
 
 The best time to implement voice AI was yesterday. The second-best time is now. Companies that delay risk falling behind competitors who are already delivering superior customer experiences at lower costs.
 
-Ready to transform your customer support? The technology is mature, the ROI is proven, and your customers are waiting.
+Ready to improve your customer support? The technology is mature, and your customers are waiting.
     `
   },
   {
@@ -144,7 +146,7 @@ It's the question every business leader is asking: Should we replace our human a
 
 ### The Hybrid Model: Best of Both Worlds
 
-The most successful organizations don't choose between AI and humans—they strategically combine both. Here's how:
+The most successful organizations combine AI and human support. Here's how:
 
 **Tier 1: AI First Contact**
 
@@ -178,23 +180,23 @@ A major e-commerce retailer implemented this hybrid model with remarkable result
 
 ### Keys to Successful Integration
 
-1. **Design seamless handoffs**: Customers should never notice the transition from AI to human.
+1. **Design smooth handoffs**: Customers should never notice the transition from AI to human.
 
 2. **Train AI on your specific context**: Generic chatbots frustrate customers. Custom-trained models understand your products, policies, and customer base.
 
-3. **Empower human agents**: With AI handling routine tasks, humans can focus on high-value interactions. Give them authority to make decisions.
+3. **Support human agents**: With AI handling routine tasks, people can focus on complex work. Give them authority to make decisions.
 
 4. **Monitor and iterate**: Use AI analytics to identify where the system struggles and continuously improve.
 
 ### Common Pitfalls to Avoid
 
-- **Forcing AI on every interaction**: Some customers prefer humans—respect that preference.
+- **Forcing AI on every interaction**: Some customers prefer people; respect that preference.
 - **Underinvesting in handoff design**: A clunky transfer from bot to human erases all efficiency gains.
 - **Neglecting agent training**: Humans need to understand how to work alongside AI effectively.
 
 ### The Bottom Line
 
-The future isn't AI *versus* humans—it's AI *and* humans working together. Organizations that master this partnership will deliver experiences that neither could achieve alone.
+The future isn't AI *versus* humans; it's AI *and* humans working together. Organizations that combine both can offer support neither could provide alone.
 
 Your customers don't care whether they're talking to a bot or a human. They care about getting their problems solved quickly, accurately, and pleasantly. Give them that, and you've won.
     `
@@ -202,7 +204,7 @@ Your customers don't care whether they're talking to a bot or a human. They care
   {
     id: "chatbots-boost-lead-generation",
     title: "5 Ways Chatbots Can Boost Your Lead Generation",
-    excerpt: "Explore proven strategies for leveraging AI chatbots to capture, qualify, and nurture leads around the clock without human intervention.",
+    excerpt: "Explore proven strategies for using AI chatbots to capture, qualify, and nurture leads around the clock without human intervention.",
     category: "Voice Agents & AI Chatbots",
     categoryIcon: MessageSquare,
     author: "Emily Rodriguez",
@@ -212,7 +214,7 @@ Your customers don't care whether they're talking to a bot or a human. They care
     image: "https://images.unsplash.com/photo-1552581234-26160f608093?w=800&auto=format&fit=crop&q=80",
     tags: ["Lead Generation", "Chatbots", "Sales Automation", "Conversion"],
     content: `
-## Turn Website Visitors into Qualified Leads—Automatically
+## Turn Website Visitors into Qualified Leads Automatically
 
 Your website has traffic. But how many of those visitors become leads? For most businesses, the answer is a disappointing 2-3%. AI chatbots can change that dramatically.
 
@@ -222,11 +224,11 @@ Don't wait for visitors to seek help. Smart chatbots initiate conversations base
 
 - **Time on page**: "I see you've been looking at our pricing. Have any questions?"
 - **Scroll depth**: "You've read most of this article. Want to see how we can help implement these strategies?"
-- **Exit intent**: "Before you go—can I help you find what you're looking for?"
+- **Exit intent**: "Before you go, can I help you find what you're looking for?"
 
 **Impact**: Proactive engagement can increase lead capture by 40% compared to passive chat widgets.
 
-### Strategy #2: Intelligent Qualification
+### Strategy #2: AI-powered Qualification
 
 Not all leads are created equal. Chatbots can ask the right questions to separate tire-kickers from serious buyers:
 
@@ -253,7 +255,7 @@ Chatbots provide:
 
 Your best prospects might browse your site at midnight or on weekends. Without chatbots, you're losing these opportunities.
 
-A financial services company discovered that 35% of their chatbot-captured leads came outside business hours—leads they would have completely missed before implementation.
+A financial services company found that 35% of its chatbot-captured leads arrived outside business hours. Its team would otherwise have missed those inquiries.
 
 ### Strategy #5: Personalized Nurturing
 
@@ -290,7 +292,7 @@ Companies implementing chatbot lead generation typically see:
 
 ### Getting Started
 
-Start simple. A chatbot that just captures basic information and books meetings can transform your lead generation. You can add sophistication over time.
+Start simple. A chatbot that captures basic information and books meetings can improve lead generation. You can add features over time.
 
 The leads are there. The technology is ready. The only question is: how many opportunities will you lose before getting started?
     `
@@ -298,7 +300,7 @@ The leads are there. The technology is ready. The only question is: how many opp
   {
     id: "conversational-ai-ecommerce",
     title: "The Future of Conversational AI in E-Commerce",
-    excerpt: "How conversational AI is reshaping online shopping with personalized recommendations, instant support, and seamless purchasing experiences.",
+    excerpt: "How conversational AI is reshaping online shopping with personalized recommendations, instant support, and smooth purchasing experiences.",
     category: "Voice Agents & AI Chatbots",
     categoryIcon: MessageSquare,
     author: "David Park",
@@ -351,7 +353,7 @@ Modern e-commerce conversational AI combines:
 4. **Inventory Integration**: Real-time stock and shipping information
 5. **Payment Processing**: Complete purchases within the conversation
 
-### Customer Journey Transformation
+### Customer Journey Changes
 
 **Traditional Journey:**
 Search → Browse → Filter → Compare → Doubt → Abandon Cart → Maybe Return
@@ -390,7 +392,7 @@ Emerging capabilities to watch:
 - **Voice commerce**: Shop by talking to your smart speaker
 - **AR integration**: "Show me how this looks in my room"
 - **Predictive ordering**: AI anticipates needs before you ask
-- **Social commerce**: Seamless shopping within conversations
+- **Social commerce**: smooth shopping within conversations
 
 ### Getting Started
 
@@ -404,13 +406,13 @@ The barrier to entry has never been lower. Modern platforms offer:
 
 Consumers increasingly expect personalized, guided experiences. Conversational AI delivers this at scale, turning every website visitor into someone with their own personal shopper.
 
-The question isn't whether to implement conversational AI—it's how quickly you can do it before your competitors do.
+The question isn't whether to implement conversational AI; it's how soon it will help your customers.
     `
   },
   {
     id: "voice-ai-crm-integration",
     title: "Integrating Voice AI With Your CRM: Best Practices",
-    excerpt: "A comprehensive guide to seamlessly connecting voice AI agents with your CRM system for unified customer data and enhanced automation.",
+    excerpt: "A comprehensive guide to smoothly connecting voice AI agents with your CRM system for unified customer data and enhanced automation.",
     category: "Voice Agents & AI Chatbots",
     categoryIcon: Mic,
     author: "Lisa Thompson",
@@ -420,9 +422,9 @@ The question isn't whether to implement conversational AI—it's how quickly you
     image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&auto=format&fit=crop&q=80",
     tags: ["Voice AI", "CRM", "Integration", "Automation"],
     content: `
-## Unlocking the Full Potential of Voice AI
+## Get More from Voice AI
 
-Voice AI is powerful on its own. Connected to your CRM, it becomes transformative. This guide covers everything you need to know about integrating these technologies for maximum impact.
+Voice AI can handle calls on its own. Connected to a CRM, it can use customer and appointment details. This guide explains common integration choices.
 
 ### Why CRM Integration Matters
 
@@ -436,7 +438,7 @@ With integration:
 - "Hi Sarah, I see you called about your order yesterday. Has that been resolved?"
 - Automatic ticket creation and updates
 - Real-time customer profile enrichment
-- Seamless handoff to sales or support teams
+- smooth handoff to sales or support teams
 
 ### Integration Architecture Options
 
@@ -478,7 +480,7 @@ Critical data to sync:
 **Phase 1: Foundation (Weeks 1-2)**
 - Define data requirements
 - Map CRM fields to voice AI parameters
-- Establish authentication and security
+- Set up authentication and access rules
 
 **Phase 2: Core Integration (Weeks 3-4)**
 - Build basic bi-directional sync
@@ -495,14 +497,14 @@ Critical data to sync:
 - Add new use cases
 - Enhance automation
 
-### Security Considerations
+### Data Handling Considerations
 
 Non-negotiables for CRM integration:
 - **Encryption**: All data in transit and at rest
 - **Authentication**: OAuth 2.0 or similar secure methods
 - **Access control**: Role-based permissions
-- **Audit logging**: Track all data access
-- **Compliance**: GDPR, CCPA, industry-specific requirements
+- **Access logs**: Track data access
+- **Requirements**: privacy laws and industry-specific rules
 
 ### Common Pitfalls (And How to Avoid Them)
 
@@ -554,16 +556,17 @@ Don't try to do everything at once. Start with:
 2. Basic context display (last interaction, open issues)
 3. Automatic ticket/case creation
 
-These three capabilities alone will transform your customer experience. Build from there.
+These three capabilities can improve customer support. Build from there.
 
 The technology exists. The benefits are proven. The only question is how quickly you'll connect the dots.
     `
   },
   // AI & ML
   {
-    id: "ml-revolutionizing-small-business",
-    title: "How Machine Learning Is Revolutionizing Small Business Decisions",
-    excerpt: "Discover how small businesses are leveraging machine learning to make data-driven decisions, optimize operations, and compete with larger enterprises.",
+    id: "machine-learning-small-business-decisions",
+    legacyIds: ["ml-revolutionizing-small-business"],
+    title: "How Machine Learning Is Improving Small Business Decisions",
+    excerpt: "Discover how small businesses are using machine learning to make data-driven decisions, optimize operations, and compete with larger enterprises.",
     category: "AI & ML",
     categoryIcon: Brain,
     author: "Dr. James Wilson",
@@ -575,7 +578,7 @@ The technology exists. The benefits are proven. The only question is how quickly
     content: `
 ## The Democratization of Machine Learning
 
-Machine learning was once the exclusive domain of tech giants with massive budgets and armies of data scientists. Today, small businesses are harnessing the same powerful technology to transform their operations.
+Machine learning was once limited to large companies with large budgets and data teams. Today, small businesses also use it in their operations.
 
 ### What's Changed?
 
@@ -605,7 +608,7 @@ A small e-commerce store used ML to optimize ad targeting, improving ROAS by 65%
 ### Getting Started: A Practical Guide
 
 **Step 1: Identify One Problem**
-Don't try to transform everything at once. Pick one specific, measurable challenge.
+Don't try to change everything at once. Pick one specific, measurable challenge.
 
 Good candidates:
 - Forecasting demand
@@ -614,7 +617,7 @@ Good candidates:
 - Optimizing marketing spend
 
 **Step 2: Assess Your Data**
-ML needs data. Audit what you have:
+ML needs data. Review what you have:
 - Sales history
 - Customer records
 - Website analytics
@@ -626,7 +629,7 @@ Quality matters more than quantity. Clean, consistent data from one system beats
 
 For most small businesses, the best options are:
 
-1. **SaaS tools with built-in ML**: Many business tools now include intelligent features. Check your existing software.
+1. **SaaS tools with built-in ML**: Many business tools now include AI-powered features. Check your existing software.
 
 2. **No-code ML platforms**: Drag-and-drop interfaces for building custom models.
 
@@ -667,7 +670,7 @@ You probably have more than you think. Even 6-12 months of basic sales data can 
 Modern tools abstract away complexity. If you can use a spreadsheet, you can use many ML tools.
 
 **"It's too expensive"**
-Many platforms offer free tiers. Serious tools start at $50-200/month—less than most software subscriptions.
+Many platforms offer free tiers. Serious tools start at $50-200/month, less than most software subscriptions.
 
 **"We don't have the expertise"**
 You don't need data scientists. User-friendly tools and occasional consultant help can get you far.
@@ -689,7 +692,7 @@ Those that don't risk falling behind as competitors and customer expectations ev
 3. **This quarter**: Run a pilot project
 4. **This year**: Scale what works, expand to new use cases
 
-The future of small business is data-driven. The question isn't whether to adopt ML—it's how quickly you can start.
+The future of small business is data-driven. The question is which task to try first.
     `
   },
   {
@@ -707,7 +710,7 @@ The future of small business is data-driven. The question isn't whether to adopt
     content: `
 ## Know What Your Customers Want Before They Do
 
-The most valuable business insights aren't about what happened yesterday—they're about what will happen tomorrow. Predictive analytics makes this possible.
+Business insights can explain what happened and estimate what may happen next. Predictive analytics supports that work.
 
 ### What Is Predictive Analytics?
 
@@ -763,7 +766,7 @@ Relevant data sources:
 - External data (when available)
 
 **Step 3: Prepare Data**
-Clean, transform, and engineer features. This step often takes 60-70% of project time but determines success.
+Clean the data and prepare the features. This step can take much of a project’s time and has a strong effect on the result.
 
 **Step 4: Select and Train Models**
 Options range from simple (logistic regression) to complex (deep learning). Start simple; add complexity only if needed.
@@ -835,7 +838,7 @@ Predictive analytics is evolving toward:
 
 ### Conclusion
 
-The businesses that win in 2026 and beyond will be those that anticipate customer needs rather than react to them. Predictive analytics isn't optional—it's essential.
+Predictive analytics can help a business estimate customer needs. Start with one clear question and check predictions against later results.
 
 Start small. Prove value. Scale what works. The data is waiting; the question is whether you'll use it.
     `
@@ -860,7 +863,7 @@ The pace of change in web development never slows. Here are the seven trends eve
 
 ### 1. AI-Powered Development Tools
 
-The biggest shift in development isn't a new framework—it's how we build.
+The biggest shift in development may be how teams use new tools, not which framework they choose.
 
 **Code Generation**
 AI assistants now write significant portions of code, handle boilerplate, and suggest optimizations. Developers who master AI collaboration are 3x more productive.
@@ -869,7 +872,7 @@ AI assistants now write significant portions of code, handle boilerplate, and su
 AI generates test cases, identifies edge cases humans miss, and maintains test suites as code evolves.
 
 **Bug Detection**
-Before code even runs, AI spots potential issues, security vulnerabilities, and performance problems.
+Before code even runs, AI spots potential issues, software weaknesses, and performance problems.
 
 ### 2. Edge Computing Goes Mainstream
 
@@ -943,7 +946,7 @@ Amidst all the new:
 - Fundamentals still matter (JavaScript, HTML, CSS)
 - Performance and user experience remain paramount
 - Accessibility is non-negotiable
-- Security requires constant vigilance
+- Protecting systems takes ongoing care
 
 ### Conclusion
 
@@ -1071,7 +1074,7 @@ Forms are where conversions happen or die:
 
 ### Trust Signals
 
-**Security indicators:**
+**Site safety checks:**
 - SSL certificates (obvious padlock)
 - Privacy policy links
 - Secure payment badges
@@ -1131,7 +1134,7 @@ Key metrics:
 
 ### Getting Started
 
-1. Audit your current site against these principles
+1. Review your current site against these principles
 2. Identify your biggest conversion blockers
 3. Prioritize fixes by impact and effort
 4. Test changes systematically
@@ -1139,7 +1142,7 @@ Key metrics:
 
 ### Conclusion
 
-Building websites that convert isn't magic—it's methodical application of proven principles. Focus on clarity, trust, and removing friction. Test everything. Let data guide decisions.
+Building a website that supports enquiries takes clear copy, useful information, and simple steps. Test the page and use the results to guide changes.
 
 The beautiful website that converts is better than either beauty or conversion alone. Build for both.
     `
@@ -1237,7 +1240,7 @@ Internal links are underrated for SEO:
 - Use descriptive anchor text
 - Prioritize important pages with more links
 - Create content clusters with hub-and-spoke linking
-- Regularly audit for broken internal links
+- Regularly check for broken internal links
 
 ### Content Freshness
 
@@ -1333,7 +1336,7 @@ Modern content optimization is about serving users better than competitors while
     content: `
 ## Winning the Local Search Game
 
-46% of Google searches have local intent. For local businesses, appearing in these results isn't optional—it's essential. Here's how to dominate local search.
+Local search can help nearby customers find a business. Keep business details accurate and make service information easy to find.
 
 ### Google Business Profile Mastery
 
@@ -1356,7 +1359,7 @@ Your GBP listing is the foundation of local SEO.
 - Team photos: Humanize your business
 - Product/service photos: What you offer
 
-Post new photos regularly—businesses with 100+ photos get 520% more calls.
+Post recent photos that show the business and its services.
 
 ### The Review Strategy
 
@@ -1491,9 +1494,10 @@ Local SEO is about being the obvious choice when someone nearby needs what you o
   },
   // Social Media Marketing
   {
-    id: "ai-supercharge-social-media",
-    title: "How AI Can Supercharge Your Social Media Marketing",
-    excerpt: "Leverage AI tools to automate content creation, optimize posting schedules, and analyze performance for maximum social media ROI.",
+    id: "ai-social-media-marketing",
+    legacyIds: ["ai-supercharge-social-media"],
+    title: "How AI Can Improve Your Social Media Marketing",
+    excerpt: "Use AI tools to draft content, plan posts, and review performance data.",
     category: "Social Media Marketing",
     categoryIcon: Share2,
     author: "Sarah Mitchell",
@@ -1529,7 +1533,7 @@ AI creates custom visuals without designers:
 - Quick iteration and variations
 - Stock photo alternative
 
-### Intelligent Scheduling
+### AI-powered Scheduling
 
 AI optimizes when you post:
 
@@ -1636,7 +1640,7 @@ When choosing AI social tools:
 - Analytics capabilities
 - Pricing model
 - Customer support
-- Security and compliance
+- Data protection and regulation
 
 ### Human + AI Balance
 
@@ -1667,7 +1671,7 @@ Track before and after:
 
 ### Getting Started
 
-1. Audit current social media pain points
+1. Review current social media pain points
 2. Identify highest-impact AI opportunities
 3. Start with one tool in one area
 4. Measure results rigorously
@@ -1675,7 +1679,7 @@ Track before and after:
 
 ### Conclusion
 
-AI isn't the future of social media marketing—it's the present. Teams using AI effectively produce more content, engage more authentically, and achieve better results than those still doing everything manually.
+AI tools are already used in social media work. Teams can test them for drafting, scheduling, and analysis, then review the results.
 
 The question isn't whether to use AI, but how quickly you can implement it effectively.
     `
@@ -1683,7 +1687,7 @@ The question isn't whether to use AI, but how quickly you can implement it effec
   {
     id: "social-media-analytics-strategy",
     title: "Social Media Analytics: Turning Data Into Strategy",
-    excerpt: "Transform raw social media metrics into actionable insights that drive engagement, growth, and business results.",
+    excerpt: "Turn social media metrics into insights that can guide content and campaign decisions.",
     category: "Social Media Marketing",
     categoryIcon: Share2,
     author: "Michael Chen",
@@ -1899,7 +1903,7 @@ The analysis is only valuable if it leads to action:
 
 ### Conclusion
 
-Social media analytics isn't about drowning in data—it's about surfacing the insights that drive better decisions. Focus on metrics that connect to business outcomes, build systems for regular analysis, and most importantly, take action on what you learn.
+Social media analytics can help teams review results and choose what to try next. Focus on measures linked to business goals, review them regularly, and act on what you learn.
 
 The data is there. The question is whether you'll use it to get smarter.
     `
@@ -1916,7 +1920,7 @@ export const categories = [
 ];
 
 export const getPostById = (id: string): BlogPost | undefined => {
-  return blogPosts.find(post => post.id === id);
+  return blogPosts.find(post => post.id === id || post.legacyIds?.includes(id));
 };
 
 export const getRelatedPosts = (currentId: string, category: string, limit: number = 3): BlogPost[] => {

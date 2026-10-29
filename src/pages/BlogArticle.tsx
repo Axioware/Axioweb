@@ -364,7 +364,7 @@ export default function BlogArticle() {
                       </div>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Expert insights on {post.category.toLowerCase()} and digital transformation.
+                      Expert insights on {post.category.toLowerCase()} and digital tools.
                     </p>
                   </div>
 

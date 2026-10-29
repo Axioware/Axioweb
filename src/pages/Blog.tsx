@@ -110,7 +110,7 @@ export default function Blog() {
               The Axioware Blog
             </h1>
             <p className="text-lg md:text-xl text-white/85 mb-10 leading-relaxed">
-              Expert insights on AI, automation, and digital transformation. Stay ahead with the latest trends and best
+              Expert insights on AI, automation, and digital tools. Stay ahead with the latest trends and best
               practices.
             </p>
 

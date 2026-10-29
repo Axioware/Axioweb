@@ -29,7 +29,10 @@ export function getPrerenderRoutes(sitemapUrls: string[] = []) {
     ...Object.keys(servicePages).map((slug) => `/services/${slug}`),
     ...Object.keys(serviceData).map((slug) => `/services/${slug}`),
   ];
-  const blogRoutes = blogPosts.map((post) => `/blog/${post.id}`);
+  const blogRoutes = blogPosts.flatMap((post) => [
+    `/blog/${post.id}`,
+    ...(post.legacyIds ?? []).map((legacyId) => `/blog/${legacyId}`),
+  ]);
   const caseStudyRoutes = featuredCaseStudies.map((study) => `/case-studies/${study.slug}`);
 
   return [...new Set([

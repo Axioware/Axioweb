@@ -88,7 +88,7 @@ const features = [{
 }, {
   icon: Users,
   title: "Human Escalation",
-  desc: "Seamless transfer to staff for dental emergencies, complex billing, or special requests",
+  desc: "Smooth transfer to staff for dental emergencies, complex billing, or special requests",
   color: "text-indigo-500"
 }, {
   icon: Shield,
@@ -232,7 +232,7 @@ export default function DentalAgent() {
               Dental Receptionist
             </h1>
             <p className="text-lg md:text-xl text-white/85 mb-4 leading-relaxed max-w-2xl mx-auto">
-              The friendly voice that never sleeps. Ava books appointments, answers questions, and keeps your patients happy — all while you focus on delivering great dental care.
+              The friendly voice that never sleeps. Ava books appointments, answers questions, and keeps your patients happy, all while you focus on delivering great dental care.
             </p>
             <p className="text-sm text-white/60 mb-10">
               Available 24/7 for your dental clinic

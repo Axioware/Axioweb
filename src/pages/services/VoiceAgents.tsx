@@ -88,14 +88,14 @@ const industries = [
 const features = [
   { icon: Phone, title: "Inbound & Outbound", desc: "Handle both incoming and outgoing calls automatically" },
   { icon: Clock, title: "24/7 Availability", desc: "Never miss a customer call, day or night" },
-  { icon: TrendingUp, title: "Lead Qualification", desc: "Qualify leads and schedule appointments seamlessly" },
+  { icon: TrendingUp, title: "Lead Qualification", desc: "Qualify leads and schedule appointments smoothly" },
   { icon: Headphones, title: "Support Automation", desc: "Resolve common queries without human intervention" },
 ];
 
 const capabilities = [
   "Natural language understanding",
   "Multi-language support",
-  "Seamless CRM integration",
+  "CRM integration",
   "Real-time analytics",
   "Call recording & transcription",
   "Custom voice personas"
@@ -121,7 +121,7 @@ export default function VoiceAgentsService() {
     "@graph": [
       generateServiceSchema({
         name: "AI Voice Agents",
-        description: "Intelligent voice-powered assistants that handle customer calls, appointments, and support with natural conversations 24/7.",
+        description: "AI voice assistants that handle customer calls, appointments, and support with natural conversations 24/7.",
         url: "https://axioware.tech/services/voice-agents"
       }),
       generateBreadcrumbSchema([
@@ -137,7 +137,7 @@ export default function VoiceAgentsService() {
     <Layout>
       <SEO 
         title="Voice Agents - AI-Powered Phone Assistants"
-        description="Deploy intelligent AI Voice Agents that handle customer calls 24/7. Automate appointments, support, and sales with natural conversations. Reduce costs by 70%."
+        description="Deploy AI Voice Agents that handle customer calls 24/7. Automate appointments, support, and sales with natural conversations."
         keywords="Voice Agents, AI Phone Assistants, Call Automation, Virtual Receptionist, AI Customer Service, Phone Bot, Voice AI"
         canonical="/services/voice-agents"
         structuredData={combinedSchema}
@@ -159,7 +159,7 @@ export default function VoiceAgentsService() {
               Voice Agents
             </h1>
             <p className="text-lg md:text-xl text-white/85 mb-10 leading-relaxed">
-              AI-powered voice assistants that revolutionize customer communication.
+              AI-powered voice assistants that improve customer communication.
             </p>
             <Button asChild size="xl" className="bg-accent hover:bg-accent/90 text-white shadow-lg shadow-accent/30">
               <Link to={bookingHref} className="group">
@@ -186,7 +186,7 @@ export default function VoiceAgentsService() {
                 Overview
               </span>
               <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
-                Intelligent Voice-Powered Assistants
+                AI Voice Assistants
               </h2>
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 Our Voice Agents handle customer calls with natural conversations, from appointment scheduling to support queries. They work 24/7, never miss a call, and provide consistent, high-quality service.
@@ -214,7 +214,7 @@ export default function VoiceAgentsService() {
             badge="Features"
             title="Powerful Capabilities"
             highlight="Capabilities"
-            subtitle="Everything you need for seamless voice automation."
+            subtitle="Tools for voice automation."
           />
 
           <motion.div
@@ -370,7 +370,7 @@ export default function VoiceAgentsService() {
             {[
               { step: 1, title: "Discovery", desc: "We analyze your call patterns and business requirements", icon: Settings },
               { step: 2, title: "Configuration", desc: "Custom voice persona and conversation flows designed for you", icon: Sparkles },
-              { step: 3, title: "Integration", desc: "Seamless connection with your phone system and CRM", icon: Phone },
+              { step: 3, title: "Integration", desc: "Connect your phone system and CRM", icon: Phone },
               { step: 4, title: "Launch", desc: "Go live with 24/7 monitoring and continuous optimization", icon: TrendingUp },
             ].map((item) => (
               <motion.div
@@ -435,10 +435,10 @@ export default function VoiceAgentsService() {
             className="text-center max-w-3xl mx-auto"
           >
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Ready to Transform Your Customer Calls?
+              Ready to Improve Your Customer Calls?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Join hundreds of businesses that have automated their phone operations with our Voice Agents.
+              Talk with us about automating your phone operations with Voice Agents.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-accent hover:bg-accent/90">
