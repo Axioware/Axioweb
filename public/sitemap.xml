@@ -129,14 +129,6 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Blog -->
-  <url>
-    <loc>https://axioware.tech/blog</loc>
-    <lastmod>2026-01-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-
   <!-- Contact -->
   <url>
     <loc>https://axioware.tech/contact</loc>

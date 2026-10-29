@@ -87,6 +87,7 @@ export default function BlogArticle() {
         ogImage={post.image}
         ogType="article"
         structuredData={combinedSchema}
+        noIndex
         article={{
           publishedTime: new Date(post.date).toISOString(),
           author: post.author,

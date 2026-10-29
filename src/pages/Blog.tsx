@@ -87,6 +87,7 @@ export default function Blog() {
         title="Blog - AI Automation Guides"
         description="Read guides about AI receptionists, lead follow-up, customer messaging, and automation for service businesses."
         canonical="/blog"
+        noIndex
         structuredData={generateBreadcrumbSchema([
           { name: "Home", url: "/" },
           { name: "Blog", url: "/blog" },
@@ -370,32 +371,6 @@ export default function Blog() {
         </div>
       </section>
 
-      {/* Newsletter CTA */}
-      <section className="section-padding bg-gradient-to-br from-primary via-primary-dark to-accent/70 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_hsl(210_75%_12%/0.4)_100%)]" />
-        <div className="container-custom relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center max-w-2xl mx-auto"
-          >
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">Stay Ahead of the Curve</h2>
-            <p className="text-white/80 mb-8">
-              Get the latest AI insights, industry trends, and exclusive content delivered to your inbox weekly.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-white/40 transition-colors"
-              />
-              <Button className="bg-white text-primary hover:bg-white/90 font-semibold">Subscribe</Button>
-            </div>
-            <p className="text-white/50 text-sm mt-4">Join 5,000+ professionals. Unsubscribe anytime.</p>
-          </motion.div>
-        </div>
-      </section>
     </Layout>
   );
 }
