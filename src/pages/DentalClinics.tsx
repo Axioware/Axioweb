@@ -34,9 +34,9 @@ const conversations = [
   { title: "Urgent call", lines: ["Caller: I have a bad toothache and I'd like to see someone today.", "Receptionist: I'm sorry to hear that. I can't give clinical advice, but I'll pass this to the team right away. Can I take your name and the best number to reach you?", "Caller: Sam, and it's [number].", "Receptionist: Thank you, Sam. The team will call you back as soon as possible."] },
 ];
 const serviceLinks = [
-  { label: "Automated Follow-Ups", href: "/services/automated-follow-ups", text: "Get back to every lead, without the manual chasing.", icon: Bell },
-  { label: "WhatsApp and Chat Agents", href: "/services/whatsapp-and-chat-agents", text: "Let AI handle customer questions across chat and messaging.", icon: MessageSquare },
-  { label: "CRM and Workflow Setup", href: "/services/crm-and-workflow-setup", text: "Connect your tools and automate the work between them.", icon: Workflow },
+  { label: "Automated Follow-Ups", href: "/services/automated-follow-ups", text: "The lead went quiet and nobody followed up.", icon: Bell },
+  { label: "WhatsApp and Chat Agents", href: "/services/whatsapp-and-chat-agents", text: "Messages pile up when your team is busy.", icon: MessageSquare },
+  { label: "CRM and Workflow Setup", href: "/services/crm-and-workflow-setup", text: "Your tools do not talk to each other.", icon: Workflow },
 ];
 
 export default function DentalClinics() {
