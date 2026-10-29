@@ -7,6 +7,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import PartnersSection from "@/components/PartnersSection";
 import VoiceAgentDemo from "@/components/VoiceAgentDemo";
 import SEO, { generateFAQSchema } from "@/components/SEO";
+import { Link, useLocation } from "react-router-dom";
 
 const homeFAQs = [
   {
@@ -27,10 +28,18 @@ const homeFAQs = [
 ];
 
 const Index = () => {
+  const location = useLocation();
   return (
     <Layout>
-      <SEO canonical="/" structuredData={generateFAQSchema(homeFAQs)} />
+      <SEO title="Axioware | AI Receptionist for Dental Clinics" titleIsComplete description="AI receptionists that answer your practice's calls, book appointments, and follow up with patients who did not get through. Built for dental clinics." ogLocale="en_GB" canonical="/" structuredData={generateFAQSchema(homeFAQs)} />
       <HeroSection />
+      <section className="section-padding bg-secondary/30">
+        <div className="container-custom max-w-4xl text-center">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">Built for dental clinics</h2>
+          <p className="text-lg leading-relaxed text-muted-foreground mb-6">A dental practice lives on its phone line. We set up an AI receptionist that answers every call, books patients in, and passes urgent calls to your team.</p>
+          <Link className="text-accent underline underline-offset-4" to={`/ai-receptionist-for-dental-clinics${location.search}`}>See the dental receptionist</Link>
+        </div>
+      </section>
       <VoiceAgentDemo />
       <ServicesSection />
       <TechnologiesSection />

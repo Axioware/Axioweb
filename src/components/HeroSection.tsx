@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { ArrowRight, Mic } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedHeroBackground from "./AnimatedHeroBackground";
 
 export default function HeroSection() {
+  const location = useLocation();
   return (
     <section className="relative min-h-[calc(100svh-4rem)] flex items-center py-16 md:py-24 overflow-hidden">
       <AnimatedHeroBackground />
@@ -19,7 +20,7 @@ export default function HeroSection() {
         >
           <div className="w-8 h-px bg-white/50" />
           <span className="text-[11px] font-semibold tracking-[0.22em] uppercase text-white/60 font-sans">
-            AI for small service businesses
+            AI for dental clinics
           </span>
         </motion.div>
 
@@ -31,13 +32,7 @@ export default function HeroSection() {
           className="font-display font-bold text-white leading-[0.92] tracking-tight mb-12 md:mb-16
                      text-[clamp(3.2rem,9vw,7.5rem)]"
         >
-          Answer calls,
-          <br />
-          follow up with leads,
-          <br />
-          <em className="text-accent" style={{ fontStyle: "italic" }}>
-            book appointments
-          </em>
+          AI receptionists for dental clinics.
         </motion.h1>
 
         {/* Bottom row: description left — buttons + tagline right */}
@@ -49,7 +44,7 @@ export default function HeroSection() {
         >
           {/* Description */}
           <p className="text-base md:text-lg text-white/70 max-w-sm leading-relaxed font-sans">
-            AI that answers your calls, follows up with your leads, and books your appointments.
+            Axioware answers your calls, books appointments, and follows up with patients who did not get through, so your front desk can focus on the people in the practice.
           </p>
 
           {/* CTA + tagline */}
@@ -59,8 +54,8 @@ export default function HeroSection() {
                 asChild
                 className="rounded-full bg-accent hover:bg-accent/90 text-white px-6 py-2.5 text-sm font-semibold shadow-lg shadow-accent/30 transition-all duration-300"
               >
-                <Link to="/services" className="group flex items-center gap-2">
-                  Explore Services
+                <Link to={`/ai-receptionist-for-dental-clinics${location.search}`} className="group flex items-center gap-2">
+                  See how it works
                   <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
                 </Link>
               </Button>
@@ -69,9 +64,8 @@ export default function HeroSection() {
                 variant="ghost"
                 className="rounded-full text-white hover:bg-white/10 border border-white/20 px-6 py-2.5 text-sm font-semibold"
               >
-                <Link to="/dental-agent" className="flex items-center gap-2">
-                  <Mic className="w-4 h-4" />
-                  Meet Our AI
+                <Link to={`/contact${location.search}`} className="flex items-center gap-2">
+                  Book a 15-minute call
                 </Link>
               </Button>
             </div>
