@@ -1,20 +1,19 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { useMemo } from "react";
 
 export default function AnimatedHeroBackground() {
   const prefersReducedMotion = useReducedMotion();
 
-  // Memoize particle positions to prevent re-renders
-  const particles = useMemo(() => {
-    const count = prefersReducedMotion ? 0 : 8; // Reduced from 20 to 8
-    return [...Array(count)].map((_, i) => ({
-      id: i,
-      left: `${Math.random() * 100}%`,
-      top: `${Math.random() * 100}%`,
-      duration: 4 + Math.random() * 3,
-      delay: Math.random() * 2,
-    }));
-  }, [prefersReducedMotion]);
+  // Stable positions keep prerendered markup consistent during hydration.
+  const particles = prefersReducedMotion ? [] : [
+    { id: 0, left: "13%", top: "18%", duration: 5.2, delay: 0.3 },
+    { id: 1, left: "27%", top: "72%", duration: 4.4, delay: 1.1 },
+    { id: 2, left: "39%", top: "31%", duration: 6.1, delay: 0.7 },
+    { id: 3, left: "52%", top: "84%", duration: 4.8, delay: 1.6 },
+    { id: 4, left: "66%", top: "22%", duration: 5.7, delay: 0.9 },
+    { id: 5, left: "74%", top: "61%", duration: 4.3, delay: 0.2 },
+    { id: 6, left: "86%", top: "39%", duration: 6.4, delay: 1.3 },
+    { id: 7, left: "93%", top: "77%", duration: 5.0, delay: 0.5 },
+  ];
 
   return (
     <div className="absolute inset-0 z-0 overflow-hidden">

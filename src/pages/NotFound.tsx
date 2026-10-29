@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { ArrowLeft, Home } from "lucide-react";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
+import SEO from "@/components/SEO";
 
 const NotFound = () => {
   const location = useLocation();
@@ -13,6 +14,7 @@ const NotFound = () => {
 
   return (
     <Layout>
+      <SEO title="Page not found" canonical={location.pathname} noIndex />
       <section className="min-h-[calc(100svh-4rem)] flex items-center bg-background py-20">
         <div className="container-custom text-center">
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-primary">404</p>

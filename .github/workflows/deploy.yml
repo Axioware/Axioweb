@@ -43,6 +43,17 @@ jobs:
           aws s3 sync dist/ s3://${{ secrets.S3_BUCKET_NAME }} --delete
           echo "S3 deployment completed!"
 
+      - name: Publish extensionless prerendered routes
+        run: |
+          set -euo pipefail
+          find dist -mindepth 2 -type f -name index.html -print0 | while IFS= read -r -d '' page; do
+            route="${page#dist/}"
+            route="${route%/index.html}"
+            aws s3 cp "$page" "s3://${{ secrets.S3_BUCKET_NAME }}/$route" \
+              --content-type "text/html; charset=utf-8" \
+              --cache-control "public, max-age=0, must-revalidate"
+          done
+
       - name: Invalidate CloudFront
         run: |
           echo "Starting CloudFront invalidation..."

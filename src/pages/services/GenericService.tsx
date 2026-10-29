@@ -47,7 +47,7 @@ interface ServiceInfo {
   };
 }
 
-const serviceData: Record<string, ServiceInfo> = {
+export const serviceData: Record<string, ServiceInfo> = {
   "machine-learning": {
     title: "Machine Learning",
     desc: "Custom ML models and predictive analytics that transform your data into actionable business intelligence.",

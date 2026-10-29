@@ -2,11 +2,13 @@ import { Helmet } from "react-helmet-async";
 
 interface SEOProps {
   title?: string;
+  titleIsComplete?: boolean;
   description?: string;
   keywords?: string;
   canonical?: string;
   ogImage?: string;
   ogType?: "website" | "article" | "product";
+  ogLocale?: string;
   twitterCard?: "summary" | "summary_large_image";
   noIndex?: boolean;
   structuredData?: object;
@@ -27,55 +29,22 @@ const DEFAULT_OG_IMAGE = "https://axioware.tech/og-image.webp";
 
 export default function SEO({
   title,
+  titleIsComplete = false,
   description = DEFAULT_DESCRIPTION,
   keywords,
   canonical,
   ogImage = DEFAULT_OG_IMAGE,
   ogType = "website",
+  ogLocale = "en_US",
   twitterCard = "summary_large_image",
   noIndex = false,
   structuredData,
   article,
 }: SEOProps) {
-  const fullTitle = title ? `${title} | ${SITE_NAME}` : DEFAULT_TITLE;
+  const fullTitle = title
+    ? titleIsComplete ? title : `${title} | ${SITE_NAME}`
+    : DEFAULT_TITLE;
   const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : BASE_URL;
-
-  // Default Organization Schema
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Axioware",
-    url: BASE_URL,
-    logo: `${BASE_URL}/favicon.ico`,
-    description: DEFAULT_DESCRIPTION,
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: "+92-325-8988683",
-      contactType: "customer service",
-      availableLanguage: ["English"],
-    },
-    sameAs: [
-      "https://twitter.com/axioware",
-      "https://linkedin.com/company/axioware",
-      "https://github.com/axioware",
-    ],
-  };
-
-  // Website Schema for search
-  const websiteSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: SITE_NAME,
-    url: BASE_URL,
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${BASE_URL}/search?q={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
-    },
-  };
 
   return (
     <Helmet>
@@ -101,7 +70,7 @@ export default function SEO({
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:site_name" content={SITE_NAME} />
-      <meta property="og:locale" content="en_US" />
+      <meta property="og:locale" content={ogLocale} />
       
       {/* Article specific OG tags */}
       {article && (
@@ -129,13 +98,7 @@ export default function SEO({
       <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       <meta name="format-detection" content="telephone=no" />
       
-      {/* Structured Data */}
-      <script type="application/ld+json">
-        {JSON.stringify(organizationSchema)}
-      </script>
-      <script type="application/ld+json">
-        {JSON.stringify(websiteSchema)}
-      </script>
+      {/* Route-specific structured data */}
       {structuredData && (
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}

@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ReactNode, useState, useEffect } from "react";
 import PageLoader from "./PageLoader";
+import { useIsInitialPrerender } from "@/contexts/PrerenderContext";
 
 interface PageTransitionProps {
   children: ReactNode;
@@ -30,16 +31,19 @@ const pageVariants = {
 };
 
 export default function PageTransition({ children }: PageTransitionProps) {
-  const [isLoading, setIsLoading] = useState(true);
+  const isInitialPrerender = useIsInitialPrerender();
+  const [isLoading, setIsLoading] = useState(!isInitialPrerender);
 
   useEffect(() => {
+    if (isInitialPrerender) return;
+
     // Brief loading state for smooth transition
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 300);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [isInitialPrerender]);
 
   return (
     <>
@@ -49,7 +53,7 @@ export default function PageTransition({ children }: PageTransitionProps) {
       
       <motion.div
         variants={pageVariants}
-        initial="initial"
+        initial={isInitialPrerender ? false : "initial"}
         animate={isLoading ? "initial" : "animate"}
         exit="exit"
       >
