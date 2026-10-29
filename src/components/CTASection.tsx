@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useBookCallHref } from "@/lib/booking";
 
 export default function CTASection({
   title = "Ready to put a system in place?",
   description = "Let's discuss your calls, leads, and workflows. Get in touch to plan your next step.",
-  buttonLabel = "Get in touch",
-}: { title?: string; description?: string; buttonLabel?: string }) {
-  const location = useLocation();
+}: { title?: string; description?: string }) {
+  const bookingHref = useBookCallHref();
   return (
     <section className="section-padding bg-primary relative overflow-hidden">
       {/* Background Elements */}
@@ -41,8 +41,8 @@ export default function CTASection({
           </p>}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button asChild size="xl" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 group">
-              <Link to={`/contact${location.search}`}>
-                {buttonLabel}
+              <Link to={bookingHref}>
+                Book a 15-minute call
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>

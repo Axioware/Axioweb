@@ -26,6 +26,8 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
+const BOOKING_CALENDAR_EMBED_URL = import.meta.env.VITE_BOOKING_CALENDAR_URL ?? "";
+// TODO: OWNER TO SUPPLY the booking calendar embed URL in VITE_BOOKING_CALENDAR_URL.
 
 const services = [
   { value: "ai-receptionist", label: "AI Receptionist" },
@@ -41,6 +43,16 @@ const services = [
 
 export default function Contact() {
   const location = useLocation();
+  const calendarSrc = (() => {
+    if (!BOOKING_CALENDAR_EMBED_URL) return "";
+    try {
+      const url = new URL(BOOKING_CALENDAR_EMBED_URL);
+      new URLSearchParams(location.search).forEach((value, key) => url.searchParams.set(key, value));
+      return url.toString();
+    } catch {
+      return "";
+    }
+  })();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [selectedService, setSelectedService] = useState("");
 
@@ -102,12 +114,12 @@ export default function Contact() {
         structuredData={generateLocalBusinessSchema()}
       />
       {/* Hero */}
-      <section className="page-hero">
+      <section className="page-hero" id={!calendarSrc ? "book" : undefined}>
         <div className="container-custom relative z-10">
           <SectionHeading
             badge="Contact Us"
-            title="Let's talk about your workflows"
-            subtitle="Tell us how your team handles calls, leads, and appointments. We can discuss where automation may help."
+            title="Book a 15-minute call"
+            subtitle="Pick a time that suits you. If you would rather write to us, use the form below."
             light
           />
         </div>
@@ -116,15 +128,14 @@ export default function Contact() {
       {/* Contact Section */}
       <section className="section-padding">
         <div className="container-custom">
+          {calendarSrc && (
+            <div id="book" className="max-w-4xl mx-auto mb-12 scroll-mt-24 overflow-hidden rounded-2xl border border-border/50 bg-card">
+              <iframe title="Book a 15-minute call" src={calendarSrc} className="w-full h-[720px] border-0" loading="lazy" />
+            </div>
+          )}
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Contact Info */}
             <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
-              <h2 className="font-display text-2xl font-bold text-foreground mb-6">Get in Touch</h2>
-              <p className="text-muted-foreground mb-8 leading-relaxed">
-                Whether you're looking to implement AI solutions, revamp your digital presence, or explore new
-                technologies, our team is ready to help.
-              </p>
-
               <div className="space-y-6">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -187,6 +198,8 @@ export default function Contact() {
               transition={{ duration: 0.8 }}
               className="bg-card rounded-2xl p-6 md:p-8 border border-border/50 shadow-soft"
             >
+              <h2 className="font-display text-2xl font-bold text-foreground mb-2">Or send us a message</h2>
+              <p className="text-muted-foreground mb-6 leading-relaxed">Tell us how your team handles calls and appointments.</p>
               {isSubmitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}

@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedHeroBackground from "./AnimatedHeroBackground";
+import { getBookCallHref } from "@/lib/booking";
 
 export default function HeroSection() {
   const location = useLocation();
@@ -64,7 +65,7 @@ export default function HeroSection() {
                 variant="ghost"
                 className="rounded-full text-white hover:bg-white/10 border border-white/20 px-6 py-2.5 text-sm font-semibold"
               >
-                <Link to={`/contact${location.search}`} className="flex items-center gap-2">
+                <Link to={getBookCallHref(location.search)} className="flex items-center gap-2">
                   Book a 15-minute call
                 </Link>
               </Button>

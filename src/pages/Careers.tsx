@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import AnimatedHeroBackground from "@/components/AnimatedHeroBackground";
 import { Button } from "@/components/ui/button";
 import SEO, { generateBreadcrumbSchema } from "@/components/SEO";
+import { useBookCallHref } from "@/lib/booking";
 
 const highlights = [
   {
@@ -24,6 +25,7 @@ const highlights = [
 ];
 
 export default function Careers() {
+  const bookingHref = useBookCallHref();
   return (
     <Layout>
       <SEO
@@ -46,9 +48,9 @@ export default function Careers() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Button asChild className="rounded-full px-6 bg-accent hover:bg-accent/90 text-white">
-                <Link to="/contact">
+                <Link to={bookingHref}>
                   <Mail className="w-4 h-4 mr-2" />
-                  Contact Us
+                  Book a 15-minute call
                 </Link>
               </Button>
               <Button

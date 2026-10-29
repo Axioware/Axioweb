@@ -31,6 +31,7 @@ import {
 } from "lucide-react";
 import SEO, { generateServiceSchema, generateBreadcrumbSchema } from "@/components/SEO";
 import NotFound from "@/pages/NotFound";
+import { useBookCallHref } from "@/lib/booking";
 
 interface ServiceInfo {
   title: string;
@@ -207,6 +208,7 @@ const itemVariants = {
 
 export default function GenericService() {
   const { slug } = useParams();
+  const bookingHref = useBookCallHref();
   const service = serviceData[slug || ""];
 
   if (!service) return <NotFound />;
@@ -258,8 +260,8 @@ export default function GenericService() {
             <p className="text-lg md:text-xl text-white/85 mb-10 leading-relaxed">{service.desc}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="xl" className="bg-accent hover:bg-accent/90 text-white shadow-lg shadow-accent/30">
-                <Link to="/contact" className="group">
-                  Get Started
+                <Link to={bookingHref} className="group">
+                  Book a 15-minute call
                   <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </Button>
@@ -396,8 +398,8 @@ export default function GenericService() {
             className="text-center mt-12"
           >
             <Button asChild size="lg">
-              <Link to="/contact" className="group">
-                Start Your Project
+              <Link to={bookingHref} className="group">
+                Book a 15-minute call
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
@@ -423,13 +425,13 @@ export default function GenericService() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-accent hover:bg-accent/90">
-                <Link to="/contact" className="group">
-                  Contact Us Today
+                <Link to={bookingHref} className="group">
+                  Book a 15-minute call
                   <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <Link to="/portfolio">View Our Work</Link>
+              <Link to="/case-studies">View Our Work</Link>
               </Button>
             </div>
           </motion.div>

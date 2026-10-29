@@ -23,6 +23,7 @@ import {
   Headphones
 } from "lucide-react";
 import SEO, { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/components/SEO";
+import { useBookCallHref } from "@/lib/booking";
 
 const chatbotFAQs = [
   { question: "What can AI Chatbots do for my business?", answer: "AI Chatbots provide 24/7 customer support, qualify leads, answer FAQs, process orders, and integrate with your existing systems to automate repetitive tasks." },
@@ -97,6 +98,7 @@ const itemVariants = {
 };
 
 export default function ChatbotsService() {
+  const bookingHref = useBookCallHref();
   const combinedSchema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -143,8 +145,8 @@ export default function ChatbotsService() {
               Intelligent conversational agents that engage and convert customers 24/7.
             </p>
             <Button asChild size="xl" className="bg-accent hover:bg-accent/90 text-white shadow-lg shadow-accent/30">
-              <Link to="/contact" className="group">
-                Get Started
+              <Link to={bookingHref} className="group">
+                Book a 15-minute call
                 <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </Button>
@@ -313,8 +315,8 @@ export default function ChatbotsService() {
             className="text-center mt-12"
           >
             <Button asChild size="lg">
-              <Link to="/contact" className="group">
-                Start Your Project
+              <Link to={bookingHref} className="group">
+                Book a 15-minute call
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
@@ -392,13 +394,13 @@ export default function ChatbotsService() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-accent hover:bg-accent/90">
-                <Link to="/contact" className="group">
-                  Get Started Today
+                <Link to={bookingHref} className="group">
+                  Book a 15-minute call
                   <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <Link to="/portfolio">View Case Studies</Link>
+                <Link to="/case-studies">View Case Studies</Link>
               </Button>
             </div>
           </motion.div>

@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ServiceCard from "@/components/ServiceCard";
+import { useBookCallHref } from "@/lib/booking";
 
 const description = "An AI receptionist for dental clinics that answers every call, books appointments, and passes patient details to your team, including after hours.";
 const faqs = [
@@ -41,7 +42,7 @@ const serviceLinks = [
 
 export default function DentalClinics() {
   const location = useLocation();
-  const contactHref = `/contact${location.search}`;
+  const contactHref = useBookCallHref();
   const structuredData = { "@graph": [
     generateServiceSchema({ name: "AI Receptionist for Dental Clinics", description, url: "https://axioware.tech/ai-receptionist-for-dental-clinics" }),
     generateFAQSchema(faqs),
@@ -95,6 +96,6 @@ export default function DentalClinics() {
     ].map((item) => <Card key={item}><CardContent className="p-6 text-muted-foreground leading-relaxed">{item}</CardContent></Card>)}</div></div></section>
     <section className="section-padding bg-background"><div className="container-custom max-w-3xl"><h2 className="font-display text-3xl md:text-4xl font-bold text-foreground text-center mb-8">Frequently asked questions</h2><Accordion type="single" collapsible className="w-full">{faqs.map((faq, i) => <AccordionItem key={faq.question} value={`faq-${i}`}><AccordionTrigger className="text-left">{faq.question}</AccordionTrigger><AccordionContent className="text-muted-foreground">{faq.answer}</AccordionContent></AccordionItem>)}</Accordion></div></section>
     <section className="section-padding bg-secondary/30"><div className="container-custom"><h2 className="font-display text-3xl md:text-4xl font-bold text-foreground text-center mb-10">Related services</h2><div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">{serviceLinks.map((service, i) => <ServiceCard key={service.href} title={service.label} description={service.text} icon={service.icon} href={service.href} index={i} />)}</div></div></section>
-    <CTASection title="Want to hear it handle your calls?" description="" buttonLabel="Book a 15-minute call" />
+    <CTASection title="Want to hear it handle your calls?" description="" />
   </Layout>;
 }

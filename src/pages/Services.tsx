@@ -10,6 +10,7 @@ import SectionHeading from "@/components/SectionHeading";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { ArrowRight, Mic, Target } from "lucide-react";
 import SEO, { generateBreadcrumbSchema } from "@/components/SEO";
+import { useBookCallHref } from "@/lib/booking";
 const featuredServices = [
   {
     title: "AI Receptionist",
@@ -28,6 +29,7 @@ const featuredServices = [
 ];
 export default function Services() {
   const isMobile = useIsMobile();
+  const bookingHref = useBookCallHref();
   return (
     <Layout>
       <SEO
@@ -65,8 +67,8 @@ export default function Services() {
               AI that answers your calls, follows up with your leads, and books your appointments.
             </p>
             <Button asChild size="xl" className="bg-accent hover:bg-accent/90 text-white shadow-lg shadow-accent/30">
-              <Link to="/contact" className="group">
-                Get a Quote
+              <Link to={bookingHref} className="group">
+                Book a 15-minute call
                 <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </Button>
@@ -151,13 +153,13 @@ export default function Services() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-accent hover:bg-accent/90">
-                <Link to="/contact">
-                  Schedule a Consultation
+                <Link to={bookingHref}>
+                  Book a 15-minute call
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <Link to="/portfolio">View Our Work</Link>
+                <Link to="/case-studies">View Our Work</Link>
               </Button>
             </div>
           </motion.div>

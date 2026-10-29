@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logoColored from "@/assets/axioware-logo.webp";
 import logoWhite from "@/assets/axioware-logo-white.webp";
+import { useBookCallHref } from "@/lib/booking";
 
 interface NavItem {
   label: string;
@@ -40,6 +41,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
+  const bookingHref = useBookCallHref();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -166,10 +168,10 @@ export default function Navbar() {
           {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-4">
             <Link
-              to="/contact"
+              to={bookingHref}
               className="relative overflow-hidden px-6 py-2.5 bg-accent text-white font-medium rounded-lg transition-all duration-300 hover:shadow-glow group"
             >
-              <span className="relative z-10">Get Started</span>
+              <span className="relative z-10">Book a 15-minute call</span>
               <motion.div
                 className="absolute inset-0 bg-primary"
                 initial={{ x: "-100%" }}
@@ -303,10 +305,10 @@ export default function Navbar() {
                   className="pt-4"
                 >
                   <Link
-                    to="/contact"
+                    to={bookingHref}
                     className="block w-full text-center px-6 py-3 bg-accent text-white font-medium rounded-lg"
                   >
-                    Get Started
+                    Book a 15-minute call
                   </Link>
                 </motion.div>
               </div>

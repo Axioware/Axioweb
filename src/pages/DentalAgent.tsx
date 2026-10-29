@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, MessageSquare, Clock, ShieldCheck, CheckCircle, XCircle, Bell, Search, Stethoscope, Users, FileText, TrendingUp, DollarSign, Headphones, Star, PhoneOff, AlertTriangle, Zap, Shield, BarChart3, Loader2, Mic } from "lucide-react";
 import { useConversation } from "@elevenlabs/react";
 import { useRef } from "react";
+import { useBookCallHref } from "@/lib/booking";
 
 const DENTAL_AGENT_ID = import.meta.env.VITE_AGENT_ENGLISH;
 
@@ -142,6 +143,7 @@ const itemVariants = {
 };
 
 export default function DentalAgent() {
+  const bookingHref = useBookCallHref();
   const [isConnecting, setIsConnecting] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const conversation = useConversation({
@@ -248,8 +250,8 @@ export default function DentalAgent() {
                 </a>
               </Button>
               <Button asChild size="xl" variant="outline" className="border-white/30 text-white hover:bg-white/10">
-                <Link to="/contact" className="group">
-                  Contact Sales
+                <Link to={bookingHref} className="group">
+                  Book a 15-minute call
                   <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </Button>
@@ -601,13 +603,13 @@ export default function DentalAgent() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-accent hover:bg-accent/90">
-                <Link to="/contact" className="group">
-                  Get Ava for Your Clinic
+                <Link to={bookingHref} className="group">
+                  Book a 15-minute call
                   <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <Link to="/contact">Talk to Our Team</Link>
+                <Link to={bookingHref}>Book a 15-minute call</Link>
               </Button>
             </div>
           </motion.div>

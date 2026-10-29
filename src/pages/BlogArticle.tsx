@@ -22,9 +22,11 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import ReactMarkdown from "react-markdown";
 import { Separator } from "@/components/ui/separator";
+import { useBookCallHref } from "@/lib/booking";
 
 export default function BlogArticle() {
   const { id } = useParams<{ id: string }>();
+  const bookingHref = useBookCallHref();
   const { toast } = useToast();
   
   const post = id ? getPostById(id) : undefined;
@@ -503,8 +505,8 @@ export default function BlogArticle() {
               </Link>
             </Button>
             <Button asChild size="lg" className="bg-accent hover:bg-accent/90">
-              <Link to="/contact" className="group">
-                Get in Touch
+              <Link to={bookingHref} className="group">
+                Book a 15-minute call
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
