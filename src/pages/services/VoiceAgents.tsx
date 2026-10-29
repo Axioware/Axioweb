@@ -122,7 +122,7 @@ export default function VoiceAgentsService() {
       generateServiceSchema({
         name: "AI Voice Agents",
         description: "Intelligent voice-powered assistants that handle customer calls, appointments, and support with natural conversations 24/7.",
-        url: "https://axioware.com/services/voice-agents"
+        url: "https://axioware.tech/services/voice-agents"
       }),
       generateBreadcrumbSchema([
         { name: "Home", url: "/" },

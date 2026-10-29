@@ -11,7 +11,7 @@ const sections = [
   {
     title: "How We Use Information",
     content:
-      "We use information to respond to inquiries, provide services, improve our website, communicate about projects, and maintain the security and reliability of our systems.",
+      "We use information to respond to inquiries, provide services, improve our website, and communicate about projects.",
   },
   {
     title: "Data Sharing",
@@ -22,11 +22,6 @@ const sections = [
     title: "Cookies and Analytics",
     content:
       "Our website may use cookies or analytics tools to understand usage patterns and improve the user experience. You can control cookies through your browser settings.",
-  },
-  {
-    title: "Data Security",
-    content:
-      "We use reasonable technical and organizational measures to protect information, but no online transmission or storage system can be guaranteed to be completely secure.",
   },
   {
     title: "Contact",

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import AnimatedHeroBackground from "@/components/AnimatedHeroBackground";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone, MessageSquare, Clock, ShieldCheck, CheckCircle, XCircle, Bell, Search, Stethoscope, Users, FileText, TrendingUp, DollarSign, Headphones, Star, PhoneOff, AlertTriangle, Zap, Shield, BarChart3, Loader2, Mic } from "lucide-react";
+import { ArrowRight, Phone, MessageSquare, Clock, ShieldCheck, CheckCircle, XCircle, Bell, Search, Stethoscope, Users, TrendingUp, DollarSign, Headphones, Star, PhoneOff, AlertTriangle, Zap, Shield, BarChart3, Loader2, Mic } from "lucide-react";
 import { useConversation } from "@elevenlabs/react";
 import { useRef } from "react";
 import { useBookCallHref } from "@/lib/booking";
@@ -95,11 +95,6 @@ const features = [{
   title: "Patient Privacy",
   desc: "Verifies identity before sharing details and limits the information disclosed on calls",
   color: "text-emerald-500"
-}, {
-  icon: FileText,
-  title: "Complete Audit Trail",
-  desc: "Full call transcripts, appointment change history, and SMS delivery confirmations",
-  color: "text-pink-500"
 }];
 
 const testimonials = [{

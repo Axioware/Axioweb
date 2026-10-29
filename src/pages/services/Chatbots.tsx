@@ -17,7 +17,6 @@ import {
   Settings,
   Users,
   Clock,
-  Shield,
   Sparkles,
   MessageCircle,
   Headphones
@@ -48,7 +47,6 @@ const features = [
   { icon: Globe, title: "Omnichannel", desc: "Deploy on web, WhatsApp, Messenger, Slack & more from a single platform" },
   { icon: BarChart, title: "Analytics", desc: "Track performance, conversation insights, and customer behavior patterns" },
   { icon: Clock, title: "24/7 Availability", desc: "Never miss a customer query, even outside business hours" },
-  { icon: Shield, title: "Enterprise Security", desc: "Bank-grade encryption and compliance with GDPR, SOC 2, and more" },
   { icon: Headphones, title: "Human Handoff", desc: "Seamless escalation to live agents when needed" },
 ];
 
@@ -105,7 +103,7 @@ export default function ChatbotsService() {
       generateServiceSchema({
         name: "AI Chatbots",
         description: "Intelligent conversational agents that engage customers 24/7, answer questions, qualify leads, and drive conversions across multiple platforms.",
-        url: "https://axioware.com/services/chatbots"
+        url: "https://axioware.tech/services/chatbots"
       }),
       generateBreadcrumbSchema([
         { name: "Home", url: "/" },

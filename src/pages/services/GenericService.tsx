@@ -29,7 +29,8 @@ import {
   Bell,
   ShieldCheck,
 } from "lucide-react";
-import SEO, { generateServiceSchema, generateBreadcrumbSchema } from "@/components/SEO";
+import SEO, { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/components/SEO";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import NotFound from "@/pages/NotFound";
 import { useBookCallHref } from "@/lib/booking";
 
@@ -117,7 +118,7 @@ export const serviceData: Record<string, ServiceInfo> = {
         "Lightning-fast load times with optimized performance",
         "Mobile-first responsive design for all devices",
         "SEO-optimized architecture for better visibility",
-        "Secure, scalable infrastructure that grows with you",
+        "Infrastructure planned for the application's expected needs",
       ],
     },
     process: {
@@ -153,7 +154,7 @@ export const serviceData: Record<string, ServiceInfo> = {
       { title: "iOS & Android Apps", icon: Smartphone, desc: "Mobile experiences designed for the devices your customers use" },
       { title: "Cross-Platform Builds", icon: Layers, desc: "Efficient shared codebases without sacrificing polish" },
       { title: "API Integrations", icon: Link2, desc: "Connect payments, CRMs, dashboards, and third-party services" },
-      { title: "Secure Architecture", icon: ShieldCheck, desc: "Authentication, permissions, and data handling built with care" },
+      { title: "App Architecture", icon: ShieldCheck, desc: "Authentication, permissions, and data handling set out for the app's use cases" },
     ],
     overview: {
       heading: "Build Apps People Actually Use",
@@ -213,6 +214,13 @@ export default function GenericService() {
 
   if (!service) return <NotFound />;
 
+  const serviceFAQs = [
+    {
+      question: `What steps are part of the ${service.title} process?`,
+      answer: service.process.steps.map((step, index) => `${index + 1}. ${step.title}: ${step.description}`).join(" "),
+    },
+  ];
+
   const seoKeywords: Record<string, string> = {
     "machine-learning":
       "Machine Learning, ML Solutions, Predictive Analytics, AI Models, Data Science, Business Intelligence",
@@ -233,13 +241,14 @@ export default function GenericService() {
             generateServiceSchema({
               name: service.title,
               description: service.desc,
-              url: `https://axioware.com/services/${slug}`,
+              url: `https://axioware.tech/services/${slug}`,
             }),
             generateBreadcrumbSchema([
               { name: "Home", url: "/" },
               { name: "Services", url: "/services" },
               { name: service.title, url: `/services/${slug}` },
             ]),
+            generateFAQSchema(serviceFAQs),
           ],
         }}
       />
@@ -404,6 +413,20 @@ export default function GenericService() {
               </Link>
             </Button>
           </motion.div>
+        </div>
+      </section>
+
+      <section className="section-padding bg-secondary/30">
+        <div className="container-custom max-w-3xl">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground text-center mb-8">Frequently asked questions</h2>
+          <Accordion type="single" collapsible className="w-full">
+            {serviceFAQs.map((faq, index) => (
+              <AccordionItem key={faq.question} value={`faq-${index}`}>
+                <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">{faq.answer}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </section>
 

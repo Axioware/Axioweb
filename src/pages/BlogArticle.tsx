@@ -16,7 +16,6 @@ import {
   Facebook,
   Link as LinkIcon,
   ChevronRight,
-  BookOpen,
   Quote
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
@@ -36,7 +35,7 @@ export default function BlogArticle() {
   }
 
   const relatedPosts = getRelatedPosts(post.id, post.category);
-  const shareUrl = `https://axioware.com/blog/${post.id}`;
+  const shareUrl = `https://axioware.tech/blog/${post.id}`;
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(shareUrl);
@@ -407,22 +406,6 @@ export default function BlogArticle() {
                     </div>
                   </div>
 
-                  {/* Newsletter CTA */}
-                  <div className="p-6 bg-gradient-to-br from-primary to-accent rounded-2xl text-white">
-                    <BookOpen className="w-8 h-8 mb-3 opacity-80" />
-                    <h4 className="font-semibold mb-2">Stay Updated</h4>
-                    <p className="text-sm text-white/80 mb-4">
-                      Get the latest insights delivered to your inbox.
-                    </p>
-                    <Button 
-                      asChild 
-                      variant="secondary" 
-                      size="sm" 
-                      className="w-full bg-white text-primary hover:bg-white/90"
-                    >
-                      <Link to="/blog#newsletter">Subscribe</Link>
-                    </Button>
-                  </div>
                 </div>
               </motion.aside>
             </div>
