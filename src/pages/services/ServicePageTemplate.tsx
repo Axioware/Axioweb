@@ -31,7 +31,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     slug: "ai-receptionist",
     label: "AI Receptionist",
     homeHeadline: "Never miss a call again.",
-    h1: "AI Receptionist for Calls and Appointments",
+    h1: "Never miss a call again.",
     subhead: "Your AI receptionist answers every call, handles common questions, and books appointments into your calendar. Your staff step in only when needed.",
     metaTitle: "AI Receptionist for Small Businesses",
     metaDescription: "An AI receptionist that answers every call, handles common questions, and books appointments into your calendar. Staff step in only when needed.",
@@ -613,7 +613,7 @@ export default function ServicePageTemplate({ service }: { service: ServicePageC
               </div>
             </div>
           </section>
-          <VoiceAgentDemo />
+          <VoiceAgentDemo showPromo={false} />
         </>
       )}
 

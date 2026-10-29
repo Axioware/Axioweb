@@ -66,7 +66,7 @@ export default function DentalClinics() {
       <p className="font-display text-3xl md:text-4xl font-bold text-foreground">69% of callers who reach voicemail hang up without leaving a message.</p>
       <p className="mt-3 text-sm text-muted-foreground">Source: <a className="underline underline-offset-4 hover:text-accent" href="https://moneypenny.com/us/resources/news/small-business-call-report/" target="_blank" rel="noreferrer">Moneypenny Small Business Call Report</a></p>
     </div></div></section>
-    <div id="demo"><VoiceAgentDemo /></div>
+    <div id="demo"><VoiceAgentDemo showPromo={false} /></div>
     <section className="section-padding bg-background"><div className="container-custom max-w-4xl">
       <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">What happens to calls when the front desk is busy</h2>
       <p className="text-muted-foreground leading-relaxed mb-4">Your team is checking in a patient, handling a payment, or talking to someone on another line. The phone keeps ringing: first thing in the morning, at lunch, and after you close.</p>
