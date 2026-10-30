@@ -27,8 +27,7 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
-const BOOKING_CALENDAR_EMBED_URL = import.meta.env.VITE_BOOKING_CALENDAR_URL ?? "";
-// TODO: OWNER TO SUPPLY the booking calendar embed URL in VITE_BOOKING_CALENDAR_URL.
+const BOOKING_CALENDAR_EMBED_URL = import.meta.env.VITE_BOOKING_CALENDAR_URL ?? "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2TfRZRR7I_uTI6zZg509Az5X8M1BiXooiHdsxSnP3FP6u844Z3ucQxxO9v-Mn2PBkn83juFg9_?gv=true";
 
 const services = [
   { value: "ai-receptionist", label: "AI Receptionist" },
@@ -134,6 +133,10 @@ export default function Contact() {
           {calendarSrc && (
             <div id="book" className="max-w-4xl mx-auto mb-12 scroll-mt-24 overflow-hidden rounded-2xl border border-border/50 bg-card">
               <iframe title="Book a 15-minute call" src={calendarSrc} className="w-full h-[720px] border-0" loading="lazy" />
+              <p className="px-5 pb-5 text-center text-sm text-muted-foreground">
+                Having trouble with the booking form?{" "}
+                <a href="https://calendar.app.google/QFNXpXe8qq2oUowC8" target="_blank" rel="noreferrer" className="text-accent underline underline-offset-4">Open the calendar in a new tab</a>.
+              </p>
             </div>
           )}
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">

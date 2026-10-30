@@ -8,10 +8,8 @@ import { Link } from "react-router-dom";
 import SEO, { generateBreadcrumbSchema } from "@/components/SEO";
 import { useBookCallHref } from "@/lib/booking";
 
-const founderPhotoUrl = "";
-const founderText = "";
-// TODO: OWNER TO SUPPLY a founder photo and two to three sentences. Show the team block only when both are set.
-// TODO: OWNER TO SUPPLY true statements about data handling.
+const founderPhotoUrl = "/images/founder-abdulrauf.png";
+const founderText = "I’m a software engineer, and I’ve built AI voice and messaging systems for businesses in healthcare, construction, and education. I started Axioware to bring that work to dental practices, where a missed call can mean a missed patient. We’re a small team, and I stay involved in every setup. Before anything goes live, we test it on your own call scenarios so you can hear how it will sound to your patients.";
 
 const workingPrinciples = [
   {
@@ -62,8 +60,8 @@ export default function About() {
               <span className="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-medium rounded-full mb-4">Our Story</span>
               <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">What we do</h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed text-lg">
-                <p>Axioware builds practical AI automation for small service businesses. Our focus right now is AI receptionists and follow-up systems for dental clinics.</p>
-                <p>We are a small team of engineers. We build, test, and support every system ourselves.</p>
+                <p>Axioware builds practical AI automation for small service businesses, with a focus on AI receptionists and follow-up systems for dental clinics.</p>
+                <p>We are a small team, and our founder stays involved in every setup. Before launch, we test the system using your call scenarios.</p>
               </div>
               <div className="mt-8">
                 <Button asChild size="lg">
@@ -97,7 +95,7 @@ export default function About() {
           <div className="container-custom max-w-4xl">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground text-center mb-10">The team</h2>
             <Card className="md:flex md:items-center md:gap-6">
-              <img src={founderPhotoUrl} alt="AbdulRauf Siddiqui" className="w-full md:w-64 aspect-square object-cover rounded-t-lg md:rounded-lg" />
+              <img src={founderPhotoUrl} alt="Axioware founder AbdulRauf Siddiqui" className="w-full md:w-64 aspect-square object-cover object-top rounded-t-lg md:rounded-lg" />
               <div className="p-6">
                 <h3 className="font-display text-xl font-semibold text-foreground mb-3">AbdulRauf Siddiqui, Founder and CEO</h3>
                 <p className="text-muted-foreground leading-relaxed">{founderText}</p>
