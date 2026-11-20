@@ -143,7 +143,7 @@ export default function DentalAgent() {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const conversation = useConversation({
   onConnect: () => {
-    console.log("Connected to Ava");
+    console.log("Connected to Remi");
     setIsConnecting(false);
 
     // Clear any existing timer (safety)
@@ -163,7 +163,7 @@ export default function DentalAgent() {
   },
 
   onDisconnect: () => {
-    console.log("Disconnected from Ava");
+    console.log("Disconnected from Remi");
     setIsConnecting(false);
 
     // Cleanup timer
@@ -174,7 +174,7 @@ export default function DentalAgent() {
   },
 
   onError: (error) => {
-    console.error("Ava error:", error);
+    console.error("Remi error:", error);
     setIsConnecting(false);
 
     // Cleanup timer on error too (important)
@@ -224,15 +224,15 @@ export default function DentalAgent() {
               className="inline-flex items-center gap-3 px-5 py-2.5 bg-white/15 text-white text-sm font-medium rounded-full mb-6 border border-white/20"
             >
               <span className="text-2xl">🦷</span>
-              <span>Meet Ava</span>
+              <span>Meet Remi</span>
             </motion.div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold mb-4 text-white leading-tight">
-              <span className="text-accent">Ava</span> Your AI
+              <span className="text-accent">Remi</span> Your AI
               <br />
               Dental Receptionist
             </h1>
             <p className="text-lg md:text-xl text-white/85 mb-4 leading-relaxed max-w-2xl mx-auto">
-              The friendly voice that never sleeps. Ava books appointments, answers questions, and keeps your patients happy, all while you focus on delivering great dental care.
+              The friendly voice that never sleeps. Remi books appointments, answers questions, and keeps your patients happy, all while you focus on delivering great dental care.
             </p>
             <p className="text-sm text-white/60 mb-10">
               Available 24/7 for your dental clinic
@@ -241,7 +241,7 @@ export default function DentalAgent() {
               <Button asChild size="xl" className="bg-accent hover:bg-accent/90 text-white shadow-lg shadow-accent/30">
                 <a href="#demo" className="group">
                   <Phone className="w-5 h-5 mr-2" />
-                  Talk to Ava
+                  Talk to Remi
                 </a>
               </Button>
               <Button asChild size="xl" variant="outline" className="border-white/30 text-white hover:bg-white/10">
@@ -309,13 +309,13 @@ export default function DentalAgent() {
             className="text-center mb-12"
           >
             <span className="inline-flex items-center gap-2 px-3 py-1 bg-accent/10 text-accent text-sm font-medium rounded-full mb-4">
-              The Ava Difference
+              The Remi Difference
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Why Dental Clinics Love Ava
+              Why Dental Clinics Love Remi
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Ava handles patient calls with superhuman accuracy and a friendly, reassuring personality that patients love.
+              Remi handles patient calls with superhuman accuracy and a friendly, reassuring personality that patients love.
             </p>
           </motion.div>
 
@@ -363,10 +363,10 @@ export default function DentalAgent() {
               Full Feature Set
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Everything Ava Can Do
+              Everything Remi Can Do
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Ava is purpose-built for dental clinics with features that actually matter.
+              Remi is purpose-built for dental clinics with features that actually matter.
             </p>
           </motion.div>
 
@@ -445,16 +445,16 @@ export default function DentalAgent() {
               </AnimatePresence>
               
               <span className="inline-flex items-center gap-2 px-3 py-1 bg-accent/10 text-accent text-sm font-medium rounded-full mb-4">
-                {isActive ? (conversation.isSpeaking ? "Ava is speaking..." : "Listening...") : "Live Demo"}
+                {isActive ? (conversation.isSpeaking ? "Remi is speaking..." : "Listening...") : "Live Demo"}
               </span>
               
               <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">
-                Talk to Ava
+                Talk to Remi
               </h2>
               <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
                 {isActive 
-                  ? "You're now connected! Speak naturally and Ava will assist you with your appointment."
-                  : "\"Hello! I'm Ava, your friendly AI dental receptionist. Try booking a cleaning, ask about our services, or reschedule an existing appointment. I'm here to help!\""
+                  ? "You're now connected! Speak naturally and Remi will assist you with your appointment."
+                  : "\"Hello! I'm Remi, your friendly AI dental receptionist. Try booking a cleaning, ask about our services, or reschedule an existing appointment. I'm here to help!\""
                 }
               </p>
 
@@ -480,7 +480,7 @@ export default function DentalAgent() {
                 ) : (
                   <>
                     <Phone className="w-5 h-5 mr-2" />
-                    Call Ava Now
+                    Call Remi Now
                   </>
                 )}
               </Button>
@@ -523,9 +523,9 @@ export default function DentalAgent() {
               </p>
 
               <div className="pt-6 border-t border-border">
-                <p className="text-sm text-muted-foreground mb-4">Try saying to Ava:</p>
+                <p className="text-sm text-muted-foreground mb-4">Try saying to Remi:</p>
                 <div className="flex flex-wrap gap-2 justify-center">
-                  {["Hi Ava, I'd like to book a teeth cleaning", "What are your clinic hours?", "Can I reschedule my appointment?", "Do you accept my insurance?"].map((phrase, i) => (
+                  {["Hi Remi, I'd like to book a teeth cleaning", "What are your clinic hours?", "Can I reschedule my appointment?", "Do you accept my insurance?"].map((phrase, i) => (
                     <span key={i} className="px-3 py-1.5 rounded-full bg-secondary text-sm text-muted-foreground border border-border/50">
                       "{phrase}"
                     </span>
@@ -548,10 +548,10 @@ export default function DentalAgent() {
           >
             <span className="inline-flex items-center gap-2 px-3 py-1 bg-accent/10 text-accent text-sm font-medium rounded-full mb-4">
               <Star className="w-4 h-4" />
-              Ava Success Stories
+              Remi Success Stories
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Dental Clinics Love Ava
+              Dental Clinics Love Remi
             </h2>
           </motion.div>
 
@@ -591,10 +591,10 @@ export default function DentalAgent() {
             className="text-center max-w-3xl mx-auto"
           >
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Ready to Let Ava Handle Your Calls?
+              Ready to Let Remi Handle Your Calls?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Join dental clinics that trust Ava with their patient calls. More bookings, happier patients, less stress.
+              Join dental clinics that trust Remi with their patient calls. More bookings, happier patients, less stress.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-accent hover:bg-accent/90">

@@ -13,25 +13,29 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: "Home", href: "/" },
   {
-    label: "Services",
-    href: "/services",
+    label: "AI Receptionist",
+    href: "/ai-receptionist-for-chiropractors",
     children: [
-      { label: "AI Receptionist", href: "/services/ai-receptionist", featured: true },
-      { label: "AI Lead Generation", href: "/services/ai-lead-generation", featured: true },
-      { label: "LinkedIn BDR", href: "/services/linkedin-bdr" },
-      { label: "Automated Follow-Ups", href: "/services/automated-follow-ups" },
-      { label: "Outbound AI Calling", href: "/services/outbound-ai-calling" },
-      { label: "WhatsApp and Chat Agents", href: "/services/whatsapp-and-chat-agents" },
-      { label: "CRM and Workflow Setup", href: "/services/crm-and-workflow-setup" },
-      { label: "Dental Receptionist Demo", href: "/dental-agent" },
+      { label: "Call Answering", href: "/features#call-answering" },
+      { label: "Appointment Booking", href: "/features#appointment-booking" },
+      { label: "Reminders and Recalls", href: "/features#appointment-booking" },
+      { label: "New Patient Intake", href: "/features#new-patient-intake" },
     ],
   },
-  { label: "Dental clinics", href: "/ai-receptionist-for-dental-clinics" },
-  { label: "Case Studies", href: "/case-studies" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "Features", href: "/features" },
+  { label: "Results and ROI", href: "/#results-and-roi" },
+  { label: "How It Works", href: "/how-it-works" },
+  {
+    label: "Resources",
+    href: "/blog",
+    children: [
+      { label: "Blog", href: "/blog" },
+      { label: "FAQ", href: "/faq" },
+      { label: "Case Studies", href: "/case-studies" },
+      { label: "Hear a Sample Call", href: "/#sample-calls" },
+    ],
+  },
 ];
 
 export default function Navbar() {
@@ -167,11 +171,11 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-4">
             <Link
               to={bookingHref}
-              className="relative overflow-hidden px-6 py-2.5 bg-accent text-white font-medium rounded-lg transition-all duration-300 hover:shadow-glow group"
+              className="relative overflow-hidden px-6 py-2.5 bg-[#FFB703] text-[#102A43] font-semibold rounded-lg transition-all duration-300 hover:bg-[#E6A500] group"
             >
-              <span className="relative z-10">Book a 15-minute call</span>
+              <span className="relative z-10">Book a Demo</span>
               <motion.div
-                className="absolute inset-0 bg-primary"
+                className="absolute inset-0 bg-[#E6A500]"
                 initial={{ x: "-100%" }}
                 whileHover={{ x: 0 }}
                 transition={{ duration: 0.3 }}
@@ -179,6 +183,13 @@ export default function Navbar() {
             </Link>
           </div>
 
+          <div className="flex items-center gap-2 lg:hidden">
+            <Link
+              to={bookingHref}
+              className="rounded-lg bg-[#FFB703] px-3 py-2 text-sm font-semibold text-[#102A43] transition-colors hover:bg-[#E6A500]"
+            >
+              Book a Demo
+            </Link>
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -186,6 +197,8 @@ export default function Navbar() {
               scrolled ? "text-foreground hover:text-accent" : "text-white hover:text-accent"
             }`}
             aria-label="Toggle menu"
+            aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
           >
             <AnimatePresence mode="wait">
               {isOpen ? (
@@ -211,6 +224,7 @@ export default function Navbar() {
               )}
             </AnimatePresence>
           </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -222,6 +236,7 @@ export default function Navbar() {
               exit={{ height: 0, opacity: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 30, opacity: { duration: 0.2 } }}
               className="lg:hidden overflow-hidden"
+              id="mobile-navigation"
             >
               <div className={`py-4 space-y-2 border-t ${scrolled ? "border-border/50" : "border-white/20"}`}>
                 {navItems.map((item, index) => (
@@ -303,10 +318,10 @@ export default function Navbar() {
                   className="pt-4"
                 >
                   <Link
-                    to={bookingHref}
-                    className="block w-full text-center px-6 py-3 bg-accent text-white font-medium rounded-lg"
+                    to="/book-demo"
+                    className="block w-full text-center px-6 py-3 bg-[#FFB703] hover:bg-[#E6A500] text-[#102A43] font-semibold rounded-lg"
                   >
-                    Book a 15-minute call
+                    Book a Demo
                   </Link>
                 </motion.div>
               </div>

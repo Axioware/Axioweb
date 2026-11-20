@@ -1,17 +1,28 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle, Phone, PhoneCall } from "lucide-react";
+import { ArrowRight, CheckCircle, PhoneCall } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SectionHeading from "./SectionHeading";
 import IPhoneMockup from "./IPhoneMockup";
 import CallInterface from "./CallInterface";
 
-const capabilities = ["Answers incoming calls", "Handles common questions", "Books appointments", "Hands off to staff"];
+type ClinicType = "general" | "dental" | "chiropractic";
 
-export default function VoiceAgentDemo({ showPromo = true }: { showPromo?: boolean }) {
+export default function VoiceAgentDemo({
+  showPromo = true,
+  clinicType = "general",
+}: {
+  showPromo?: boolean;
+  clinicType?: ClinicType;
+}) {
+  const capabilities =
+    clinicType === "chiropractic"
+      ? ["Answers incoming calls", "Handles clinic-approved questions", "Helps book visits", "Hands off to staff"]
+      : ["Answers incoming calls", "Handles common questions", "Books appointments", "Hands off to staff"];
+
   const liveDemo = (
     <IPhoneMockup>
-      <CallInterface />
+      <CallInterface clinicType={clinicType} />
     </IPhoneMockup>
   );
 
@@ -24,7 +35,11 @@ export default function VoiceAgentDemo({ showPromo = true }: { showPromo?: boole
               badge="Featured"
               title="AI Receptionist"
               highlight="Receptionist"
-              subtitle="Answers calls, handles common questions, and helps book or reschedule appointments."
+              subtitle={
+                clinicType === "chiropractic"
+                  ? "Answers new-patient calls, handles clinic-approved questions, and helps book chiropractic visits."
+                  : "Answers calls, handles common questions, and helps book or reschedule appointments."
+              }
             />
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <motion.div
@@ -38,10 +53,14 @@ export default function VoiceAgentDemo({ showPromo = true }: { showPromo?: boole
                   See It In Action
                 </span>
                 <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-6">
-                  A receptionist for routine calls
+                  {clinicType === "chiropractic"
+                    ? "A receptionist for your chiropractic clinic"
+                    : "A receptionist for routine calls"}
                 </h3>
                 <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                  It answers incoming calls, handles routine questions, and supports appointment scheduling, with a handoff to your staff when needed.
+                  {clinicType === "chiropractic"
+                    ? "Remi answers new-patient calls, responds to approved clinic questions, and helps with appointment requests, with a handoff to your staff when needed."
+                    : "It answers incoming calls, handles routine questions, and supports appointment scheduling, with a handoff to your staff when needed."}
                 </p>
                 <ul className="space-y-3 mb-8">
                   {capabilities.map((item) => (
@@ -52,8 +71,11 @@ export default function VoiceAgentDemo({ showPromo = true }: { showPromo?: boole
                   ))}
                 </ul>
                 <div className="flex flex-wrap gap-4">
-                  <Button asChild size="lg" className="bg-accent hover:bg-accent/90">
-                    <Link to="/services/ai-receptionist" className="group">
+                  <Button asChild size="lg" className="bg-[#FFB703] text-[#102A43] hover:bg-[#E6A500]">
+                    <Link
+                      to={clinicType === "chiropractic" ? "/ai-receptionist-for-chiropractors" : "/services/ai-receptionist"}
+                      className="group"
+                    >
                       Learn More
                       <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
                     </Link>

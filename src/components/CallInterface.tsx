@@ -6,7 +6,11 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { trackAnalyticsEvent } from "@/lib/analytics";
 
 type CallState = "incoming" | "connecting" | "active" | "ended";
-type Language = "english" | "urdu" | "arabic";
+type Language = "english" | "spanish" | "urdu" | "arabic";
+type ClinicType = "general" | "dental" | "chiropractic";
+
+const CHIROPRACTIC_BACKGROUND_IMAGE = "/images/chiropractic-phone-background.png";
+const CHIROPRACTIC_AVATAR_IMAGE = "/images/chiropractor-treatment.png";
 
 interface TranscriptMessage {
   id: string;
@@ -17,19 +21,36 @@ interface TranscriptMessage {
 
 const AGENT_IDS = {
   english: import.meta.env.VITE_AGENT_ENGLISH,
+  spanish: import.meta.env.VITE_AGENT_SPANISH,
   urdu: import.meta.env.VITE_AGENT_URDU,
   arabic: import.meta.env.VITE_AGENT_ARABIC,
 };
 
+const LANGUAGES: { value: Language; label: string }[] = [
+  { value: "english", label: "English" },
+  { value: "spanish", label: "Español" },
+  { value: "urdu", label: "اردو" },
+  { value: "arabic", label: "عربي" },
+];
+
 const AGENT_STYLES = {
   english: {
-    name: "Ava",
+    name: "Remi",
     icon: Smile,
     bgColor: "bg-amber-500/20",
     iconColor: "text-amber-400",
     pulseColor: "bg-amber-500/40",
     borderColor: "border-amber-400/30",
     accentGlow: "shadow-amber-500/30",
+  },
+  spanish: {
+    name: "Remi",
+    icon: Smile,
+    bgColor: "bg-sky-500/20",
+    iconColor: "text-sky-300",
+    pulseColor: "bg-sky-500/40",
+    borderColor: "border-sky-300/30",
+    accentGlow: "shadow-sky-500/30",
   },
   urdu: {
     name: "Aria",
@@ -51,7 +72,7 @@ const AGENT_STYLES = {
   },
 };
 
-export default function CallInterface() {
+export default function CallInterface({ clinicType = "general" }: { clinicType?: ClinicType }) {
   const [callState, setCallState] = useState<CallState>("incoming");
   const [callDuration, setCallDuration] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
@@ -62,18 +83,27 @@ export default function CallInterface() {
   const [selectedLanguage, setSelectedLanguage] = useState<Language>("english");
   const scrollRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const connectedRef = useRef(false);const callStateRef = useRef<CallState>("incoming");
+  const [callError, setCallError] = useState("");
+  const connectedRef = useRef(false);
+  const callStateRef = useRef<CallState>("incoming");
   const sessionActiveRef = useRef(false);
-  const setCallStateSync = (state: CallState) => {
+  const setCallStateSync = useCallback((state: CallState) => {
     callStateRef.current = state;
     setCallState(state);
-  };
-
+  }, []);
+  const availableLanguages =
+    clinicType === "chiropractic"
+      ? LANGUAGES.filter(
+          ({ value }) => (value === "english" || value === "spanish") && Boolean(AGENT_IDS[value]),
+        )
+      : LANGUAGES.filter(({ value }) => Boolean(AGENT_IDS[value]));
   const conversation = useConversation({
+    micMuted: isMuted,
     onConnect: () => {
       if (connectedRef.current) return;
       connectedRef.current = true;
       sessionActiveRef.current = true;
+      setCallError("");
       trackAnalyticsEvent("demo_call_connected", { agent_language: selectedLanguage });
       setCallStateSync("active");
       // ...
@@ -90,6 +120,7 @@ export default function CallInterface() {
     },
     onDisconnect: () => {
       connectedRef.current = false;
+      sessionActiveRef.current = false;
       if (callStateRef.current === "active" || callStateRef.current === "connecting") {
         setCallStateSync("ended");
       }
@@ -131,6 +162,7 @@ export default function CallInterface() {
     },
     onError: (error) => {
       console.error("ElevenLabs error:", error);
+      setCallError("The live demo could not connect. Check your microphone access and try again.");
       setCallStateSync("ended");
 
       if (timeoutRef.current) {
@@ -165,7 +197,7 @@ export default function CallInterface() {
   useEffect(() => {
     if (callState === "ended") {
       const timeout = setTimeout(() => {
-        setCallState("incoming");
+        setCallStateSync("incoming");
         setCallDuration(0);
         setIsMuted(false);
         setIsSpeakerOn(true);
@@ -175,7 +207,7 @@ export default function CallInterface() {
       }, 3000);
       return () => clearTimeout(timeout);
     }
-  }, [callState]);
+  }, [callState, setCallStateSync]);
 
   useEffect(() => {
     return () => {
@@ -196,17 +228,33 @@ export default function CallInterface() {
     }
 
     trackAnalyticsEvent("demo_start", { agent_language: selectedLanguage });
-    setCallState("connecting");
+    setCallError("");
+    setCallStateSync("connecting");
 
     try {
-      await navigator.mediaDevices.getUserMedia({ audio: true });
-      console.log("Starting session with agent:", AGENT_IDS[selectedLanguage]);
-      await (conversation.startSession as any)({
-        agentId: AGENT_IDS[selectedLanguage],
+      const agentId = AGENT_IDS[selectedLanguage];
+      if (!agentId) {
+        throw new Error("The selected voice agent is not configured.");
+      }
+      if (!navigator.mediaDevices?.getUserMedia) {
+        throw new Error("Microphone access is not available in this browser.");
+      }
+      console.log("Starting session with agent:", agentId);
+      await conversation.startSession({
+        agentId,
+        connectionType: "webrtc",
       });
     } catch (error) {
       console.error("Failed to start conversation:", error);
-      setCallState("ended");
+      const message = error instanceof Error ? error.message.toLowerCase() : "";
+      setCallError(
+        message.includes("not configured")
+          ? "The live voice demo is not configured yet."
+          : (error instanceof Error && error.name === "NotAllowedError") || message.includes("permission denied")
+            ? "Allow microphone access in your browser to start the call."
+            : "The live demo could not start. Check microphone access and try again.",
+      );
+      setCallStateSync("ended");
     }
   };
 
@@ -216,13 +264,17 @@ export default function CallInterface() {
       timeoutRef.current = null;
     }
 
-    if (conversation.status === "connected") {
-      await conversation.endSession();
-    } else {
-      console.warn("Skipping endSession: not connected");
+    try {
+      if (conversation.status === "connected") {
+        await conversation.endSession();
+      }
+    } catch (error) {
+      console.error("Failed to end the voice demo:", error);
+      setCallError("The call could not be ended cleanly. Please refresh before starting another demo.");
+    } finally {
+      sessionActiveRef.current = false;
+      setCallStateSync("ended");
     }
-
-    setCallState("ended");
   };
 
   const toggleMute = () => {
@@ -260,8 +312,19 @@ export default function CallInterface() {
 
   return (
     <div className="w-full h-full bg-gradient-to-b from-teal-800 via-teal-900 to-cyan-950 flex flex-col relative overflow-hidden isolate">
-      {/* Dental clinic backdrop: soft mint glows, clinic-cross pattern and tooth watermark */}
+      {/* Soft clinic colors and a subtle call-screen pattern. */}
       <div aria-hidden="true" className="absolute inset-0 -z-10 pointer-events-none">
+        {clinicType === "chiropractic" && (
+          <>
+            <div
+              className="absolute inset-0 bg-cover bg-center opacity-55"
+              style={{
+                backgroundImage: `url('${CHIROPRACTIC_BACKGROUND_IMAGE}')`,
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-slate-950/45 via-teal-950/65 to-cyan-950/85" />
+          </>
+        )}
         <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-emerald-300/20 blur-3xl" />
         <div className="absolute -bottom-20 -left-16 w-64 h-64 rounded-full bg-cyan-300/15 blur-3xl" />
         <div
@@ -274,9 +337,11 @@ export default function CallInterface() {
             WebkitMaskImage: "radial-gradient(circle at 50% 40%, black 0%, transparent 75%)",
           }}
         />
-        <svg viewBox="0 0 64 64" className="absolute left-1/2 top-[38%] w-56 h-56 -translate-x-1/2 -translate-y-1/2 text-white opacity-[0.06]" fill="currentColor">
-          <path d="M20 6c-6 0-11 4-11 11 0 5 2 8 3 13 1 6 1 12 3 19 1 4 5 4 6 0 1-4 2-9 4-9h2c2 0 3 5 4 9 1 4 5 4 6 0 2-7 2-13 3-19 1-5 3-8 3-13 0-7-5-11-11-11-3 0-5 1-6 2-1-1-3-2-6-2z" transform="translate(4 0)" />
-        </svg>
+        {clinicType === "dental" && (
+          <svg viewBox="0 0 64 64" className="absolute left-1/2 top-[38%] w-56 h-56 -translate-x-1/2 -translate-y-1/2 text-white opacity-[0.06]" fill="currentColor">
+            <path d="M20 6c-6 0-11 4-11 11 0 5 2 8 3 13 1 6 1 12 3 19 1 4 5 4 6 0 1-4 2-9 4-9h2c2 0 3 5 4 9 1 4 5 4 6 0 2-7 2-13 3-19 1-5 3-8 3-13 0-7-5-11-11-11-3 0-5 1-6 2-1-1-3-2-6-2z" transform="translate(4 0)" />
+          </svg>
+        )}
       </div>
       {/* Status Bar Area */}
       <div className="pt-12 px-6 pb-2">
@@ -305,6 +370,11 @@ export default function CallInterface() {
           </motion.div>
         </AnimatePresence>
       </div>
+      {callError && (
+        <p role="alert" className="px-5 text-center text-xs text-amber-200">
+          {callError}
+        </p>
+      )}
 
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col items-center justify-center px-4 min-h-0">
@@ -463,7 +533,15 @@ export default function CallInterface() {
                     animate={callState === "active" && conversation.isSpeaking ? { scale: [1, 1.15, 1] } : {}}
                     transition={{ duration: 0.4, repeat: Infinity }}
                   >
-                    <AgentIcon className={`w-12 h-12 ${agentStyle.iconColor} relative z-10`} />
+                    {clinicType === "chiropractic" ? (
+                      <img
+                        src={CHIROPRACTIC_AVATAR_IMAGE}
+                        alt="Patient posture assessment in a chiropractic clinic"
+                        className="absolute inset-0 h-full w-full rounded-full object-cover object-[55%_20%]"
+                      />
+                    ) : (
+                      <AgentIcon className={`w-12 h-12 ${agentStyle.iconColor} relative z-10`} />
+                    )}
                   </motion.div>
                 </motion.div>
               </AnimatePresence>
@@ -486,7 +564,13 @@ export default function CallInterface() {
                     {getAgentName()}
                   </motion.h3>
                 </AnimatePresence>
-                <p className="text-white/60 text-sm">AI Dental Receptionist</p>
+                <p className="text-white/60 text-sm">
+                  {clinicType === "chiropractic"
+                    ? "AI Chiropractic Receptionist"
+                    : clinicType === "dental"
+                      ? "AI Dental Receptionist"
+                      : "AI Receptionist"}
+                </p>
               </motion.div>
 
               {/* Call Duration / Status */}
@@ -612,36 +696,19 @@ export default function CallInterface() {
               <div className="flex items-center gap-2 mb-2">
                 <Globe className="w-4 h-4 text-white/60" />
                 <div className="flex bg-white/10 rounded-full p-1">
-                  <button
-                    onClick={() => setSelectedLanguage("english")}
-                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
-                      selectedLanguage === "english"
-                        ? "bg-accent text-white shadow-sm"
-                        : "text-white/60 hover:text-white"
-                    }`}
-                  >
-                    English
-                  </button>
-                  <button
-                    onClick={() => setSelectedLanguage("urdu")}
-                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
-                      selectedLanguage === "urdu"
-                        ? "bg-accent text-white shadow-sm"
-                        : "text-white/60 hover:text-white"
-                    }`}
-                  >
-                    اردو
-                  </button>
-                  <button
-                    onClick={() => setSelectedLanguage("arabic")}
-                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
-                      selectedLanguage === "arabic"
-                        ? "bg-accent text-white shadow-sm"
-                        : "text-white/60 hover:text-white"
-                    }`}
-                  >
-                    عربي
-                  </button>
+                  {availableLanguages.map(({ value, label }) => (
+                    <button
+                      key={value}
+                      onClick={() => setSelectedLanguage(value)}
+                      className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                        selectedLanguage === value
+                          ? "bg-accent text-white shadow-sm"
+                          : "text-white/60 hover:text-white"
+                      }`}
+                    >
+                      {label}
+                    </button>
+                  ))}
                 </div>
               </div>
 
@@ -652,6 +719,7 @@ export default function CallInterface() {
                   whileTap={{ scale: 0.95 }}
                   onClick={handleHangUp}
                   className="w-16 h-16 rounded-full bg-red-500 flex items-center justify-center shadow-lg shadow-red-500/30 active:shadow-md transition-shadow"
+                  aria-label="Decline demo call"
                 >
                   <PhoneOff className="w-7 h-7 text-white" />
                 </motion.button>
@@ -662,6 +730,7 @@ export default function CallInterface() {
                   className="w-16 h-16 rounded-full bg-green-500 flex items-center justify-center shadow-lg shadow-green-500/30 active:shadow-md transition-shadow"
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 1, repeat: Infinity }}
+                  aria-label="Answer demo call"
                 >
                   <Phone className="w-7 h-7 text-white" />
                 </motion.button>
@@ -700,6 +769,8 @@ export default function CallInterface() {
                 className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors ${
                   isMuted ? "bg-red-500/80" : "bg-white/10"
                 }`}
+                aria-label={isMuted ? "Unmute microphone" : "Mute microphone"}
+                aria-pressed={isMuted}
               >
                 {isMuted ? (
                   <MicOff className="w-5 h-5 text-white" />
@@ -738,6 +809,8 @@ export default function CallInterface() {
                 className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors ${
                   isSpeakerOn ? "bg-accent/80" : "bg-white/10"
                 }`}
+                aria-label={isSpeakerOn ? "Mute speaker" : "Enable speaker"}
+                aria-pressed={isSpeakerOn}
               >
                 {isSpeakerOn ? (
                   <Volume2 className="w-5 h-5 text-white" />

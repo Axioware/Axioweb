@@ -21,8 +21,8 @@ interface SEOProps {
   };
 }
 
-const DEFAULT_TITLE = "Axioware | AI Receptionist, Lead Follow-Up and LinkedIn Outreach for Small Businesses";
-const DEFAULT_DESCRIPTION = "AI receptionists and follow-up systems that answer calls, qualify leads, and book appointments for dental clinics, insurance agencies, and small businesses.";
+const DEFAULT_TITLE = "Axioware | Chiropractic AI Receptionist";
+const DEFAULT_DESCRIPTION = "Remi answers new-patient calls, handles common questions, and helps chiropractic clinics book visits when the front desk is busy or closed.";
 const SITE_NAME = "Axioware";
 const BASE_URL = "https://axioware.tech";
 const DEFAULT_OG_IMAGE = "https://axioware.tech/og-image.webp";

@@ -22,6 +22,14 @@ import Careers from "@/pages/Careers";
 import CaseStudies from "@/pages/CaseStudies";
 import CaseStudyDetail from "@/pages/CaseStudyDetail";
 import DentalClinics from "@/pages/DentalClinics";
+import ChiropractorClinics from "@/pages/ChiropractorClinics";
+import BookDemo from "@/pages/BookDemo";
+import {
+  ChiropractorFAQ,
+  ChiropractorFeatures,
+  ChiropractorHowItWorks,
+  ChiropractorPricing,
+} from "@/pages/ChiropractorInfoPages";
 import { trackAnalyticsEvent } from "@/lib/analytics";
 
 export default function AnimatedRoutes() {
@@ -30,13 +38,28 @@ export default function AnimatedRoutes() {
 
   // Instant scroll to top on route change (works on mobile too)
   useEffect(() => {
-    // Use instant scroll to ensure it works on all devices
-    window.scrollTo(0, 0);
-    
-    // Also try scrolling the document element for mobile browsers
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-  }, [location.pathname]);
+    if (!location.hash) {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      return;
+    }
+
+    const targetId = location.hash.slice(1);
+    const observer = new MutationObserver(() => {
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      target.scrollIntoView({ block: "start" });
+      observer.disconnect();
+    });
+    const target = document.getElementById(targetId);
+
+    if (target) target.scrollIntoView({ block: "start" });
+    else observer.observe(document.body, { childList: true, subtree: true });
+
+    return () => observer.disconnect();
+  }, [location.pathname, location.hash]);
 
   useEffect(() => {
     const pagePath = `${location.pathname}${location.search}`;
@@ -63,11 +86,11 @@ export default function AnimatedRoutes() {
       if (!(anchor instanceof HTMLAnchorElement)) return;
 
       const destination = new URL(anchor.href, window.location.origin);
-      if (destination.pathname !== "/contact" || destination.hash !== "#book") return;
+      if (destination.pathname !== "/book-demo") return;
 
       trackAnalyticsEvent("booking_click", {
         page_path: window.location.pathname,
-        link_url: `${destination.pathname}${destination.hash}`,
+        link_url: `${destination.pathname}${destination.search}`,
       });
     };
 
@@ -86,6 +109,11 @@ export default function AnimatedRoutes() {
             </PageTransition>
           }
         />
+        <Route path="/features" element={<PageTransition><ChiropractorFeatures /></PageTransition>} />
+        <Route path="/how-it-works" element={<PageTransition><ChiropractorHowItWorks /></PageTransition>} />
+        <Route path="/pricing" element={<PageTransition><ChiropractorPricing /></PageTransition>} />
+        <Route path="/faq" element={<PageTransition><ChiropractorFAQ /></PageTransition>} />
+        <Route path="/book-demo" element={<PageTransition><BookDemo /></PageTransition>} />
         <Route
           path="/about"
           element={
@@ -151,6 +179,7 @@ export default function AnimatedRoutes() {
           }
         />
         <Route path="/ai-receptionist-for-dental-clinics" element={<PageTransition><DentalClinics /></PageTransition>} />
+        <Route path="/ai-receptionist-for-chiropractors" element={<PageTransition><ChiropractorClinics /></PageTransition>} />
         <Route
           path="/services/ai-receptionist"
           element={

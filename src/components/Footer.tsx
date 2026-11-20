@@ -1,189 +1,137 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Linkedin, Facebook, Instagram } from "lucide-react";
+import { Mail, Phone, Linkedin, Facebook, Instagram } from "lucide-react";
 import logoWhite from "@/assets/axioware-logo-white.webp";
 
-const footerLinks = {
-  services: [
-    { label: "AI Receptionist", href: "/services/ai-receptionist" },
-    { label: "Dental clinics", href: "/ai-receptionist-for-dental-clinics" },
-    { label: "AI Lead Generation", href: "/services/ai-lead-generation" },
-    { label: "LinkedIn BDR", href: "/services/linkedin-bdr" },
-    { label: "Automated Follow-Ups", href: "/services/automated-follow-ups" },
-    { label: "Outbound AI Calling", href: "/services/outbound-ai-calling" },
-    { label: "WhatsApp and Chat Agents", href: "/services/whatsapp-and-chat-agents" },
-    { label: "CRM and Workflow Setup", href: "/services/crm-and-workflow-setup" },
-  ],
-  company: [
-    { label: "About Us", href: "/about" },
-    { label: "Contact", href: "/contact" },
-    { label: "Careers", href: "/careers" },
-  ],
-  social: [
-    {
-      icon: Linkedin,
-      href: "https://www.linkedin.com/company/axioware",
-      label: "LinkedIn",
-      color: "hover:bg-[#0A66C2] hover:text-white",
-    },
-    {
-      icon: Facebook,
-      href: "https://www.facebook.com/share/19BLpgdXT3/?mibextid=wwXIfr",
-      label: "Facebook",
-      color: "hover:bg-[#1877F2] hover:text-white",
-    },
-    {
-      icon: Instagram,
-      href: "https://www.instagram.com/axiowaretech",
-      label: "Instagram",
-      color: "hover:bg-gradient-to-br hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] hover:text-white",
-    },
-  ],
-};
+const footerGroups = [
+  {
+    title: "Services",
+    links: [
+      { label: "AI Receptionist", href: "/ai-receptionist-for-chiropractors" },
+      { label: "Features", href: "/features" },
+      { label: "How It Works", href: "/how-it-works" },
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      { label: "Blog", href: "/blog" },
+      { label: "FAQ", href: "/faq" },
+      { label: "Case Studies", href: "/case-studies" },
+      { label: "Hear a Sample Call", href: "/#sample-calls" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "Our Story", href: "/about" },
+      { label: "Contact", href: "/contact" },
+      { label: "Book a Demo", href: "/book-demo" },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms of Service", href: "/terms" },
+      { label: "Data Security", href: "/privacy" },
+    ],
+  },
+];
+
+const socialLinks = [
+  {
+    icon: Linkedin,
+    href: "https://www.linkedin.com/company/axioware",
+    label: "LinkedIn",
+  },
+  {
+    icon: Facebook,
+    href: "https://www.facebook.com/share/19BLpgdXT3/?mibextid=wwXIfr",
+    label: "Facebook",
+  },
+  {
+    icon: Instagram,
+    href: "https://www.instagram.com/axiowaretech",
+    label: "Instagram",
+  },
+];
 
 export default function Footer() {
   return (
     <footer className="bg-foreground text-background">
-      {/* Main Footer */}
       <div className="container-custom section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-16">
-          {/* Brand */}
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-5 lg:gap-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-1"
           >
-            <Link to="/" className="flex items-center gap-2 mb-6 group">
-              <img
-                src={logoWhite}
-                alt="Axioware"
-                className="h-10 w-10 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
-                width={40}
-                height={40}
-                loading="lazy"
-              />
-              <span className="font-display text-2xl font-bold text-white transition-colors duration-300 group-hover:text-primary-light">
+            <Link to="/" className="mb-5 flex items-center gap-2">
+              <img src={logoWhite} alt="Axioware" className="h-10 w-10" width={40} height={40} loading="lazy" />
+              <span className="font-display text-2xl font-bold text-white">
                 Axio<span className="text-primary-light">ware</span>
               </span>
             </Link>
-            <p className="text-background/70 mb-6 leading-relaxed">
-              AI receptionists and follow-up systems for dental clinics and small service businesses.
+            <p className="mb-5 leading-relaxed text-background/70">
+              Practical call handling and follow-up systems for chiropractic clinics and service businesses.
             </p>
-            <div className="flex items-center gap-4">
-              {footerLinks.social.map((social) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
+            <p className="mb-5 text-sm text-background/60">Powered by Axioware</p>
+            <div className="flex items-center gap-3">
+              {socialLinks.map(({ icon: Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center text-background/70 transition-all duration-300 ${social.color}`}
-                  aria-label={social.label}
+                  aria-label={label}
+                  className="flex h-10 w-10 items-center justify-center rounded-lg bg-background/10 text-background/70 transition-colors hover:bg-background/20 hover:text-white"
                 >
-                  <social.icon className="w-5 h-5" />
-                </motion.a>
+                  <Icon className="h-5 w-5" />
+                </a>
               ))}
             </div>
           </motion.div>
 
-          {/* Services */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <h3 className="font-display text-lg font-semibold mb-6">Services</h3>
-            <ul className="space-y-3">
-              {footerLinks.services.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    to={link.href}
-                    className="text-background/70 hover:text-primary-light transition-colors duration-300 flex items-center gap-2 group"
-                  >
-                    <span className="w-0 group-hover:w-2 h-0.5 bg-primary-light transition-all duration-300" />
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Company */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h3 className="font-display text-lg font-semibold mb-6">Company</h3>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    to={link.href}
-                    className="text-background/70 hover:text-primary-light transition-colors duration-300 flex items-center gap-2 group"
-                  >
-                    <span className="w-0 group-hover:w-2 h-0.5 bg-primary-light transition-all duration-300" />
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Contact */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <h3 className="font-display text-lg font-semibold mb-6">Contact</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3 text-background/70">
-                <Mail className="w-5 h-5 text-primary-light mt-0.5 flex-shrink-0" />
-                <a href="mailto:business@axioware.tech" className="hover:text-primary-light transition-colors">
-                  business@axioware.tech
-                </a>
-              </li>
-              <li className="flex items-start gap-3 text-background/70">
-                <Phone className="w-5 h-5 text-primary-light mt-0.5 flex-shrink-0" />
-                <a href="tel:+1234567890" className="hover:text-primary-light transition-colors">
-                  +92 325 8988683
-                </a>
-              </li>
-              <li className="flex items-start gap-3 text-background/70">
-                <MapPin className="w-5 h-5 text-primary-light mt-0.5 flex-shrink-0" />
-                <span>Karachi, Pakistan</span>
-              </li>
-            </ul>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Bottom Bar */}
-      <div className="border-t border-background/10">
-        <div className="container-custom py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-background/60 text-sm">© {new Date().getFullYear()} Axioware. All rights reserved.</p>
-          <div className="flex items-center gap-6">
-            <Link to="/privacy" className="text-background/60 text-sm hover:text-primary-light transition-colors">
-              Privacy Policy
-            </Link>
-            <Link to="/terms" className="text-background/60 text-sm hover:text-primary-light transition-colors">
-              Terms of Service
-            </Link>
-            <button
-              type="button"
-              onClick={() => window.dispatchEvent(new Event("axioware:open-cookie-preferences"))}
-              className="text-background/60 text-sm hover:text-primary-light transition-colors"
+          {footerGroups.map((group, index) => (
+            <motion.div
+              key={group.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: (index + 1) * 0.1 }}
             >
-              Cookie preferences
-            </button>
+              <h2 className="mb-5 font-display text-lg font-semibold">{group.title}</h2>
+              <ul className="space-y-3">
+                {group.links.map((link) => (
+                  <li key={link.label}>
+                    <Link to={link.href} className="text-sm text-background/70 transition-colors hover:text-white">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
+        <div className="mt-12 flex flex-col gap-4 border-t border-background/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm text-background/60">© {new Date().getFullYear()} Axioware. All rights reserved.</p>
+          <div className="flex items-center gap-3 text-sm text-background/70">
+            <Phone className="h-4 w-4 text-primary-light" aria-hidden="true" />
+            <a href="tel:+923258988683" className="hover:text-white">+92 325 8988683</a>
+            <Mail className="ml-3 h-4 w-4 text-primary-light" aria-hidden="true" />
+            <a href="mailto:business@axioware.tech" className="hover:text-white">business@axioware.tech</a>
           </div>
+        </div>
+        <div className="mt-6 flex items-center gap-6 border-t border-background/10 pt-5 text-sm text-background/60">
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new Event("axioware:open-cookie-preferences"))}
+            className="hover:text-white"
+          >
+            Cookie preferences
+          </button>
         </div>
       </div>
     </footer>

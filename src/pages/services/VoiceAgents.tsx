@@ -68,7 +68,7 @@ const voiceAgentTypes = [
   },
   {
     icon: Stethoscope,
-    title: "Ava - Dental Receptionist Agent",
+    title: "Remi - Dental Receptionist Agent",
     description: "Specialized AI voice agent for dental clinics that books and reschedules appointments, answers questions about treatments and insurance, and handles patient inquiries 24/7.",
     useCases: ["Appointment booking", "Patient reminders", "Treatment inquiries"],
     color: "text-sky-400",
